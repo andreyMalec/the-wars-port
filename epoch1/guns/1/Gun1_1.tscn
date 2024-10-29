@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://bdd4v2428gng6"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_ce0pl"]
+[ext_resource type="Texture2D" uid="uid://bim3rujau6kyu" path="res://epoch1/guns/1/gun1_1_1.png" id="2_eg5ty"]
+[ext_resource type="Texture2D" uid="uid://205bxhb0ot0w" path="res://epoch1/guns/1/gun1_1_2.png" id="3_8snqn"]
+[ext_resource type="Texture2D" uid="uid://v7i2iuqp7lk4" path="res://epoch1/guns/1/gun1_1_3.png" id="4_4eis3"]
+[ext_resource type="Texture2D" uid="uid://p7evsquh4mmu" path="res://epoch1/guns/1/gun1_1_4.png" id="5_pr716"]
+[ext_resource type="Texture2D" uid="uid://67yt2e7d0u35" path="res://epoch1/guns/1/gun1_1_5.png" id="6_8ju05"]
+[ext_resource type="Texture2D" uid="uid://c7kynki5tkmk" path="res://epoch1/guns/1/gun1_1_6.png" id="7_6lwjr"]
+[ext_resource type="Texture2D" uid="uid://bccpa4bu6xlxh" path="res://epoch1/guns/1/gun1_1_7.png" id="8_bs3fj"]
+[ext_resource type="Texture2D" uid="uid://c6ld2ipbw3eao" path="res://epoch1/guns/1/gun1_1_8.png" id="9_c3pmo"]
+[ext_resource type="Texture2D" uid="uid://cp1jc70bq3ihh" path="res://epoch1/guns/1/gun1_1_9.png" id="10_qnda0"]
+[ext_resource type="Texture2D" uid="uid://df03pjuau17p3" path="res://epoch1/guns/1/gun1_1_10.png" id="11_qjm8p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ahlxi"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": ExtResource("2_eg5ty")
+}, {
+"duration": 0.2,
+"texture": ExtResource("3_8snqn")
+}, {
+"duration": 0.2,
+"texture": ExtResource("4_4eis3")
+}, {
+"duration": 0.2,
+"texture": ExtResource("5_pr716")
+}, {
+"duration": 0.2,
+"texture": ExtResource("6_8ju05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6lwjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bs3fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_c3pmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qnda0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qjm8p")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eg5ty")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="Gun1_1" type="Node2D"]
+z_index = 2
+texture_filter = 1
+script = ExtResource("1_ce0pl")
+
+[node name="AttackRange" type="Area2D" parent="."]
+z_index = 2
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="AttackRange"]
+scale = Vector2(500, 500)
+polygon = PackedVector2Array(0, 0, 0.25, 0.026, 0.546, 0.11, 0.668, 0.146, 0.79, 0.3, 0.004, 0.296, 0, 0.01)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ahlxi")
+animation = &"attack"
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(13, -4)
+
+[connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

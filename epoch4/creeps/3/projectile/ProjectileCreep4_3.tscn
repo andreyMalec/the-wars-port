@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv3ys1vygssj6"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_omje8"]
+[ext_resource type="Texture2D" uid="uid://du5r5s0sodibi" path="res://epoch4/creeps/3/projectile/projectile_creep4_3_1.png" id="2_043ch"]
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_043ch")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="2"]
+radius = 2.0
+
+[node name="ProjectileCreep4_3" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_omje8")
+explosive = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("3")
+
+[node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+shape = SubResource("2")
+
+[connection signal="area_entered" from="TouchArea" to="." method="_on_TouchArea_area_entered"]

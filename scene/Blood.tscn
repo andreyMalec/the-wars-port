@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcmqyxb0xcudf"]
+
+[ext_resource type="Texture2D" uid="uid://bw1j4si8sgeyw" path="res://assets/entity/blood_1.png" id="1_gj2o8"]
+[ext_resource type="Texture2D" uid="uid://cajjmmk0ixmub" path="res://assets/entity/blood_2.png" id="2_cr010"]
+[ext_resource type="Texture2D" uid="uid://bedx3kf6tc172" path="res://assets/entity/blood_3.png" id="3_le0hp"]
+[ext_resource type="Texture2D" uid="uid://blunyq4pwuq0q" path="res://assets/entity/blood_4.png" id="4_iq1ov"]
+[ext_resource type="Texture2D" uid="uid://cuyn0d8svt6ob" path="res://assets/entity/blood_5.png" id="5_o2rxo"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/VisualEffect.kt" id="11_swja5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_amm8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gj2o8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cr010")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_le0hp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iq1ov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o2rxo")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Blood" type="AnimatedSprite2D"]
+z_index = 10
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_amm8n")
+frame = 4
+frame_progress = 1.0
+script = ExtResource("11_swja5")

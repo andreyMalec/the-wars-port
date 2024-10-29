@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource type="Texture2D" uid="uid://twcl88dpalaj" path="res://epoch1/super/special_1_3.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://d2d021lm2omao" path="res://epoch1/super/special_1_1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://beofnheigq6pl" path="res://epoch1/super/special_1_2.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dks8umpv0pg1u" path="res://epoch1/super/special_1_0.png" id="4"]
+[ext_resource type="Script" path="res://SFO.cs" id="5"]
+[ext_resource type="PackedScene" path="res://epoch1/guns/4/projectile/ProjectileGun1_4.tscn" id="6"]
+[ext_resource type="AudioStream" uid="uid://dnnvvmng7d3tw" path="res://audio/super_1_attack.mp3" id="7"]
+[ext_resource type="AudioStream" uid="uid://c4yrhsxltk1t8" path="res://audio/super_1_sur.wav" id="8"]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 28, 74.5 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
+direction = 1
+damage = 30
+attackSpeed = 0.3
+projectileScene = ExtResource( 6 )
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource( 1 )
+playing = true
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2( 29, 64.5 )
+shape = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+
+[node name="AudioProjectilePop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

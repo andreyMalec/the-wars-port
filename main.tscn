@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://kow7shuo4ep1"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/Main.kt" id="1_6e7kj"]
+[ext_resource type="PackedScene" uid="uid://bwbfj53nvkhob" path="res://scene/Background.tscn" id="2_dj18o"]
+[ext_resource type="PackedScene" uid="uid://dxavh432a6j2d" path="res://scene/Menu.tscn" id="4_q5bjj"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/Ground.kt" id="5_7c5et"]
+[ext_resource type="PackedScene" uid="uid://c1onkh1pmti0u" path="res://scene/Base.tscn" id="5_e2q2s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udd3j"]
+size = Vector2(0.29621, 505.303)
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("base", "enemy_base", "menu", "enemy_menu")]
+texture_filter = 1
+script = ExtResource("1_6e7kj")
+base = NodePath("PlayerBase")
+enemy_base = NodePath("EnemyBase")
+menu = NodePath("Control/Menu")
+enemy_menu = NodePath("EnemyMenu")
+
+[node name="Background" parent="." instance=ExtResource("2_dj18o")]
+
+[node name="EnemyMenu" parent="." instance=ExtResource("4_q5bjj")]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -151.0
+offset_right = 3.0
+offset_bottom = -151.0
+grow_horizontal = 1
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerBase" parent="." instance=ExtResource("5_e2q2s")]
+position = Vector2(-15, 185)
+
+[node name="EnemyBase" parent="." instance=ExtResource("5_e2q2s")]
+position = Vector2(655, 185)
+direction = -1
+
+[node name="Ground" type="Node2D" parent="."]
+visible = false
+position = Vector2(320, 225)
+script = ExtResource("5_7c5et")
+
+[node name="TouchArea" type="Area2D" parent="Ground"]
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/TouchArea"]
+rotation = -1.5708
+scale = Vector2(21.6672, 1.34696)
+shape = SubResource("RectangleShape2D_udd3j")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Menu" parent="Control" instance=ExtResource("4_q5bjj")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 213.0
+offset_bottom = 213.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true

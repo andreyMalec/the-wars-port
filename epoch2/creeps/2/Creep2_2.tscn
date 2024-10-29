@@ -1,0 +1,176 @@
+[gd_scene load_steps=29 format=3 uid="uid://c0qnedej6jced"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_g3m6w"]
+[ext_resource type="Texture2D" uid="uid://6jslyjocc3kp" path="res://epoch2/creeps/2/walk/creep2_2_walk_2.png" id="2_6px52"]
+[ext_resource type="Texture2D" uid="uid://d035punqfmrat" path="res://epoch2/creeps/2/attack/creep2_2_attack_4.png" id="3_vubpp"]
+[ext_resource type="Texture2D" uid="uid://186s3njwxkx2" path="res://epoch2/creeps/2/attack/creep2_2_attack_5.png" id="4_kjnd1"]
+[ext_resource type="Texture2D" uid="uid://b6okyhxpvq27" path="res://epoch2/creeps/2/walk/creep2_2_walk_5.png" id="5_3vo5g"]
+[ext_resource type="Texture2D" uid="uid://cwpk5bxo7lgoj" path="res://epoch2/creeps/2/walk/creep2_2_walk_7.png" id="6_5mli6"]
+[ext_resource type="Texture2D" uid="uid://8acpbdn3mqtl" path="res://epoch2/creeps/2/attack/creep2_2_attack_6.png" id="7_acc71"]
+[ext_resource type="Texture2D" uid="uid://ckvyhmifjfsw5" path="res://epoch2/creeps/2/walk/creep2_2_walk_8.png" id="7_xrlo1"]
+[ext_resource type="Texture2D" uid="uid://bp0gmyliqbukt" path="res://epoch2/creeps/2/attack/creep2_2_attack_1.png" id="8_5o3e5"]
+[ext_resource type="Texture2D" uid="uid://dh1wsa36ncje1" path="res://epoch2/creeps/2/attack/creep2_2_attack_7.png" id="8_tyxlj"]
+[ext_resource type="Texture2D" uid="uid://bu5xsvsqdrxan" path="res://epoch2/creeps/2/attack/creep2_2_attack_8.png" id="9_cukuu"]
+[ext_resource type="Texture2D" uid="uid://ca4vykh4v1ahu" path="res://epoch2/creeps/2/attack/creep2_2_attack_2.png" id="9_p4v06"]
+[ext_resource type="Texture2D" uid="uid://jda1pp2oug3m" path="res://epoch2/creeps/2/attack/creep2_2_attack_static_1.png" id="10_6vbhh"]
+[ext_resource type="Texture2D" uid="uid://dftl7g5aupk87" path="res://epoch2/creeps/2/attack/creep2_2_attack_3.png" id="10_yvvl1"]
+[ext_resource type="Texture2D" uid="uid://cm5hgmf3ci1v" path="res://epoch2/creeps/2/attack/creep2_2_attack_static_2.png" id="11_8q1g4"]
+[ext_resource type="Texture2D" uid="uid://5w8o366urves" path="res://epoch2/creeps/2/death/creep2_2_death_1.png" id="11_vytbi"]
+[ext_resource type="Texture2D" uid="uid://bgjym26oy2wvq" path="res://epoch2/creeps/2/death/creep2_2_death_2.png" id="12_m7kyj"]
+[ext_resource type="Texture2D" uid="uid://daakgcuqo3ct0" path="res://epoch2/creeps/2/attack/creep2_2_attack_static_3.png" id="12_oor5f"]
+[ext_resource type="Texture2D" uid="uid://cgbglecpm5qki" path="res://epoch2/creeps/2/death/creep2_2_death_3.png" id="13_hfyai"]
+[ext_resource type="Texture2D" uid="uid://cmc7bbsk32yg2" path="res://epoch2/creeps/2/death/creep2_2_death_4.png" id="14_ckbj1"]
+[ext_resource type="Texture2D" uid="uid://dgjlrtrevp66" path="res://epoch2/creeps/2/death/creep2_2_death_5.png" id="15_vwije"]
+[ext_resource type="Texture2D" uid="uid://cdk5hja6o4fc1" path="res://epoch2/creeps/2/death/creep2_2_death_6.png" id="16_0pv5v"]
+[ext_resource type="Texture2D" uid="uid://cyr2cka314uor" path="res://epoch2/creeps/2/walk/creep2_2_walk_1.png" id="17_bqfbl"]
+[ext_resource type="Texture2D" uid="uid://b3ms0p25xjuoe" path="res://epoch2/creeps/2/walk/creep2_2_walk_3.png" id="18_l245t"]
+[ext_resource type="Texture2D" uid="uid://betxheenliimy" path="res://epoch2/creeps/2/walk/creep2_2_walk_4.png" id="19_onymu"]
+[ext_resource type="Texture2D" uid="uid://cjau0r71fbktb" path="res://epoch2/creeps/2/walk/creep2_2_walk_6.png" id="20_40674"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeybn"]
+size = Vector2(27, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dbfwt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_5o3e5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p4v06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yvvl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vubpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kjnd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_acc71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tyxlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cukuu")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_6vbhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8q1g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_oor5f")
+}],
+"loop": false,
+"name": &"attack_static",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_vytbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_m7kyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hfyai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ckbj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vwije")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0pv5v")
+}],
+"loop": false,
+"name": &"death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_vytbi")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_bqfbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6px52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_l245t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_onymu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3vo5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_40674")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5mli6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xrlo1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="Creep2_2" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_g3m6w")
+only_ranged = true
+
+[node name="TouchArea" type="Area2D" parent="."]
+rotation = -3.14159
+scale = Vector2(1, -1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
+position = Vector2(-13, 16)
+polygon = PackedVector2Array(0, 0, 25, 0, 12.5, -40)
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(60, 0)
+scale = Vector2(3.312, 1)
+shape = SubResource("RectangleShape2D_eeybn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
+sprite_frames = SubResource("SpriteFrames_dbfwt")
+animation = &"walk"
+frame_progress = 0.980926
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(12, 20)
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="."]
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]

@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwbfj53nvkhob"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/gui/DayNight.kt" id="1_sof0d"]
+[ext_resource type="Texture2D" uid="uid://cnq3mwqbpi20g" path="res://assets/background.png" id="2_4wgxk"]
+[ext_resource type="Texture2D" uid="uid://omsshnolvwd2" path="res://assets/sky.png" id="2_ifbw6"]
+[ext_resource type="Shader" path="res://scene/sky.gdshader" id="5_3w34e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kaaen"]
+shader = ExtResource("5_3w34e")
+shader_parameter/Direction = Vector2(1, 0)
+shader_parameter/Speed = 0.02
+
+[node name="Background" type="Node2D"]
+z_index = -4
+texture_filter = 1
+script = ExtResource("1_sof0d")
+
+[node name="NightMask" type="PointLight2D" parent="."]
+visible = false
+z_index = 4096
+position = Vector2(319.32, 119.25)
+scale = Vector2(1.3445, 1.08784)
+enabled = false
+blend_mode = 2
+range_item_cull_mask = 2
+shadow_item_cull_mask = 2
+
+[node name="SkyLightPosition" type="Node2D" parent="."]
+position = Vector2(320, 180)
+
+[node name="SkyLight" type="Sprite2D" parent="SkyLightPosition"]
+
+[node name="Control" type="Control" parent="."]
+light_mask = 2
+layout_mode = 3
+anchors_preset = 0
+offset_top = -10.0
+offset_bottom = -10.0
+
+[node name="Sky" type="TextureRect" parent="Control"]
+light_mask = 2
+z_index = -10
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_kaaen")
+layout_mode = 0
+offset_top = 10.0
+offset_right = 640.0
+offset_bottom = 115.44
+texture = ExtResource("2_ifbw6")
+expand_mode = 1
+
+[node name="Background" type="TextureRect" parent="Control"]
+light_mask = 2
+layout_mode = 0
+offset_top = -27.0
+offset_right = 640.0
+offset_bottom = 238.0
+texture = ExtResource("2_4wgxk")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Background2" type="TextureRect" parent="Control"]
+light_mask = 2
+layout_mode = 0
+offset_top = 238.0
+offset_right = 640.0
+offset_bottom = 503.0
+texture = ExtResource("2_4wgxk")
+expand_mode = 1
+flip_h = true
+flip_v = true
+metadata/_edit_use_anchors_ = true

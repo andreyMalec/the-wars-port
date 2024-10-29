@@ -1,0 +1,139 @@
+[gd_scene load_steps=16 format=3 uid="uid://dfwy8ftx2vxoh"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_6rm3r"]
+[ext_resource type="Texture2D" uid="uid://dkmwwuwjuibqu" path="res://epoch6/creeps/2/attack/creep6_2_attack_1.png" id="2_nh8ss"]
+[ext_resource type="Texture2D" uid="uid://brim7nrfcegj4" path="res://epoch6/creeps/2/attack/creep6_2_attack_2.png" id="3_6ocxd"]
+[ext_resource type="Texture2D" uid="uid://d11hsdeyb2rrp" path="res://epoch6/creeps/2/attack/creep6_2_attack_3.png" id="4_xjasm"]
+[ext_resource type="Texture2D" uid="uid://dq4i63nfb3h02" path="res://epoch6/creeps/2/attack/creep6_2_attack_static_1.png" id="5_cy2lq"]
+[ext_resource type="Texture2D" uid="uid://csvc72nc0yced" path="res://epoch6/creeps/2/attack/creep6_2_attack_static_2.png" id="6_233xk"]
+[ext_resource type="Texture2D" uid="uid://b57nxv5oudh4e" path="res://epoch6/creeps/2/attack/creep6_2_attack_static_3.png" id="7_lmhgo"]
+[ext_resource type="Texture2D" uid="uid://dkr3aqw17gjd3" path="res://epoch6/creeps/2/death/creep6_2_death_1.png" id="8_pfagc"]
+[ext_resource type="Texture2D" uid="uid://biklfadd7x2m" path="res://epoch6/creeps/2/death/creep6_2_death_2.png" id="9_fgobi"]
+[ext_resource type="Texture2D" uid="uid://c0u8jp1m1mrk1" path="res://epoch6/creeps/2/death/creep6_2_death_3.png" id="10_7p7u0"]
+[ext_resource type="Texture2D" uid="uid://0dmrhk2eke0c" path="res://epoch6/creeps/2/death/creep6_2_death_4.png" id="11_qt4yt"]
+[ext_resource type="Texture2D" uid="uid://dscekcmxov3og" path="res://epoch6/creeps/2/walk/creep6_2_walk_1.png" id="12_gtuov"]
+[ext_resource type="Texture2D" uid="uid://drtoij157s1t7" path="res://epoch6/creeps/2/walk/creep6_2_walk_2.png" id="13_q0p3s"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(27, 33)
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nh8ss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6ocxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xjasm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_q0p3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gtuov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_q0p3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gtuov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_q0p3s")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cy2lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_233xk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lmhgo")
+}],
+"loop": false,
+"name": &"attack_static",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_pfagc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fgobi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7p7u0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qt4yt")
+}],
+"loop": false,
+"name": &"death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_pfagc")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_gtuov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_q0p3s")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Creep6_2" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_6rm3r")
+only_ranged = true
+can_bleed = false
+
+[node name="TouchArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
+position = Vector2(-13, 16)
+polygon = PackedVector2Array(-2, 0, 27, 0, 28, -19, 20, -36, 3, -33)
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(60, 0)
+scale = Vector2(3.312, 1)
+shape = SubResource("1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
+sprite_frames = SubResource("2")
+animation = &"attack"
+frame = 7
+frame_progress = 1.0
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(14, 19.38)
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="."]
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]

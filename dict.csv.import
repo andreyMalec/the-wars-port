@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://caar2ootw8epj"
+valid=false
+
+[deps]
+
+source_file="res://dict.csv"
+
+[params]
+
+compress=true
+delimiter=0

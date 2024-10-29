@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://2qevjsaxpmei"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_syshn"]
+[ext_resource type="Texture2D" uid="uid://df2n58fg2ct70" path="res://epoch6/guns/3/gun6_3_1.png" id="2_yvdq4"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yvdq4")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yvdq4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Gun6_3" type="Node2D"]
+z_index = 2
+texture_filter = 1
+script = ExtResource("1_syshn")
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="AttackRange"]
+scale = Vector2(500, 500)
+polygon = PackedVector2Array(0, 0, 0.25, 0.026, 0.546, 0.11, 0.668, 0.146, 0.79, 0.3, 0.004, 0.296, 0, 0.01)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("1")
+animation = &"attack"
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(16, -1)
+
+[connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

@@ -1,0 +1,147 @@
+[gd_scene load_steps=18 format=3 uid="uid://ckjeeg4nwqab0"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_o7w4t"]
+[ext_resource type="Texture2D" uid="uid://dq32hwcbjetj5" path="res://epoch5/creeps/3/attack/creep5_3_attack_1.png" id="2_p63aq"]
+[ext_resource type="Texture2D" uid="uid://dw6sndiqixcb7" path="res://epoch5/creeps/3/attack/creep5_3_attack_2.png" id="3_r5xf7"]
+[ext_resource type="Texture2D" uid="uid://gek2jnk0jt5b" path="res://epoch5/creeps/3/attack/creep5_3_attack_3.png" id="4_uehn3"]
+[ext_resource type="Texture2D" uid="uid://cr8nkrs3wpjqx" path="res://epoch5/creeps/3/attack/creep5_3_attack_4.png" id="5_2xsa7"]
+[ext_resource type="Texture2D" uid="uid://b4c2bi8xp7a1g" path="res://epoch5/creeps/3/attack/creep5_3_attack_static_1.png" id="6_lcryf"]
+[ext_resource type="Texture2D" uid="uid://dqfmdbxotvw1y" path="res://epoch5/creeps/3/attack/creep5_3_attack_static_2.png" id="7_3kfh0"]
+[ext_resource type="Texture2D" uid="uid://bduotxn5q1xii" path="res://epoch5/creeps/3/attack/creep5_3_attack_static_3.png" id="8_2g7ff"]
+[ext_resource type="Texture2D" uid="uid://cwkkdvtcrjtt5" path="res://epoch5/creeps/3/death/creep5_3_death_1.png" id="9_tp6lv"]
+[ext_resource type="Texture2D" uid="uid://iajkn5w5aewy" path="res://epoch5/creeps/3/death/creep5_3_death_2.png" id="10_2vagu"]
+[ext_resource type="Texture2D" uid="uid://cwtgs6bis2g0i" path="res://epoch5/creeps/3/death/creep5_3_death_3.png" id="11_kg4ij"]
+[ext_resource type="Texture2D" uid="uid://b5yl1nrw1ckok" path="res://epoch5/creeps/3/death/creep5_3_death_4.png" id="12_llehn"]
+[ext_resource type="Texture2D" uid="uid://ck7hie1hq77rc" path="res://epoch5/creeps/3/death/creep5_3_death_5.png" id="13_fr6v3"]
+[ext_resource type="Texture2D" uid="uid://d3x0t5eq102lr" path="res://epoch5/creeps/3/walk/creep5_3_walk_1.png" id="14_vl3go"]
+[ext_resource type="Texture2D" uid="uid://dkhrac2uhuyq5" path="res://epoch5/creeps/3/walk/creep5_3_walk_2.png" id="15_6msra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2e8wh"]
+size = Vector2(27, 33)
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p63aq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r5xf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uehn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2xsa7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uehn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2xsa7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uehn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2xsa7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uehn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2xsa7")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_lcryf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3kfh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2g7ff")
+}],
+"loop": false,
+"name": &"attack_static",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_tp6lv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2vagu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kg4ij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_llehn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fr6v3")
+}],
+"loop": false,
+"name": &"death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_tp6lv")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_vl3go")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6msra")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Creep5_3" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_o7w4t")
+only_ranged = true
+can_bleed = false
+
+[node name="TouchArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
+polygon = PackedVector2Array(-36, 15, 27, 15, 40, -5, 1, -20, -35, -9)
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(85, 0)
+scale = Vector2(3.312, 1)
+shape = SubResource("RectangleShape2D_2e8wh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
+sprite_frames = SubResource("2")
+animation = &"attack"
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(18.39, 4.48)
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="."]
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfw7a3o1cte3i"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_vyl53"]
+[ext_resource type="Texture2D" uid="uid://b2c0x4nk1386n" path="res://epoch1/guns/1/projectile/projectile_gun1_1_1.png" id="2_blsqs"]
+[ext_resource type="Texture2D" uid="uid://dmr1gajsowip2" path="res://epoch1/guns/1/projectile/projectile_gun1_1_2.png" id="3_0mnu1"]
+[ext_resource type="Texture2D" uid="uid://d1uu105l8fhow" path="res://epoch1/guns/1/projectile/projectile_gun1_1_3.png" id="4_kvh2s"]
+[ext_resource type="Texture2D" uid="uid://1s0waufqlwah" path="res://epoch1/guns/1/projectile/projectile_gun1_1_4.png" id="5_p4ruu"]
+[ext_resource type="Texture2D" uid="uid://p14b6agce3fr" path="res://epoch1/guns/1/projectile/projectile_gun1_1_5.png" id="6_apoib"]
+[ext_resource type="Texture2D" uid="uid://dwbvgkhkk582l" path="res://epoch1/guns/1/projectile/projectile_gun1_1_6.png" id="7_50j1o"]
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_blsqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0mnu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kvh2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p4ruu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_apoib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_50j1o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="4"]
+radius = 3.0
+
+[node name="ProjectileGun1_1" type="Node2D"]
+z_index = -1
+texture_filter = 1
+script = ExtResource("1_vyl53")
+apply_vertical_velocity = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("3")
+frame_progress = 0.484766
+
+[node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+shape = SubResource("4")
+
+[connection signal="area_entered" from="TouchArea" to="." method="_on_TouchArea_area_entered"]

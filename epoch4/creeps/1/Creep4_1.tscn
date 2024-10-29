@@ -1,0 +1,130 @@
+[gd_scene load_steps=20 format=3 uid="uid://cq0r23pqb12sl"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/CreepBody.kt" id="1_msamt"]
+[ext_resource type="Texture2D" uid="uid://bc2ergfkgy0ix" path="res://epoch4/creeps/1/attack/creep4_1_attack_1.png" id="2_vqmyp"]
+[ext_resource type="Texture2D" uid="uid://bo0nxwusjxnic" path="res://epoch4/creeps/1/attack/creep4_1_attack_2.png" id="3_b682e"]
+[ext_resource type="Texture2D" uid="uid://c7i36qvvdccgd" path="res://epoch4/creeps/1/attack/creep4_1_attack_3.png" id="4_p3ifr"]
+[ext_resource type="Texture2D" uid="uid://mrcw4kdnsxws" path="res://epoch4/creeps/1/attack/creep4_1_attack_4.png" id="5_g3mlx"]
+[ext_resource type="Texture2D" uid="uid://cnlmprxjjni0m" path="res://epoch4/creeps/1/death/creep4_1_death_1.png" id="6_jtryd"]
+[ext_resource type="Texture2D" uid="uid://swykrkibgci2" path="res://epoch4/creeps/1/death/creep4_1_death_2.png" id="7_fhby3"]
+[ext_resource type="Texture2D" uid="uid://bthly757ytjmv" path="res://epoch4/creeps/1/death/creep4_1_death_3.png" id="8_d3exs"]
+[ext_resource type="Texture2D" uid="uid://bn1tg1i3jv8l2" path="res://epoch4/creeps/1/death/creep4_1_death_4.png" id="9_h6gdg"]
+[ext_resource type="Texture2D" uid="uid://bnj0fpocollwj" path="res://epoch4/creeps/1/walk/creep4_1_walk_1.png" id="10_0h2x3"]
+[ext_resource type="Texture2D" uid="uid://chmkhvui16nsp" path="res://epoch4/creeps/1/walk/creep4_1_walk_2.png" id="11_gwcdo"]
+[ext_resource type="Texture2D" uid="uid://ct1cferf386bv" path="res://epoch4/creeps/1/walk/creep4_1_walk_3.png" id="12_d7wu8"]
+[ext_resource type="Texture2D" uid="uid://cfgnrunpxewpx" path="res://epoch4/creeps/1/walk/creep4_1_walk_4.png" id="13_fh1d7"]
+[ext_resource type="Texture2D" uid="uid://kpddyloa4gla" path="res://epoch4/creeps/1/walk/creep4_1_walk_5.png" id="14_p3r7b"]
+[ext_resource type="Texture2D" uid="uid://bw2c3snnecyui" path="res://epoch4/creeps/1/walk/creep4_1_walk_6.png" id="15_chnvb"]
+[ext_resource type="Texture2D" uid="uid://m2h8f5fd46wu" path="res://epoch4/creeps/1/walk/creep4_1_walk_7.png" id="16_wr62n"]
+[ext_resource type="Texture2D" uid="uid://t3ih5wls1ig5" path="res://epoch4/creeps/1/walk/creep4_1_walk_8.png" id="17_hviyb"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(22, 33)
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vqmyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b682e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p3ifr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g3mlx")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jtryd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fhby3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d3exs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h6gdg")
+}],
+"loop": false,
+"name": &"death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jtryd")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_0h2x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gwcdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_d7wu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fh1d7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_p3r7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_chnvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wr62n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hviyb")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="Creep4_1" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_msamt")
+
+[node name="TouchArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
+position = Vector2(-13, 16)
+polygon = PackedVector2Array(0, 0, 25, 0, 12.5, -40)
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(14, -1)
+scale = Vector2(0.144, 1)
+shape = SubResource("1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
+sprite_frames = SubResource("2")
+animation = &"attack"
+frame = 3
+frame_progress = 1.0
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="."]
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]

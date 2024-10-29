@@ -1,0 +1,173 @@
+[gd_scene load_steps=28 format=3 uid="uid://c3obnd6plfnd6"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_hgoi5"]
+[ext_resource type="Texture2D" uid="uid://c4hwke4q5oyfm" path="res://epoch5/creeps/2/attack/creep5_2_attack_1.png" id="2_u8j2m"]
+[ext_resource type="Texture2D" uid="uid://c7wnkgea8j7gu" path="res://epoch5/creeps/2/attack/creep5_2_attack_2.png" id="3_uoggd"]
+[ext_resource type="Texture2D" uid="uid://dkxx5c4snqaou" path="res://epoch5/creeps/2/attack/creep5_2_attack_3.png" id="4_q1k4v"]
+[ext_resource type="Texture2D" uid="uid://crotl8ytnc1ne" path="res://epoch5/creeps/2/attack/creep5_2_attack_4.png" id="5_v2ama"]
+[ext_resource type="Texture2D" uid="uid://73ji0nps3r0k" path="res://epoch5/creeps/2/attack/creep5_2_attack_5.png" id="6_583uw"]
+[ext_resource type="Texture2D" uid="uid://clgq04s83coeb" path="res://epoch5/creeps/2/attack/creep5_2_attack_6.png" id="7_u0v0s"]
+[ext_resource type="Texture2D" uid="uid://c2q2j7vtkbx26" path="res://epoch5/creeps/2/attack/creep5_2_attack_7.png" id="8_nqnpb"]
+[ext_resource type="Texture2D" uid="uid://dvkjn8mwk0rhn" path="res://epoch5/creeps/2/attack/creep5_2_attack_8.png" id="9_1no31"]
+[ext_resource type="Texture2D" uid="uid://dbiuoabm0p8ml" path="res://epoch5/creeps/2/attack/creep5_2_attack_static_1.png" id="10_kktkn"]
+[ext_resource type="Texture2D" uid="uid://c2e2dka2uc3q" path="res://epoch5/creeps/2/attack/creep5_2_attack_static_2.png" id="11_mrgsl"]
+[ext_resource type="Texture2D" uid="uid://cr11pq1m836l7" path="res://epoch5/creeps/2/attack/creep5_2_attack_static_3.png" id="12_cqje2"]
+[ext_resource type="Texture2D" uid="uid://bccp2gotoyuf2" path="res://epoch5/creeps/2/attack/creep5_2_attack_static_4.png" id="13_sdbj6"]
+[ext_resource type="Texture2D" uid="uid://davhbsc3hcqdx" path="res://epoch5/creeps/2/death/creep5_2_death_1.png" id="14_erctx"]
+[ext_resource type="Texture2D" uid="uid://deatedwfhrqh0" path="res://epoch5/creeps/2/death/creep5_2_death_2.png" id="15_oij4h"]
+[ext_resource type="Texture2D" uid="uid://d1m3lx5rsq7to" path="res://epoch5/creeps/2/death/creep5_2_death_3.png" id="16_220eu"]
+[ext_resource type="Texture2D" uid="uid://mrq13cpovafl" path="res://epoch5/creeps/2/death/creep5_2_death_4.png" id="17_yqb6w"]
+[ext_resource type="Texture2D" uid="uid://uvfo0cluejci" path="res://epoch5/creeps/2/walk/creep5_2_walk_1.png" id="18_pd7vo"]
+[ext_resource type="Texture2D" uid="uid://bncmo5xlhfeht" path="res://epoch5/creeps/2/walk/creep5_2_walk_2.png" id="19_jdi1w"]
+[ext_resource type="Texture2D" uid="uid://drxwxw4f0fuyq" path="res://epoch5/creeps/2/walk/creep5_2_walk_3.png" id="20_fwylu"]
+[ext_resource type="Texture2D" uid="uid://d34imji84say6" path="res://epoch5/creeps/2/walk/creep5_2_walk_4.png" id="21_btpuj"]
+[ext_resource type="Texture2D" uid="uid://byslsl01mwgqi" path="res://epoch5/creeps/2/walk/creep5_2_walk_5.png" id="22_fkdem"]
+[ext_resource type="Texture2D" uid="uid://bgtt8arnkytn8" path="res://epoch5/creeps/2/walk/creep5_2_walk_6.png" id="23_l32yk"]
+[ext_resource type="Texture2D" uid="uid://ruqdhajt8nvn" path="res://epoch5/creeps/2/walk/creep5_2_walk_7.png" id="24_kmif8"]
+[ext_resource type="Texture2D" uid="uid://btv57oup44fuf" path="res://epoch5/creeps/2/walk/creep5_2_walk_8.png" id="25_byyat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugah5"]
+size = Vector2(27, 33)
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u8j2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uoggd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q1k4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v2ama")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_583uw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u0v0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nqnpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1no31")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_kktkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mrgsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cqje2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_sdbj6")
+}],
+"loop": false,
+"name": &"attack_static",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_erctx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_oij4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_220eu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_yqb6w")
+}],
+"loop": false,
+"name": &"death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_erctx")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_pd7vo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_jdi1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_fwylu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_btpuj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_fkdem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_l32yk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_kmif8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_byyat")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="Creep5_2" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_hgoi5")
+only_ranged = true
+
+[node name="TouchArea" type="Area2D" parent="."]
+rotation = -3.14159
+scale = Vector2(1, -1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
+position = Vector2(-13, 16)
+polygon = PackedVector2Array(0, 0, 25, 0, 12.5, -40)
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(60, 0)
+scale = Vector2(3.312, 1)
+shape = SubResource("RectangleShape2D_ugah5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
+sprite_frames = SubResource("1")
+animation = &"walk"
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(14, 22.5)
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="."]
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+volume_db = -17.782
+pitch_scale = 1.84

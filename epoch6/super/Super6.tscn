@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://epoch6/super/special_5_0.png" type="Texture2D" id=1]
+[ext_resource path="res://epoch6/super/ProjectileSuper6.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SFO.cs" type="Script" id=3]
+[ext_resource path="res://audio/epoch6_gun.mp3" type="AudioStream" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 19, 74.5 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+direction = 1
+damage = 1500
+attackSpeed = 0.4
+projectileScene = ExtResource( 2 )
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource( 1 )
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2( 32, 64.5 )
+shape = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="AudioProjectilePop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

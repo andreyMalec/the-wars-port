@@ -1,0 +1,58 @@
+[gd_scene load_steps=13 format=3 uid="uid://cgy74issm2rdq"]
+
+[ext_resource type="Texture2D" uid="uid://dbsdjd4yxyuo6" path="res://assets/entity/explosion_1.png" id="1_ff7k1"]
+[ext_resource type="Texture2D" uid="uid://hk33tbk1clx" path="res://assets/entity/explosion_2.png" id="2_otuxp"]
+[ext_resource type="Texture2D" uid="uid://4u0najr3cvsa" path="res://assets/entity/explosion_3.png" id="3_olri6"]
+[ext_resource type="Texture2D" uid="uid://djrgfh3nigqp6" path="res://assets/entity/explosion_4.png" id="4_3an7h"]
+[ext_resource type="Texture2D" uid="uid://d2nel5sv4sx6m" path="res://assets/entity/explosion_5.png" id="5_wh68v"]
+[ext_resource type="Texture2D" uid="uid://htiqln3ft1dh" path="res://assets/entity/explosion_6.png" id="6_0nq7b"]
+[ext_resource type="Texture2D" uid="uid://inxpaibk7bf8" path="res://assets/entity/explosion_7.png" id="7_f7vy4"]
+[ext_resource type="Texture2D" uid="uid://qj3eyc1ateup" path="res://assets/entity/explosion_8.png" id="8_5hdkm"]
+[ext_resource type="Texture2D" uid="uid://ddfy4dy6awkbb" path="res://assets/entity/explosion_9.png" id="9_u5upf"]
+[ext_resource type="Texture2D" uid="uid://b8cjwgy0kxlcs" path="res://assets/entity/explosion_10.png" id="10_bmexl"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/VisualEffect.kt" id="11_yxyoe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_amm8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ff7k1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_otuxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_olri6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3an7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wh68v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0nq7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f7vy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5hdkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_u5upf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bmexl")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Explosion" type="AnimatedSprite2D"]
+z_index = 10
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_amm8n")
+offset = Vector2(0, -16)
+script = ExtResource("11_yxyoe")

@@ -1,0 +1,171 @@
+[gd_scene load_steps=28 format=3 uid="uid://b3ofga1qihsqa"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_uhrk0"]
+[ext_resource type="Texture2D" uid="uid://brt7j24wml14v" path="res://epoch3/creeps/2/death/creep3_2_death_2.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://b5pipgog86hf" path="res://epoch3/creeps/2/walk/creep3_2_walk_5.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://df0ric5er4b0t" path="res://epoch3/creeps/2/attack/creep3_2_attack_1.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://kx43f4plsntc" path="res://epoch3/creeps/2/attack/creep3_2_attack_6.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://d2kuncr08grgf" path="res://epoch3/creeps/2/attack/creep3_2_attack_7.png" id="8_s8vv5"]
+[ext_resource type="Texture2D" uid="uid://cmw8bt7oromke" path="res://epoch3/creeps/2/walk/creep3_2_walk_4.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://cs6qi5fhyf2ty" path="res://epoch3/creeps/2/attack/creep3_2_attack_8.png" id="9_jrv6e"]
+[ext_resource type="Texture2D" uid="uid://ccyi03fg1rgv" path="res://epoch3/creeps/2/walk/creep3_2_walk_7.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://drja5xtrmovfg" path="res://epoch3/creeps/2/attack/creep3_2_attack_static_1.png" id="10_5mjyv"]
+[ext_resource type="Texture2D" uid="uid://cclgp15inq3c2" path="res://epoch3/creeps/2/attack/creep3_2_attack_5.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://bwut25d32ows6" path="res://epoch3/creeps/2/attack/creep3_2_attack_static_2.png" id="11_v5ld1"]
+[ext_resource type="Texture2D" uid="uid://culqloiraxebw" path="res://epoch3/creeps/2/death/creep3_2_death_1.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://d0nhdmrmeopgn" path="res://epoch3/creeps/2/attack/creep3_2_attack_static_3.png" id="12_f0c8p"]
+[ext_resource type="Texture2D" uid="uid://ckoiu6pcpkc4q" path="res://epoch3/creeps/2/death/creep3_2_death_4.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://blxhmvmldsu4v" path="res://epoch3/creeps/2/attack/creep3_2_attack_static_4.png" id="13_hxb6g"]
+[ext_resource type="Texture2D" uid="uid://qvnebo5akgrv" path="res://epoch3/creeps/2/walk/creep3_2_walk_1.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://c4kf0hf04pu0v" path="res://epoch3/creeps/2/attack/creep3_2_attack_2.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://cq6otk32ejprb" path="res://epoch3/creeps/2/attack/creep3_2_attack_3.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://cjchmydyrqnw1" path="res://epoch3/creeps/2/attack/creep3_2_attack_4.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://l2edd2ha7cso" path="res://epoch3/creeps/2/walk/creep3_2_walk_6.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://bytko4gisn71s" path="res://epoch3/creeps/2/death/creep3_2_death_3.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://ca5v56fnftmbe" path="res://epoch3/creeps/2/walk/creep3_2_walk_2.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://5j0tg0vp30r1" path="res://epoch3/creeps/2/walk/creep3_2_walk_3.png" id="21"]
+[ext_resource type="Texture2D" uid="uid://c7gr06qshqx6q" path="res://epoch3/creeps/2/walk/creep3_2_walk_8.png" id="22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfc64"]
+size = Vector2(27, 33)
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s8vv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jrv6e")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_5mjyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_v5ld1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_f0c8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hxb6g")
+}],
+"loop": false,
+"name": &"attack_static",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13")
+}],
+"loop": false,
+"name": &"death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="Creep3_2" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_uhrk0")
+only_ranged = true
+
+[node name="TouchArea" type="Area2D" parent="."]
+rotation = -3.14159
+scale = Vector2(1, -1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
+position = Vector2(-13, 16)
+polygon = PackedVector2Array(0, 0, 25, 0, 12.5, -40)
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(60, 0)
+scale = Vector2(3.312, 1)
+shape = SubResource("RectangleShape2D_nfc64")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
+sprite_frames = SubResource("2")
+animation = &"walk"
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(12, 20)
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="."]
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]

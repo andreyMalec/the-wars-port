@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://xtmsts41c3hd"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/gui/FloatingLabel.kt" id="1_0nfbc"]
+[ext_resource type="FontFile" path="res://gui/common_font.tres" id="2_y77cj"]
+
+[node name="FloatingLabel" type="Node2D"]
+script = ExtResource("1_0nfbc")
+direction = Vector2(0, -0.7)
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_y77cj")
+text = "123"

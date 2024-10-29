@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://86ffnl6wb6x6"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_ol64j"]
+[ext_resource type="Texture2D" uid="uid://68s66lwkt6h" path="res://epoch1/guns/4/gun1_4_1.png" id="2_xla7u"]
+[ext_resource type="Texture2D" uid="uid://putjg7vn1fmw" path="res://epoch1/guns/4/gun1_4_2.png" id="3_we4qr"]
+[ext_resource type="Texture2D" uid="uid://dlsb1jlg4tx0x" path="res://epoch1/guns/4/gun1_4_3.png" id="4_2oy0y"]
+[ext_resource type="Texture2D" uid="uid://bkfc3l7nlb6r7" path="res://epoch1/guns/4/gun1_4_4.png" id="5_v2k2v"]
+[ext_resource type="Texture2D" uid="uid://dlyw0e3pco304" path="res://epoch1/guns/4/gun1_4_5.png" id="6_b6f6i"]
+[ext_resource type="Texture2D" uid="uid://eefk6ywgu4c4" path="res://epoch1/guns/4/gun1_4_6.png" id="7_biwfb"]
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xla7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_we4qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2oy0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v2k2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b6f6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_biwfb")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Gun1_4" type="Node2D"]
+z_index = 2
+script = ExtResource("1_ol64j")
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="AttackRange"]
+scale = Vector2(500, 500)
+polygon = PackedVector2Array(0, 0, 0.25, 0.026, 0.546, 0.11, 0.718, 0.184, 0.868, 0.33, 0.508, 0.168, 0.492, 0.128, 0.238, 0.036, 0, 0.01)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("3")
+animation = &"attack"
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(11, -12)
+
+[connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

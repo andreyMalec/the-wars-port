@@ -1,0 +1,166 @@
+[gd_scene load_steps=27 format=3 uid="uid://hnukvy7mnrc2"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_n8y8f"]
+[ext_resource type="Texture2D" uid="uid://cokhb17tva1wv" path="res://epoch6/creeps/1/attack/creep6_1_attack_1.png" id="2_cipk2"]
+[ext_resource type="Texture2D" uid="uid://dvu6xpqojtkcj" path="res://epoch6/creeps/1/attack/creep6_1_attack_2.png" id="3_2okfk"]
+[ext_resource type="Texture2D" uid="uid://biq1r0hr0slc2" path="res://epoch6/creeps/1/attack/creep6_1_attack_3.png" id="4_lxs8p"]
+[ext_resource type="Texture2D" uid="uid://f51fn8wa242p" path="res://epoch6/creeps/1/attack/creep6_1_attack_4.png" id="5_l4ne7"]
+[ext_resource type="Texture2D" uid="uid://pxwm1qm7a82t" path="res://epoch6/creeps/1/attack/creep6_1_attack_5.png" id="6_g6q68"]
+[ext_resource type="Texture2D" uid="uid://bel8u8q0hphrn" path="res://epoch6/creeps/1/attack/creep6_1_attack_6.png" id="7_0j68h"]
+[ext_resource type="Texture2D" uid="uid://c1he5puvkfyqw" path="res://epoch6/creeps/1/attack/creep6_1_attack_7.png" id="8_du8ba"]
+[ext_resource type="Texture2D" uid="uid://bs3cv2ybokl1j" path="res://epoch6/creeps/1/attack/creep6_1_attack_8.png" id="9_5dyuv"]
+[ext_resource type="Texture2D" uid="uid://b2i6qkvmckf3j" path="res://epoch6/creeps/1/attack/creep6_1_attack_static_1.png" id="10_bw06g"]
+[ext_resource type="Texture2D" uid="uid://wesuoyaiwlvu" path="res://epoch6/creeps/1/attack/creep6_1_attack_static_2.png" id="11_5fw3r"]
+[ext_resource type="Texture2D" uid="uid://bosn74xrrulqv" path="res://epoch6/creeps/1/attack/creep6_1_attack_static_3.png" id="12_wgbis"]
+[ext_resource type="Texture2D" uid="uid://xue5oythfbnq" path="res://epoch6/creeps/1/death/creep6_1_death_1.png" id="13_h7sry"]
+[ext_resource type="Texture2D" uid="uid://cuyx3akspwwm6" path="res://epoch6/creeps/1/death/creep6_1_death_2.png" id="14_md7td"]
+[ext_resource type="Texture2D" uid="uid://lx6ipu186flr" path="res://epoch6/creeps/1/death/creep6_1_death_3.png" id="15_rggus"]
+[ext_resource type="Texture2D" uid="uid://cf5gesfu1vodq" path="res://epoch6/creeps/1/death/creep6_1_death_4.png" id="16_41ill"]
+[ext_resource type="Texture2D" uid="uid://d2kmtfvmoj3e0" path="res://epoch6/creeps/1/walk/creep6_1_walk_1.png" id="17_7fshp"]
+[ext_resource type="Texture2D" uid="uid://cd6dnre6l7utv" path="res://epoch6/creeps/1/walk/creep6_1_walk_2.png" id="18_2nvcd"]
+[ext_resource type="Texture2D" uid="uid://dsubh3ulwcma3" path="res://epoch6/creeps/1/walk/creep6_1_walk_3.png" id="19_86h6v"]
+[ext_resource type="Texture2D" uid="uid://dkwvjrmh0jek7" path="res://epoch6/creeps/1/walk/creep6_1_walk_4.png" id="20_p27uf"]
+[ext_resource type="Texture2D" uid="uid://p1vvqmkj8psv" path="res://epoch6/creeps/1/walk/creep6_1_walk_5.png" id="21_0c8ya"]
+[ext_resource type="Texture2D" uid="uid://btfvvxsvp5whr" path="res://epoch6/creeps/1/walk/creep6_1_walk_6.png" id="22_cwfl3"]
+[ext_resource type="Texture2D" uid="uid://d1ygkrj83msh8" path="res://epoch6/creeps/1/walk/creep6_1_walk_7.png" id="23_p1vpj"]
+[ext_resource type="Texture2D" uid="uid://cpo47jcsvducj" path="res://epoch6/creeps/1/walk/creep6_1_walk_8.png" id="24_mnh4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3iwuw"]
+size = Vector2(27, 33)
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cipk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2okfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lxs8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l4ne7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g6q68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0j68h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_du8ba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5dyuv")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_bw06g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5fw3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wgbis")
+}],
+"loop": false,
+"name": &"attack_static",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_h7sry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_md7td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_rggus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_41ill")
+}],
+"loop": false,
+"name": &"death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_h7sry")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_7fshp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2nvcd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_86h6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_p27uf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_0c8ya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_cwfl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_p1vpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_mnh4p")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="Creep6_1" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_n8y8f")
+only_ranged = true
+
+[node name="TouchArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
+position = Vector2(-12, 15)
+polygon = PackedVector2Array(0, 0, 25, 0, 12.5, -40)
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(60, 0)
+scale = Vector2(3.312, 1)
+shape = SubResource("RectangleShape2D_3iwuw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -22)
+sprite_frames = SubResource("2")
+animation = &"walk"
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(14, 20.75)
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]

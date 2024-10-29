@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfkmtgd0r4l4b"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_kjogt"]
+[ext_resource type="Texture2D" uid="uid://bmv5rvshjygnf" path="res://epoch1/creeps/2/projectile/projectile_creep1_2_1.png" id="2_okwye"]
+[ext_resource type="Texture2D" uid="uid://caetfhm8m7yd3" path="res://epoch1/creeps/2/projectile/projectile_creep1_2_2.png" id="3_1icx1"]
+[ext_resource type="Texture2D" uid="uid://dw86nwovuen51" path="res://epoch1/creeps/2/projectile/projectile_creep1_2_3.png" id="4_nyu2i"]
+[ext_resource type="Texture2D" uid="uid://c4og8kdaywtlu" path="res://epoch1/creeps/2/projectile/projectile_creep1_2_4.png" id="5_suteg"]
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_okwye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1icx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nyu2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_suteg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="4"]
+radius = 5.0
+
+[node name="ProjectileGun1_2" type="Node2D"]
+z_index = -1
+texture_filter = 1
+script = ExtResource("1_kjogt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("3")
+
+[node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("4")
+
+[connection signal="area_entered" from="TouchArea" to="." method="_on_TouchArea_area_entered"]

@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://deovlceo1oee5"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_jndsx"]
+[ext_resource type="Texture2D" uid="uid://cmco7ejpwhe6i" path="res://epoch1/guns/2/gun1_2_1.png" id="2_f43u1"]
+[ext_resource type="Texture2D" uid="uid://ccir3o2u8jpc7" path="res://epoch1/guns/2/gun1_2_2.png" id="3_62lgp"]
+[ext_resource type="Texture2D" uid="uid://b2famct01wvlg" path="res://epoch1/guns/2/gun1_2_3.png" id="4_hfm6s"]
+[ext_resource type="Texture2D" uid="uid://dqbutbshjgiqw" path="res://epoch1/guns/2/gun1_2_4.png" id="5_y8ljg"]
+[ext_resource type="Texture2D" uid="uid://cmy7ck4yaq4wh" path="res://epoch1/guns/2/gun1_2_5.png" id="6_dgo52"]
+[ext_resource type="Texture2D" uid="uid://dspgqpgkmoraj" path="res://epoch1/guns/2/gun1_2_6.png" id="7_hpi4y"]
+[ext_resource type="Texture2D" uid="uid://2ogcgjx7scm3" path="res://epoch1/guns/2/gun1_2_7.png" id="8_k6g2y"]
+[ext_resource type="Texture2D" uid="uid://bce8j0r50wdqp" path="res://epoch1/guns/2/gun1_2_8.png" id="9_37lpb"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f43u1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_62lgp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hfm6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y8ljg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dgo52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hpi4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k6g2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_37lpb")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Gun1_2" type="Node2D"]
+z_index = 2
+texture_filter = 1
+script = ExtResource("1_jndsx")
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="AttackRange"]
+scale = Vector2(500, 500)
+polygon = PackedVector2Array(0, 0, 0.25, 0.026, 0.546, 0.11, 0.668, 0.146, 0.79, 0.3, 0.004, 0.296, 0, 0.01)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("1")
+animation = &"attack"
+frame = 7
+frame_progress = 1.0
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(11, -8)
+
+[connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

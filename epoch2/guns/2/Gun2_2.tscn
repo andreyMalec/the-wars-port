@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://bei3i1jlrytyd"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_t4x4u"]
+[ext_resource type="Texture2D" uid="uid://c1gyje157rdhp" path="res://epoch2/guns/2/gun2_2_1.png" id="2_n5sxe"]
+[ext_resource type="Texture2D" uid="uid://spjwo1sfk45h" path="res://epoch2/guns/2/gun2_2_2.png" id="3_cj6je"]
+[ext_resource type="Texture2D" uid="uid://cxtjw3cvd8hlc" path="res://epoch2/guns/2/gun2_2_3.png" id="4_a866e"]
+[ext_resource type="Texture2D" uid="uid://bfrmfpju3yuma" path="res://epoch2/guns/2/gun2_2_4.png" id="5_nu172"]
+[ext_resource type="Texture2D" uid="uid://cwvphrgx21nsq" path="res://epoch2/guns/2/gun2_2_5.png" id="6_m4bd6"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n5sxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cj6je")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a866e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nu172")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m4bd6")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n5sxe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Gun2_2" type="Node2D"]
+z_index = 2
+script = ExtResource("1_t4x4u")
+rotate_to_target = false
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="AttackRange"]
+scale = Vector2(500, 500)
+polygon = PackedVector2Array(0, 0, 0.25, 0.026, 0.546, 0.11, 0.668, 0.146, 0.79, 0.3, 0.004, 0.296, 0, 0.01)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("1")
+animation = &"attack"
+frame = 4
+frame_progress = 1.0
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(16, -11)
+
+[connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

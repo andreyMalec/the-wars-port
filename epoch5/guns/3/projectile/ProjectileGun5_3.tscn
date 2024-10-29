@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtevf7aux5mpn"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileBallistic.kt" id="1_vk0y5"]
+[ext_resource type="Texture2D" uid="uid://c2t205u0brd77" path="res://epoch5/guns/3/projectile/projectile_gun5_3_1.png" id="2_waicd"]
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_waicd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="4"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="5"]
+radius = 5.09902
+
+[node name="ProjectileGun5_3" type="RigidBody2D"]
+texture_filter = 1
+script = ExtResource("1_vk0y5")
+auto_rotate = true
+explosive = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("3")
+
+[node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("5")
+
+[connection signal="area_entered" from="TouchArea" to="." method="_on_TouchArea_area_entered"]

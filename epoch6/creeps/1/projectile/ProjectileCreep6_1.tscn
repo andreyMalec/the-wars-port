@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://l7njrtu4b1xi"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_kf2cx"]
+[ext_resource type="Texture2D" uid="uid://caskqujqadukx" path="res://epoch6/creeps/1/projectile/projectile_creep6_1_1.png" id="2_vcixx"]
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vcixx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="2"]
+radius = 3.0
+
+[node name="ProjectileCreep6_1" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_kf2cx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("3")
+
+[node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+shape = SubResource("2")

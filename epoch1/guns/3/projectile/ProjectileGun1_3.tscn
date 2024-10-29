@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://cq2ovvj8oo65n"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileBallistic.kt" id="1_q78ro"]
+[ext_resource type="Texture2D" uid="uid://bnoicpu52uic" path="res://epoch1/guns/3/projectile/projectile_gun1_3_1.png" id="2_0yhl4"]
+[ext_resource type="Texture2D" uid="uid://copinuuv57ynk" path="res://epoch1/guns/3/projectile/projectile_gun1_3_2.png" id="3_tp57o"]
+[ext_resource type="Texture2D" uid="uid://8wkb4cqp1kti" path="res://epoch1/guns/3/projectile/projectile_gun1_3_3.png" id="4_tfhyc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j7jq1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0yhl4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tp57o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tfhyc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="4"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="5"]
+radius = 5.09902
+
+[node name="Projectile" type="RigidBody2D"]
+z_index = -1
+texture_filter = 1
+script = ExtResource("1_q78ro")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j7jq1")
+frame = 2
+frame_progress = 1.0
+
+[node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+shape = SubResource("4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("5")
+
+[connection signal="area_entered" from="TouchArea" to="." method="_on_TouchArea_area_entered"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dahu0ab4x1nnq"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/BaseBody.kt" id="1_df2iw"]
+[ext_resource type="Texture2D" uid="uid://b8p6jmy82427h" path="res://epoch6/base/Base6_2.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cnfqrhhkxwvnh" path="res://epoch6/base/Grade6_1.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cs7lpt3ag7a1b" path="res://epoch6/base/Base6_1.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dxx5r371v8by" path="res://epoch6/base/Grade6_2.png" id="5_rhrhf"]
+
+[node name="Base" type="Node2D"]
+script = ExtResource("1_df2iw")
+
+[node name="front" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(21, -20)
+texture = ExtResource("5")
+
+[node name="back" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(20.5, -20)
+texture = ExtResource("2")
+
+[node name="gunContainer0" type="Node2D" parent="."]
+position = Vector2(15, -45)
+
+[node name="gunContainer1" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(14, -63)
+texture = ExtResource("4")
+
+[node name="gunContainer2" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(15, -89)
+texture = ExtResource("5_rhrhf")
+
+[node name="gunContainer3" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(15, -111)
+texture = ExtResource("5_rhrhf")
+
+[node name="TouchArea" type="Area2D" parent="."]
+position = Vector2(5.3333, -13)
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
+position = Vector2(14.6667, 21)
+polygon = PackedVector2Array(8, -1, 8, 6, -39, 6, -27, -51, -27, -1)
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]

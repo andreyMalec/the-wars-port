@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwrgitue2m84l"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_70rur"]
+[ext_resource type="Texture2D" uid="uid://cx483s28j7q6c" path="res://epoch3/guns/1/gun3_1_1.png" id="2_drv4i"]
+[ext_resource type="Texture2D" uid="uid://8we3b7fffn4" path="res://epoch3/guns/1/gun3_1_2.png" id="3_tx43a"]
+[ext_resource type="Texture2D" uid="uid://dimbcvjfypb03" path="res://epoch3/guns/1/gun3_1_3.png" id="4_ftc55"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_drv4i")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_tx43a")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_ftc55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_drv4i")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_drv4i")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Gun3_1" type="Node2D"]
+z_index = 2
+texture_filter = 1
+script = ExtResource("1_70rur")
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="AttackRange"]
+scale = Vector2(500, 500)
+polygon = PackedVector2Array(0, 0, 0.25, 0.026, 0.546, 0.11, 0.668, 0.146, 0.79, 0.3, 0.004, 0.296, 0, 0.01)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("1")
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(12, -1)
+
+[connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
+[connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]
