@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwr7ij5gf61b0"]
 
 [ext_resource type="Script" path="res://scene/HpProgress.gd" id="1_x5adr"]
-[ext_resource type="Texture2D" uid="uid://ddph64uqitew" path="res://assets/controls/background_creep_hp.png" id="2_j46ri"]
-[ext_resource type="Texture2D" uid="uid://dheya3lhe5jp7" path="res://assets/controls/foreground_creep_hp.png" id="3_v8fgq"]
+[ext_resource type="Texture2D" uid="uid://duijat1qfqcb8" path="res://assets/controls/background_creep_hp.png" id="2_j46ri"]
+[ext_resource type="Texture2D" uid="uid://docy1gticdayp" path="res://assets/controls/foreground_creep_hp.png" id="3_v8fgq"]
 
 [node name="HpProgress" type="Control"]
 texture_filter = 1

@@ -15,23 +15,9 @@ script = ExtResource("1_6e7kj")
 base = NodePath("PlayerBase")
 enemy_base = NodePath("EnemyBase")
 menu = NodePath("Control/Menu")
-enemy_menu = NodePath("EnemyMenu")
+enemy_menu = NodePath("Control/EnemyMenu")
 
 [node name="Background" parent="." instance=ExtResource("2_dj18o")]
-
-[node name="EnemyMenu" parent="." instance=ExtResource("4_q5bjj")]
-visible = false
-anchors_preset = 2
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -151.0
-offset_right = 3.0
-offset_bottom = -151.0
-grow_horizontal = 1
-grow_vertical = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="PlayerBase" parent="." instance=ExtResource("5_e2q2s")]
 position = Vector2(-15, 185)
@@ -69,4 +55,18 @@ offset_top = 213.0
 offset_bottom = 213.0
 grow_horizontal = 1
 grow_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="EnemyMenu" parent="Control" instance=ExtResource("4_q5bjj")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -471.71
+offset_right = 3.0
+offset_bottom = -471.71
+grow_horizontal = 1
+grow_vertical = 0
 metadata/_edit_use_anchors_ = true

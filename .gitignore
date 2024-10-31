@@ -5,6 +5,7 @@
 .kotlin
 .idea
 build
+tmp
 jre
 jre*
 *.apk
@@ -12,6 +13,7 @@ jre*
 audio
 assets/controls/*
 assets/entity/*
+assets/sounds/*
 epoch1/**/*.png
 epoch1/**/*.import
 epoch2/**/*.png

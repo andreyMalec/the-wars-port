@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://crk1y32wvhxd4"]
+[gd_scene load_steps=5 format=3 uid="uid://cf7fvjppcamnb"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_1ld2v"]
-[ext_resource type="Texture2D" uid="uid://b3x20olp30cdk" path="res://epoch6/guns/4/projectile/projectile_gun6_4_1.png" id="2_lv2t8"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_c7qj6"]
+[ext_resource type="Texture2D" uid="uid://u5wumcmfjqs3" path="res://epoch6/guns/3/projectile/projectile_gun6_3_1.png" id="2_2qvyk"]
 
 [sub_resource type="SpriteFrames" id="3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lv2t8")
+"texture": ExtResource("2_2qvyk")
 }],
 "loop": false,
 "name": &"default",
@@ -17,9 +17,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="2"]
 radius = 3.0
 
-[node name="ProjectileGun6_4" type="Node2D"]
-texture_filter = 1
-script = ExtResource("1_1ld2v")
+[node name="ProjectileGun6_3" type="Node2D"]
+script = ExtResource("1_c7qj6")
 apply_vertical_velocity = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -30,7 +29,6 @@ collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
-position = Vector2(9, 0)
 shape = SubResource("2")
 
 [connection signal="area_entered" from="TouchArea" to="." method="_on_TouchArea_area_entered"]

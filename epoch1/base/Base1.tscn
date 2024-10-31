@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bgky38ancp4u2"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/BaseBody.kt" id="1_00dfp"]
-[ext_resource type="Texture2D" uid="uid://bynbamjrqqmng" path="res://epoch1/base/Grade1_2.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://8wost5gufpe8" path="res://epoch1/base/Base1_1.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://b011n3s4gvg0x" path="res://epoch1/base/Grade1_1.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://bknvtogjx1yr6" path="res://epoch1/base/Base1_2.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dwiikhh5w4ky" path="res://epoch1/base/Grade1_2.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cigabcddpgyh5" path="res://epoch1/base/Base1_1.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dj58wbakph377" path="res://epoch1/base/Grade1_1.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cy1lw4aaf1l7h" path="res://epoch1/base/Base1_2.png" id="5"]
 
 [node name="BaseBody1" type="Node2D"]
 texture_filter = 1
