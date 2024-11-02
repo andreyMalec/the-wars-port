@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkdhmfm6tywbx"]
+[gd_scene load_steps=10 format=3 uid="uid://bkdhmfm6tywbx"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_sk05y"]
-[ext_resource type="Texture2D" uid="uid://bcflmg1b4xf6s" path="res://epoch3/guns/4/gun3_4_1.png" id="2_g2hhx"]
-[ext_resource type="Texture2D" uid="uid://dqomyi4d741o" path="res://epoch3/guns/4/gun3_4_2.png" id="3_kreyh"]
-[ext_resource type="Texture2D" uid="uid://wsf03umhmhhr" path="res://epoch3/guns/4/gun3_4_3.png" id="4_aseev"]
-[ext_resource type="Texture2D" uid="uid://brpmtr1i7uqca" path="res://epoch3/guns/4/gun3_4_4.png" id="5_bnlqe"]
-[ext_resource type="Texture2D" uid="uid://1km21ty02m1f" path="res://epoch3/guns/4/gun3_4_5.png" id="6_ujl5w"]
-[ext_resource type="Texture2D" uid="uid://bhqvfelq8v4sr" path="res://epoch3/guns/4/gun3_4_6.png" id="7_bfa28"]
+[ext_resource type="Texture2D" uid="uid://cqkkoo3eljfke" path="res://epoch3/guns/4/gun3_4_1.png" id="2_g2hhx"]
+[ext_resource type="Texture2D" uid="uid://cbxy7gc4g8cv3" path="res://epoch3/guns/4/gun3_4_2.png" id="3_kreyh"]
+[ext_resource type="Texture2D" uid="uid://cxc4h1wcoj5hr" path="res://epoch3/guns/4/gun3_4_3.png" id="4_aseev"]
+[ext_resource type="Texture2D" uid="uid://cxgpmkg3e5rw" path="res://epoch3/guns/4/gun3_4_4.png" id="5_bnlqe"]
+[ext_resource type="Texture2D" uid="uid://cx8qx3b0ct04j" path="res://epoch3/guns/4/gun3_4_5.png" id="6_ujl5w"]
+[ext_resource type="Texture2D" uid="uid://u05hcp7jd8n4" path="res://epoch3/guns/4/gun3_4_6.png" id="7_bfa28"]
+[ext_resource type="AudioStream" uid="uid://bhuiwq5c84gyl" path="res://assets/sounds/cannon.mp3" id="8_a7ooa"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -64,5 +65,6 @@ position = Vector2(12, -4)
 [node name="ProjectilePosition1" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(12, 1)
 
-[connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
-[connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_a7ooa")
+max_polyphony = 2

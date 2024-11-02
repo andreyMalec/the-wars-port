@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8dfkywrcyxtp"]
+[gd_scene load_steps=6 format=3 uid="uid://c8dfkywrcyxtp"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_1u02c"]
-[ext_resource type="Texture2D" uid="uid://cixe1os54uvkf" path="res://epoch2/guns/1/projectile/projectile_gun2_1_1.png" id="2_c7e3j"]
+[ext_resource type="Texture2D" uid="uid://xh2wop7lap7i" path="res://epoch2/guns/1/projectile/projectile_gun2_1_1.png" id="2_c7e3j"]
+[ext_resource type="AudioStream" uid="uid://t736f2byrn1y" path="res://assets/sounds/projectileArrow.mp3" id="3_kmebg"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -34,5 +35,8 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
 scale = Vector2(0.4, 0.4)
 shape = SubResource("2")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kmebg")
 
 [connection signal="area_entered" from="TouchArea" to="." method="_on_TouchArea_area_entered"]

@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://86ffnl6wb6x6"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_ol64j"]
-[ext_resource type="Texture2D" uid="uid://68s66lwkt6h" path="res://epoch1/guns/4/gun1_4_1.png" id="2_xla7u"]
-[ext_resource type="Texture2D" uid="uid://putjg7vn1fmw" path="res://epoch1/guns/4/gun1_4_2.png" id="3_we4qr"]
-[ext_resource type="Texture2D" uid="uid://dlsb1jlg4tx0x" path="res://epoch1/guns/4/gun1_4_3.png" id="4_2oy0y"]
-[ext_resource type="Texture2D" uid="uid://bkfc3l7nlb6r7" path="res://epoch1/guns/4/gun1_4_4.png" id="5_v2k2v"]
-[ext_resource type="Texture2D" uid="uid://dlyw0e3pco304" path="res://epoch1/guns/4/gun1_4_5.png" id="6_b6f6i"]
-[ext_resource type="Texture2D" uid="uid://eefk6ywgu4c4" path="res://epoch1/guns/4/gun1_4_6.png" id="7_biwfb"]
+[ext_resource type="Texture2D" uid="uid://88sb1lf1ode7" path="res://epoch1/guns/4/gun1_4_1.png" id="2_xla7u"]
+[ext_resource type="Texture2D" uid="uid://3272nh4n8e3o" path="res://epoch1/guns/4/gun1_4_2.png" id="3_we4qr"]
+[ext_resource type="Texture2D" uid="uid://fw2ynd8tc0bm" path="res://epoch1/guns/4/gun1_4_3.png" id="4_2oy0y"]
+[ext_resource type="Texture2D" uid="uid://cxi18tajnolyd" path="res://epoch1/guns/4/gun1_4_4.png" id="5_v2k2v"]
+[ext_resource type="Texture2D" uid="uid://esp20p7e4wuu" path="res://epoch1/guns/4/gun1_4_5.png" id="6_b6f6i"]
+[ext_resource type="Texture2D" uid="uid://dgl1duumknqm0" path="res://epoch1/guns/4/gun1_4_6.png" id="7_biwfb"]
 
 [sub_resource type="SpriteFrames" id="3"]
 animations = [{
@@ -60,6 +60,8 @@ animation = &"attack"
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(11, -12)
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

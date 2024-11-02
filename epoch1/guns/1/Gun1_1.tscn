@@ -1,16 +1,16 @@
 [gd_scene load_steps=13 format=3 uid="uid://bdd4v2428gng6"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_ce0pl"]
-[ext_resource type="Texture2D" uid="uid://bim3rujau6kyu" path="res://epoch1/guns/1/gun1_1_1.png" id="2_eg5ty"]
-[ext_resource type="Texture2D" uid="uid://205bxhb0ot0w" path="res://epoch1/guns/1/gun1_1_2.png" id="3_8snqn"]
-[ext_resource type="Texture2D" uid="uid://v7i2iuqp7lk4" path="res://epoch1/guns/1/gun1_1_3.png" id="4_4eis3"]
-[ext_resource type="Texture2D" uid="uid://p7evsquh4mmu" path="res://epoch1/guns/1/gun1_1_4.png" id="5_pr716"]
-[ext_resource type="Texture2D" uid="uid://67yt2e7d0u35" path="res://epoch1/guns/1/gun1_1_5.png" id="6_8ju05"]
-[ext_resource type="Texture2D" uid="uid://c7kynki5tkmk" path="res://epoch1/guns/1/gun1_1_6.png" id="7_6lwjr"]
-[ext_resource type="Texture2D" uid="uid://bccpa4bu6xlxh" path="res://epoch1/guns/1/gun1_1_7.png" id="8_bs3fj"]
-[ext_resource type="Texture2D" uid="uid://c6ld2ipbw3eao" path="res://epoch1/guns/1/gun1_1_8.png" id="9_c3pmo"]
-[ext_resource type="Texture2D" uid="uid://cp1jc70bq3ihh" path="res://epoch1/guns/1/gun1_1_9.png" id="10_qnda0"]
-[ext_resource type="Texture2D" uid="uid://df03pjuau17p3" path="res://epoch1/guns/1/gun1_1_10.png" id="11_qjm8p"]
+[ext_resource type="Texture2D" uid="uid://x343suqtsx0f" path="res://epoch1/guns/1/gun1_1_1.png" id="2_eg5ty"]
+[ext_resource type="Texture2D" uid="uid://bum476l3krth7" path="res://epoch1/guns/1/gun1_1_2.png" id="3_8snqn"]
+[ext_resource type="Texture2D" uid="uid://demuccu1ohuas" path="res://epoch1/guns/1/gun1_1_3.png" id="4_4eis3"]
+[ext_resource type="Texture2D" uid="uid://c50i18p4ndbbc" path="res://epoch1/guns/1/gun1_1_4.png" id="5_pr716"]
+[ext_resource type="Texture2D" uid="uid://bx0s33uhjd14w" path="res://epoch1/guns/1/gun1_1_5.png" id="6_8ju05"]
+[ext_resource type="Texture2D" uid="uid://dwk5g24h16lul" path="res://epoch1/guns/1/gun1_1_6.png" id="7_6lwjr"]
+[ext_resource type="Texture2D" uid="uid://cghgvtqq251q7" path="res://epoch1/guns/1/gun1_1_7.png" id="8_bs3fj"]
+[ext_resource type="Texture2D" uid="uid://c5d1ewo7b80s0" path="res://epoch1/guns/1/gun1_1_8.png" id="9_c3pmo"]
+[ext_resource type="Texture2D" uid="uid://ct7exaftlde0q" path="res://epoch1/guns/1/gun1_1_9.png" id="10_qnda0"]
+[ext_resource type="Texture2D" uid="uid://c505at3pitsdc" path="res://epoch1/guns/1/gun1_1_10.png" id="11_qjm8p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ahlxi"]
 animations = [{
@@ -78,6 +78,8 @@ animation = &"attack"
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(13, -4)
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

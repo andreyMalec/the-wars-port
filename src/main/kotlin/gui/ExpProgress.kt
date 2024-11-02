@@ -5,5 +5,5 @@ import PropertyDelegate
 import godot.CanvasItem
 
 class ExpProgress(override val node: CanvasItem) : NodeWrapper {
-    var progress by PropertyDelegate<Float>()
+	var progress by PropertyDelegate<Float>()
 }

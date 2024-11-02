@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://daarjixi2jsfb"]
+[gd_scene load_steps=8 format=3 uid="uid://daarjixi2jsfb"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_f3ipq"]
-[ext_resource type="Texture2D" uid="uid://bo3ph77fr5opp" path="res://epoch3/guns/2/gun3_2_1.png" id="2_im35l"]
-[ext_resource type="Texture2D" uid="uid://hwab2566h70w" path="res://epoch3/guns/2/gun3_2_2.png" id="3_1mykg"]
-[ext_resource type="Texture2D" uid="uid://cwbre7ul7tu44" path="res://epoch3/guns/2/gun3_2_3.png" id="4_t7c6i"]
-[ext_resource type="Texture2D" uid="uid://c031hfa2sp3py" path="res://epoch3/guns/2/gun3_2_4.png" id="5_duysx"]
+[ext_resource type="Texture2D" uid="uid://dbvydi3mejpol" path="res://epoch3/guns/2/gun3_2_1.png" id="2_im35l"]
+[ext_resource type="Texture2D" uid="uid://b0di6ngb6bsua" path="res://epoch3/guns/2/gun3_2_2.png" id="3_1mykg"]
+[ext_resource type="Texture2D" uid="uid://74k1vu4qxmje" path="res://epoch3/guns/2/gun3_2_3.png" id="4_t7c6i"]
+[ext_resource type="Texture2D" uid="uid://pb7tcfuchpxk" path="res://epoch3/guns/2/gun3_2_4.png" id="5_duysx"]
+[ext_resource type="AudioStream" uid="uid://bhuiwq5c84gyl" path="res://assets/sounds/cannon.mp3" id="6_o6ttt"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -53,6 +54,9 @@ animation = &"attack"
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(12, -1)
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_o6ttt")
 
 [connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

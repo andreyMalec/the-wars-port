@@ -8,10 +8,10 @@ import godot.annotation.RegisterFunction
 @RegisterClass
 class SuperButton : TextureButton() {
 
-    private var progress: Progress = 0f
+	private var progress: Progress = 0f
 
-    @RegisterFunction
-    override fun _ready() {
+	@RegisterFunction
+	override fun _ready() {
 
-    }
+	}
 }

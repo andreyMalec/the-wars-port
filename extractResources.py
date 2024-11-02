@@ -27,17 +27,17 @@ with open('dict.csv', 'r', encoding='utf-8-sig') as file:
         row = line.strip().split(';')
 
         makedirs(row[1])
+        print(row[1])
 
         if (".wav" in row[0] or ".mp3" in row[0]):
             shutil.copy(Path(f'tmp/res/raw/{row[0]}'), Path(row[1]))
-            break
+            continue
 
         img = Image.open(f'tmp/res/drawable/{row[0]}')
 
 
         res = ""
 
-        print(row[1])
         if (row[2]=='1'):
             cur = row[1].split('.')[:-1][0][:-1]
             if (cur!=last):

@@ -1,29 +1,32 @@
-[gd_scene load_steps=27 format=3 uid="uid://hnukvy7mnrc2"]
+[gd_scene load_steps=30 format=3 uid="uid://hnukvy7mnrc2"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_n8y8f"]
-[ext_resource type="Texture2D" uid="uid://cokhb17tva1wv" path="res://epoch6/creeps/1/attack/creep6_1_attack_1.png" id="2_cipk2"]
-[ext_resource type="Texture2D" uid="uid://dvu6xpqojtkcj" path="res://epoch6/creeps/1/attack/creep6_1_attack_2.png" id="3_2okfk"]
-[ext_resource type="Texture2D" uid="uid://biq1r0hr0slc2" path="res://epoch6/creeps/1/attack/creep6_1_attack_3.png" id="4_lxs8p"]
-[ext_resource type="Texture2D" uid="uid://f51fn8wa242p" path="res://epoch6/creeps/1/attack/creep6_1_attack_4.png" id="5_l4ne7"]
-[ext_resource type="Texture2D" uid="uid://pxwm1qm7a82t" path="res://epoch6/creeps/1/attack/creep6_1_attack_5.png" id="6_g6q68"]
-[ext_resource type="Texture2D" uid="uid://bel8u8q0hphrn" path="res://epoch6/creeps/1/attack/creep6_1_attack_6.png" id="7_0j68h"]
-[ext_resource type="Texture2D" uid="uid://c1he5puvkfyqw" path="res://epoch6/creeps/1/attack/creep6_1_attack_7.png" id="8_du8ba"]
-[ext_resource type="Texture2D" uid="uid://bs3cv2ybokl1j" path="res://epoch6/creeps/1/attack/creep6_1_attack_8.png" id="9_5dyuv"]
-[ext_resource type="Texture2D" uid="uid://b2i6qkvmckf3j" path="res://epoch6/creeps/1/attack/creep6_1_attack_static_1.png" id="10_bw06g"]
-[ext_resource type="Texture2D" uid="uid://wesuoyaiwlvu" path="res://epoch6/creeps/1/attack/creep6_1_attack_static_2.png" id="11_5fw3r"]
-[ext_resource type="Texture2D" uid="uid://bosn74xrrulqv" path="res://epoch6/creeps/1/attack/creep6_1_attack_static_3.png" id="12_wgbis"]
-[ext_resource type="Texture2D" uid="uid://xue5oythfbnq" path="res://epoch6/creeps/1/death/creep6_1_death_1.png" id="13_h7sry"]
-[ext_resource type="Texture2D" uid="uid://cuyx3akspwwm6" path="res://epoch6/creeps/1/death/creep6_1_death_2.png" id="14_md7td"]
-[ext_resource type="Texture2D" uid="uid://lx6ipu186flr" path="res://epoch6/creeps/1/death/creep6_1_death_3.png" id="15_rggus"]
-[ext_resource type="Texture2D" uid="uid://cf5gesfu1vodq" path="res://epoch6/creeps/1/death/creep6_1_death_4.png" id="16_41ill"]
-[ext_resource type="Texture2D" uid="uid://d2kmtfvmoj3e0" path="res://epoch6/creeps/1/walk/creep6_1_walk_1.png" id="17_7fshp"]
-[ext_resource type="Texture2D" uid="uid://cd6dnre6l7utv" path="res://epoch6/creeps/1/walk/creep6_1_walk_2.png" id="18_2nvcd"]
-[ext_resource type="Texture2D" uid="uid://dsubh3ulwcma3" path="res://epoch6/creeps/1/walk/creep6_1_walk_3.png" id="19_86h6v"]
-[ext_resource type="Texture2D" uid="uid://dkwvjrmh0jek7" path="res://epoch6/creeps/1/walk/creep6_1_walk_4.png" id="20_p27uf"]
-[ext_resource type="Texture2D" uid="uid://p1vvqmkj8psv" path="res://epoch6/creeps/1/walk/creep6_1_walk_5.png" id="21_0c8ya"]
-[ext_resource type="Texture2D" uid="uid://btfvvxsvp5whr" path="res://epoch6/creeps/1/walk/creep6_1_walk_6.png" id="22_cwfl3"]
-[ext_resource type="Texture2D" uid="uid://d1ygkrj83msh8" path="res://epoch6/creeps/1/walk/creep6_1_walk_7.png" id="23_p1vpj"]
-[ext_resource type="Texture2D" uid="uid://cpo47jcsvducj" path="res://epoch6/creeps/1/walk/creep6_1_walk_8.png" id="24_mnh4p"]
+[ext_resource type="Texture2D" uid="uid://ykbc38rn6fwv" path="res://epoch6/creeps/1/attack/creep6_1_attack_1.png" id="2_cipk2"]
+[ext_resource type="Texture2D" uid="uid://cdqmurpf1oxso" path="res://epoch6/creeps/1/attack/creep6_1_attack_2.png" id="3_2okfk"]
+[ext_resource type="Texture2D" uid="uid://3rqy7eay8r5e" path="res://epoch6/creeps/1/attack/creep6_1_attack_3.png" id="4_lxs8p"]
+[ext_resource type="Texture2D" uid="uid://ckoenitg6xeap" path="res://epoch6/creeps/1/attack/creep6_1_attack_4.png" id="5_l4ne7"]
+[ext_resource type="Texture2D" uid="uid://dyo3am2ygan7f" path="res://epoch6/creeps/1/attack/creep6_1_attack_5.png" id="6_g6q68"]
+[ext_resource type="Texture2D" uid="uid://cnqehvdqp5l8l" path="res://epoch6/creeps/1/attack/creep6_1_attack_6.png" id="7_0j68h"]
+[ext_resource type="Texture2D" uid="uid://dfoesgiklikex" path="res://epoch6/creeps/1/attack/creep6_1_attack_7.png" id="8_du8ba"]
+[ext_resource type="Texture2D" uid="uid://b538qsrfu8gxd" path="res://epoch6/creeps/1/attack/creep6_1_attack_8.png" id="9_5dyuv"]
+[ext_resource type="Texture2D" uid="uid://xg4d3qkpko38" path="res://epoch6/creeps/1/attack/creep6_1_attack_static_1.png" id="10_bw06g"]
+[ext_resource type="Texture2D" uid="uid://bpnq56n6ej7kc" path="res://epoch6/creeps/1/attack/creep6_1_attack_static_2.png" id="11_5fw3r"]
+[ext_resource type="Texture2D" uid="uid://mwvmhb7p55ee" path="res://epoch6/creeps/1/attack/creep6_1_attack_static_3.png" id="12_wgbis"]
+[ext_resource type="Texture2D" uid="uid://cteefevr4ki0i" path="res://epoch6/creeps/1/death/creep6_1_death_1.png" id="13_h7sry"]
+[ext_resource type="Texture2D" uid="uid://dyj4abtqyn7i6" path="res://epoch6/creeps/1/death/creep6_1_death_2.png" id="14_md7td"]
+[ext_resource type="Texture2D" uid="uid://bc4bg6riqu4q6" path="res://epoch6/creeps/1/death/creep6_1_death_3.png" id="15_rggus"]
+[ext_resource type="Texture2D" uid="uid://dixdej3xevku6" path="res://epoch6/creeps/1/death/creep6_1_death_4.png" id="16_41ill"]
+[ext_resource type="Texture2D" uid="uid://cvpvbwy30ugc7" path="res://epoch6/creeps/1/walk/creep6_1_walk_1.png" id="17_7fshp"]
+[ext_resource type="Texture2D" uid="uid://dehldik4f31bc" path="res://epoch6/creeps/1/walk/creep6_1_walk_2.png" id="18_2nvcd"]
+[ext_resource type="Texture2D" uid="uid://boin2ft8e0jsy" path="res://epoch6/creeps/1/walk/creep6_1_walk_3.png" id="19_86h6v"]
+[ext_resource type="Texture2D" uid="uid://wjaf8yugrq78" path="res://epoch6/creeps/1/walk/creep6_1_walk_4.png" id="20_p27uf"]
+[ext_resource type="Texture2D" uid="uid://dkgw5kwa78i5c" path="res://epoch6/creeps/1/walk/creep6_1_walk_5.png" id="21_0c8ya"]
+[ext_resource type="Texture2D" uid="uid://dce6aoaguudo3" path="res://epoch6/creeps/1/walk/creep6_1_walk_6.png" id="22_cwfl3"]
+[ext_resource type="Texture2D" uid="uid://bugt78tlgj7ct" path="res://epoch6/creeps/1/walk/creep6_1_walk_7.png" id="23_p1vpj"]
+[ext_resource type="Texture2D" uid="uid://dfmdy22mjn3l8" path="res://epoch6/creeps/1/walk/creep6_1_walk_8.png" id="24_mnh4p"]
+[ext_resource type="AudioStream" uid="uid://c4y0ijgh4gqns" path="res://assets/sounds/creep_hit.mp3" id="25_x7p5g"]
+[ext_resource type="AudioStream" uid="uid://daii1vjh0psrm" path="res://assets/sounds/creep_death.mp3" id="26_c8tmc"]
+[ext_resource type="AudioStream" uid="uid://sudagcdkjosa" path="res://assets/sounds/creep6_[1,4]_attack.mp3" id="27_op1ca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3iwuw"]
 size = Vector2(27, 33)
@@ -157,10 +160,13 @@ animation = &"walk"
 position = Vector2(14, 20.75)
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_x7p5g")
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_c8tmc")
 
 [node name="WalkSound" type="AudioStreamPlayer" parent="."]
 autoplay = true
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_op1ca")

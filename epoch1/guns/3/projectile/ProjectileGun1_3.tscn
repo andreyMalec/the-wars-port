@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cq2ovvj8oo65n"]
+[gd_scene load_steps=9 format=3 uid="uid://cq2ovvj8oo65n"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileBallistic.kt" id="1_q78ro"]
-[ext_resource type="Texture2D" uid="uid://bnoicpu52uic" path="res://epoch1/guns/3/projectile/projectile_gun1_3_1.png" id="2_0yhl4"]
-[ext_resource type="Texture2D" uid="uid://copinuuv57ynk" path="res://epoch1/guns/3/projectile/projectile_gun1_3_2.png" id="3_tp57o"]
-[ext_resource type="Texture2D" uid="uid://8wkb4cqp1kti" path="res://epoch1/guns/3/projectile/projectile_gun1_3_3.png" id="4_tfhyc"]
+[ext_resource type="Texture2D" uid="uid://desjnvv5hh6wj" path="res://epoch1/guns/3/projectile/projectile_gun1_3_1.png" id="2_0yhl4"]
+[ext_resource type="Texture2D" uid="uid://jejv7bdqfq5o" path="res://epoch1/guns/3/projectile/projectile_gun1_3_2.png" id="3_tp57o"]
+[ext_resource type="Texture2D" uid="uid://dmecp75jiokek" path="res://epoch1/guns/3/projectile/projectile_gun1_3_3.png" id="4_tfhyc"]
+[ext_resource type="AudioStream" uid="uid://dk408innglb74" path="res://assets/sounds/projectileGun1_3.mp3" id="5_6fl4y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j7jq1"]
 animations = [{
@@ -47,5 +48,8 @@ shape = SubResource("4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("5")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6fl4y")
 
 [connection signal="area_entered" from="TouchArea" to="." method="_on_TouchArea_area_entered"]

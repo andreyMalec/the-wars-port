@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cjiaghihrf8us"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_vf0rl"]
-[ext_resource type="Texture2D" uid="uid://bdsjlqbyfy54r" path="res://epoch1/guns/2/projectile/projectile_gun1_2_1.png" id="2_4ojav"]
-[ext_resource type="Texture2D" uid="uid://bf1e184wy0837" path="res://epoch1/guns/2/projectile/projectile_gun1_2_2.png" id="3_wib3v"]
-[ext_resource type="Texture2D" uid="uid://dh84qt1dnaa58" path="res://epoch1/guns/2/projectile/projectile_gun1_2_3.png" id="4_1kyls"]
-[ext_resource type="Texture2D" uid="uid://c3diwesy52ta5" path="res://epoch1/guns/2/projectile/projectile_gun1_2_4.png" id="5_hyran"]
+[ext_resource type="Texture2D" uid="uid://bs6hmoufsqu60" path="res://epoch1/guns/2/projectile/projectile_gun1_2_1.png" id="2_4ojav"]
+[ext_resource type="Texture2D" uid="uid://do6ebw22mejii" path="res://epoch1/guns/2/projectile/projectile_gun1_2_2.png" id="3_wib3v"]
+[ext_resource type="Texture2D" uid="uid://dbiv0trkangd5" path="res://epoch1/guns/2/projectile/projectile_gun1_2_3.png" id="4_1kyls"]
+[ext_resource type="Texture2D" uid="uid://crmdfl5x8nsv2" path="res://epoch1/guns/2/projectile/projectile_gun1_2_4.png" id="5_hyran"]
 
 [sub_resource type="SpriteFrames" id="3"]
 animations = [{
@@ -46,5 +46,7 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
 scale = Vector2(0.4, 0.4)
 shape = SubResource("4")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="TouchArea" to="." method="_on_TouchArea_area_entered"]

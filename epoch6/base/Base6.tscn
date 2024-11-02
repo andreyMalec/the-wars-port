@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dahu0ab4x1nnq"]
+[gd_scene load_steps=7 format=3 uid="uid://dahu0ab4x1nnq"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/BaseBody.kt" id="1_df2iw"]
-[ext_resource type="Texture2D" uid="uid://b8p6jmy82427h" path="res://epoch6/base/Base6_2.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://cnfqrhhkxwvnh" path="res://epoch6/base/Grade6_1.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://cs7lpt3ag7a1b" path="res://epoch6/base/Base6_1.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://dxx5r371v8by" path="res://epoch6/base/Grade6_2.png" id="5_rhrhf"]
+[ext_resource type="Texture2D" uid="uid://bnkoin334oi04" path="res://epoch6/base/Base6_2.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://duvvhufcova1i" path="res://epoch6/base/Grade6_1.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dkpdl6sag3wrl" path="res://epoch6/base/Base6_1.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bigqbmu5383yt" path="res://epoch6/base/Grade6_2.png" id="5_rhrhf"]
+[ext_resource type="AudioStream" uid="uid://taaxn2k4t3tx" path="res://assets/sounds/base_hit.mp3" id="6_oeljn"]
 
 [node name="Base" type="Node2D"]
 script = ExtResource("1_df2iw")
@@ -50,3 +51,4 @@ position = Vector2(14.6667, 21)
 polygon = PackedVector2Array(8, -1, 8, 6, -39, 6, -27, -51, -27, -1)
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_oeljn")

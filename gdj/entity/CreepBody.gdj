@@ -27,8 +27,8 @@ functions = [
     _ready,
 	on_touch_area_entered,
 	on_touch_area_exited,
+	on_frame_changed,
 	_process,
 	on_attack_range_entered,
-	on_attack_range_exited,
-	on_frame_changed
+	on_attack_range_exited
 ]

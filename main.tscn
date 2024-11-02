@@ -20,7 +20,7 @@ enemy_menu = NodePath("Control/EnemyMenu")
 [node name="Background" parent="." instance=ExtResource("2_dj18o")]
 
 [node name="PlayerBase" parent="." instance=ExtResource("5_e2q2s")]
-position = Vector2(-15, 185)
+position = Vector2(258.6, 185)
 
 [node name="EnemyBase" parent="." instance=ExtResource("5_e2q2s")]
 position = Vector2(655, 185)
@@ -64,9 +64,12 @@ anchor_top = 1.0
 anchor_right = 0.0
 anchor_bottom = 1.0
 offset_left = 3.0
-offset_top = -471.71
+offset_top = -410.63
 offset_right = 3.0
-offset_bottom = -471.71
+offset_bottom = -410.63
 grow_horizontal = 1
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
+
+[node name="GlobalSounds" type="AudioStreamPlayer" parent="."]
+max_polyphony = 10

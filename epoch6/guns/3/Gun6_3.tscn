@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://2qevjsaxpmei"]
+[gd_scene load_steps=5 format=3 uid="uid://2qevjsaxpmei"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_syshn"]
-[ext_resource type="Texture2D" uid="uid://df2n58fg2ct70" path="res://epoch6/guns/3/gun6_3_1.png" id="2_yvdq4"]
+[ext_resource type="Texture2D" uid="uid://bjj5gkexihs2u" path="res://epoch6/guns/3/gun6_3_1.png" id="2_yvdq4"]
+[ext_resource type="AudioStream" uid="uid://d31p5rhf8gjuv" path="res://assets/sounds/plasma.mp3" id="3_01qja"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -41,6 +42,9 @@ animation = &"attack"
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(16, -1)
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_01qja")
 
 [connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

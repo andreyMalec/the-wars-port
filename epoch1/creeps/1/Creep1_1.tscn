@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bv4xg33y4i80h"]
+[gd_scene load_steps=26 format=3 uid="uid://bv4xg33y4i80h"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/CreepBody.kt" id="1_f5fsk"]
 [ext_resource type="Texture2D" uid="uid://qx72rxc0w8cb" path="res://epoch1/creeps/1/attack/creep1_1_attack_2.png" id="5_ux4gd"]
@@ -17,9 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://ddqs3ei86avcu" path="res://epoch1/creeps/1/walk/creep1_1_walk_3.png" id="18_yj4o2"]
 [ext_resource type="Texture2D" uid="uid://pdabokvm8yk7" path="res://epoch1/creeps/1/walk/creep1_1_walk_4.png" id="19_mpln8"]
 [ext_resource type="Texture2D" uid="uid://dsu1wcl8dwcft" path="res://epoch1/creeps/1/walk/creep1_1_walk_5.png" id="20_ibs6j"]
+[ext_resource type="AudioStream" uid="uid://c4y0ijgh4gqns" path="res://assets/sounds/creep_hit.mp3" id="21_ce44f"]
 [ext_resource type="Texture2D" uid="uid://cv8a0aa21aiib" path="res://epoch1/creeps/1/walk/creep1_1_walk_6.png" id="21_kanuj"]
 [ext_resource type="Texture2D" uid="uid://cbx537ocqnk2e" path="res://epoch1/creeps/1/walk/creep1_1_walk_7.png" id="22_56rps"]
+[ext_resource type="AudioStream" uid="uid://daii1vjh0psrm" path="res://assets/sounds/creep_death.mp3" id="22_ecmx7"]
 [ext_resource type="Texture2D" uid="uid://djj8xdw2yh3qs" path="res://epoch1/creeps/1/walk/creep1_1_walk_8.png" id="23_2u6m5"]
+[ext_resource type="AudioStream" uid="uid://dume1cqmupaog" path="res://assets/sounds/creep1_1_attack.mp3" id="23_badg1"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(29, 33)
@@ -133,9 +136,12 @@ sprite_frames = SubResource("SpriteFrames_bkpwo")
 animation = &"walk"
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_ce44f")
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_ecmx7")
 
 [node name="WalkSound" type="AudioStreamPlayer" parent="."]
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_badg1")

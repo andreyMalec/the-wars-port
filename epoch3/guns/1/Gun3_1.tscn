@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwrgitue2m84l"]
+[gd_scene load_steps=7 format=3 uid="uid://bwrgitue2m84l"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_70rur"]
-[ext_resource type="Texture2D" uid="uid://cx483s28j7q6c" path="res://epoch3/guns/1/gun3_1_1.png" id="2_drv4i"]
-[ext_resource type="Texture2D" uid="uid://8we3b7fffn4" path="res://epoch3/guns/1/gun3_1_2.png" id="3_tx43a"]
-[ext_resource type="Texture2D" uid="uid://dimbcvjfypb03" path="res://epoch3/guns/1/gun3_1_3.png" id="4_ftc55"]
+[ext_resource type="Texture2D" uid="uid://dmxlevdlw684n" path="res://epoch3/guns/1/gun3_1_1.png" id="2_drv4i"]
+[ext_resource type="Texture2D" uid="uid://cjdmveoxrilbp" path="res://epoch3/guns/1/gun3_1_2.png" id="3_tx43a"]
+[ext_resource type="Texture2D" uid="uid://6vv283hlrkku" path="res://epoch3/guns/1/gun3_1_3.png" id="4_ftc55"]
+[ext_resource type="AudioStream" uid="uid://dax7caex3hlgp" path="res://assets/sounds/musket.mp3" id="5_pi0xt"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -51,6 +52,9 @@ sprite_frames = SubResource("1")
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(12, -1)
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pi0xt")
 
 [connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

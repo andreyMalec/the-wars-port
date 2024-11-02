@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://deovlceo1oee5"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_jndsx"]
-[ext_resource type="Texture2D" uid="uid://cmco7ejpwhe6i" path="res://epoch1/guns/2/gun1_2_1.png" id="2_f43u1"]
-[ext_resource type="Texture2D" uid="uid://ccir3o2u8jpc7" path="res://epoch1/guns/2/gun1_2_2.png" id="3_62lgp"]
-[ext_resource type="Texture2D" uid="uid://b2famct01wvlg" path="res://epoch1/guns/2/gun1_2_3.png" id="4_hfm6s"]
-[ext_resource type="Texture2D" uid="uid://dqbutbshjgiqw" path="res://epoch1/guns/2/gun1_2_4.png" id="5_y8ljg"]
-[ext_resource type="Texture2D" uid="uid://cmy7ck4yaq4wh" path="res://epoch1/guns/2/gun1_2_5.png" id="6_dgo52"]
-[ext_resource type="Texture2D" uid="uid://dspgqpgkmoraj" path="res://epoch1/guns/2/gun1_2_6.png" id="7_hpi4y"]
-[ext_resource type="Texture2D" uid="uid://2ogcgjx7scm3" path="res://epoch1/guns/2/gun1_2_7.png" id="8_k6g2y"]
-[ext_resource type="Texture2D" uid="uid://bce8j0r50wdqp" path="res://epoch1/guns/2/gun1_2_8.png" id="9_37lpb"]
+[ext_resource type="Texture2D" uid="uid://h6ivwt7vu7al" path="res://epoch1/guns/2/gun1_2_1.png" id="2_f43u1"]
+[ext_resource type="Texture2D" uid="uid://dxllyqyp1qv56" path="res://epoch1/guns/2/gun1_2_2.png" id="3_62lgp"]
+[ext_resource type="Texture2D" uid="uid://qqbiwt2fi5d4" path="res://epoch1/guns/2/gun1_2_3.png" id="4_hfm6s"]
+[ext_resource type="Texture2D" uid="uid://bynbw2h1612yi" path="res://epoch1/guns/2/gun1_2_4.png" id="5_y8ljg"]
+[ext_resource type="Texture2D" uid="uid://dq8pjoderos24" path="res://epoch1/guns/2/gun1_2_5.png" id="6_dgo52"]
+[ext_resource type="Texture2D" uid="uid://c1y8ktd3vl4m6" path="res://epoch1/guns/2/gun1_2_6.png" id="7_hpi4y"]
+[ext_resource type="Texture2D" uid="uid://dg1bkdrgcsc0" path="res://epoch1/guns/2/gun1_2_7.png" id="8_k6g2y"]
+[ext_resource type="Texture2D" uid="uid://rd48n2jmva3o" path="res://epoch1/guns/2/gun1_2_8.png" id="9_37lpb"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -71,6 +71,8 @@ frame_progress = 1.0
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(11, -8)
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

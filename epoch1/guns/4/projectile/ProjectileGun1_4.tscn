@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://o2g4s7k683et"]
+[gd_scene load_steps=12 format=3 uid="uid://o2g4s7k683et"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileBallistic.kt" id="1_lm2ct"]
-[ext_resource type="Texture2D" uid="uid://cmnu0mlvpovub" path="res://epoch1/guns/4/projectile/projectile_gun1_4_1.png" id="2_5ybu2"]
-[ext_resource type="Texture2D" uid="uid://bc2dt4rv8piij" path="res://epoch1/guns/4/projectile/projectile_gun1_4_2.png" id="3_2uqje"]
-[ext_resource type="Texture2D" uid="uid://b1hf84qfxh8pk" path="res://epoch1/guns/4/projectile/projectile_gun1_4_3.png" id="4_8xnwk"]
-[ext_resource type="Texture2D" uid="uid://dqd14bcti3c88" path="res://epoch1/guns/4/projectile/projectile_gun1_4_4.png" id="5_7kkuw"]
-[ext_resource type="Texture2D" uid="uid://cj7icvioecfnn" path="res://epoch1/guns/4/projectile/projectile_gun1_4_5.png" id="6_x0wmh"]
-[ext_resource type="Texture2D" uid="uid://c3q2g3evh5d5s" path="res://epoch1/guns/4/projectile/projectile_gun1_4_6.png" id="7_gu3ov"]
+[ext_resource type="Texture2D" uid="uid://px208fnm2kbs" path="res://epoch1/guns/4/projectile/projectile_gun1_4_1.png" id="2_5ybu2"]
+[ext_resource type="Texture2D" uid="uid://c0edorsve0lf1" path="res://epoch1/guns/4/projectile/projectile_gun1_4_2.png" id="3_2uqje"]
+[ext_resource type="Texture2D" uid="uid://bo07nocvj3gvb" path="res://epoch1/guns/4/projectile/projectile_gun1_4_3.png" id="4_8xnwk"]
+[ext_resource type="Texture2D" uid="uid://btb75k7ycf0mf" path="res://epoch1/guns/4/projectile/projectile_gun1_4_4.png" id="5_7kkuw"]
+[ext_resource type="Texture2D" uid="uid://c5k7d5g511oml" path="res://epoch1/guns/4/projectile/projectile_gun1_4_5.png" id="6_x0wmh"]
+[ext_resource type="Texture2D" uid="uid://7pevaislwq62" path="res://epoch1/guns/4/projectile/projectile_gun1_4_6.png" id="7_gu3ov"]
+[ext_resource type="AudioStream" uid="uid://bxxu58m1cygd7" path="res://assets/sounds/projectileRock.mp3" id="8_hqhax"]
 
 [sub_resource type="SpriteFrames" id="3"]
 animations = [{
@@ -57,5 +58,8 @@ shape = SubResource("4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("5")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_hqhax")
 
 [connection signal="area_entered" from="TouchArea" to="." method="_on_TouchArea_area_entered"]

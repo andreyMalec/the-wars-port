@@ -1,18 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6k1kej84g3b1"]
+[gd_scene load_steps=20 format=3 uid="uid://b6k1kej84g3b1"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_r856w"]
-[ext_resource type="Texture2D" uid="uid://p4u0o21jqc1i" path="res://epoch4/creeps/3/attack/creep4_3_attack_1.png" id="2_5egnb"]
-[ext_resource type="Texture2D" uid="uid://p1iniib3ey6x" path="res://epoch4/creeps/3/attack/creep4_3_attack_2.png" id="3_tsfee"]
-[ext_resource type="Texture2D" uid="uid://7f6qs8unqryq" path="res://epoch4/creeps/3/attack/creep4_3_attack_3.png" id="4_uygox"]
-[ext_resource type="Texture2D" uid="uid://kqtsemefkewk" path="res://epoch4/creeps/3/attack/creep4_3_attack_static_1.png" id="5_wcwft"]
-[ext_resource type="Texture2D" uid="uid://dkllw3baytu00" path="res://epoch4/creeps/3/attack/creep4_3_attack_static_2.png" id="6_1stmo"]
-[ext_resource type="Texture2D" uid="uid://cbu5dk3f6kra7" path="res://epoch4/creeps/3/attack/creep4_3_attack_static_3.png" id="7_0flpd"]
-[ext_resource type="Texture2D" uid="uid://bam0csdb1ico7" path="res://epoch4/creeps/3/death/creep4_3_death_1.png" id="8_q2i3p"]
-[ext_resource type="Texture2D" uid="uid://b84xafac67dl0" path="res://epoch4/creeps/3/death/creep4_3_death_2.png" id="9_pqs1b"]
-[ext_resource type="Texture2D" uid="uid://dl4k246f70xiy" path="res://epoch4/creeps/3/death/creep4_3_death_3.png" id="10_q4l3s"]
-[ext_resource type="Texture2D" uid="uid://ca8g5xupbitme" path="res://epoch4/creeps/3/death/creep4_3_death_4.png" id="11_s7fe8"]
-[ext_resource type="Texture2D" uid="uid://dvt3xao4x28jk" path="res://epoch4/creeps/3/death/creep4_3_death_5.png" id="12_8ycdl"]
-[ext_resource type="Texture2D" uid="uid://8vxkl8f10d5v" path="res://epoch4/creeps/3/walk/creep4_3_walk_1.png" id="13_fy2qn"]
+[ext_resource type="Texture2D" uid="uid://byk5pubedv7cp" path="res://epoch4/creeps/3/attack/creep4_3_attack_1.png" id="2_5egnb"]
+[ext_resource type="Texture2D" uid="uid://bm8goucxqliru" path="res://epoch4/creeps/3/attack/creep4_3_attack_2.png" id="3_tsfee"]
+[ext_resource type="Texture2D" uid="uid://bhibbcwuekw83" path="res://epoch4/creeps/3/attack/creep4_3_attack_3.png" id="4_uygox"]
+[ext_resource type="Texture2D" uid="uid://bay37favat4k6" path="res://epoch4/creeps/3/attack/creep4_3_attack_static_1.png" id="5_wcwft"]
+[ext_resource type="Texture2D" uid="uid://0cgwdah4ddkd" path="res://epoch4/creeps/3/attack/creep4_3_attack_static_2.png" id="6_1stmo"]
+[ext_resource type="Texture2D" uid="uid://bl1ayjvoa52ht" path="res://epoch4/creeps/3/attack/creep4_3_attack_static_3.png" id="7_0flpd"]
+[ext_resource type="Texture2D" uid="uid://b84deqne76vnc" path="res://epoch4/creeps/3/death/creep4_3_death_1.png" id="8_q2i3p"]
+[ext_resource type="Texture2D" uid="uid://bxdoocv7pkqp4" path="res://epoch4/creeps/3/death/creep4_3_death_2.png" id="9_pqs1b"]
+[ext_resource type="Texture2D" uid="uid://b0rirba5lex34" path="res://epoch4/creeps/3/death/creep4_3_death_3.png" id="10_q4l3s"]
+[ext_resource type="Texture2D" uid="uid://b15fkh823evtr" path="res://epoch4/creeps/3/death/creep4_3_death_4.png" id="11_s7fe8"]
+[ext_resource type="Texture2D" uid="uid://xov7hum7p07r" path="res://epoch4/creeps/3/death/creep4_3_death_5.png" id="12_8ycdl"]
+[ext_resource type="Texture2D" uid="uid://b8yr8yig8flqh" path="res://epoch4/creeps/3/walk/creep4_3_walk_1.png" id="13_fy2qn"]
+[ext_resource type="AudioStream" uid="uid://bfhwrcrt285w6" path="res://assets/sounds/hit_steel.mp3" id="14_k3wyg"]
+[ext_resource type="AudioStream" uid="uid://dr1bmts3c5wl6" path="res://assets/sounds/explosion.mp3" id="15_t02wx"]
+[ext_resource type="AudioStream" uid="uid://qy44kpis335a" path="res://assets/sounds/super4.wav" id="16_tgbxr"]
+[ext_resource type="AudioStream" uid="uid://bp5oyda6lob8h" path="res://assets/sounds/creep[3-4]_3_attack.mp3" id="17_my6su"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yqx2"]
 size = Vector2(27, 33)
@@ -116,9 +120,14 @@ animation = &"attack_static"
 position = Vector2(23, 22.5)
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_k3wyg")
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_t02wx")
 
 [node name="WalkSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_tgbxr")
+pitch_scale = 0.5
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_my6su")

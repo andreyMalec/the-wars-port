@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4mj1btlf3ich"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_b6or5"]
-[ext_resource type="Texture2D" uid="uid://cg4xl5va1b4jg" path="res://epoch5/creeps/3/projectile/projectile_creep5_3_1.png" id="2_lgby0"]
+[ext_resource type="Texture2D" uid="uid://tkuwrqkqjdbx" path="res://epoch5/creeps/3/projectile/projectile_creep5_3_1.png" id="2_x0368"]
 
 [sub_resource type="SpriteFrames" id="3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lgby0")
+"texture": ExtResource("2_x0368")
 }],
 "loop": false,
 "name": &"default",
@@ -31,4 +31,4 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
 shape = SubResource("2")
 
-[connection signal="area_entered" from="TouchArea" to="." method="_on_TouchArea_area_entered"]
+[node name="HitSound" type="AudioStreamPlayer" parent="."]

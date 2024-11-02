@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg1k6nhqia2nh"]
+[gd_scene load_steps=7 format=3 uid="uid://bg1k6nhqia2nh"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_8p48g"]
-[ext_resource type="Texture2D" uid="uid://cc0d146fddqcn" path="res://epoch4/guns/4/gun4_4_1.png" id="2_p2rds"]
-[ext_resource type="Texture2D" uid="uid://dj0bc703blxgn" path="res://epoch4/guns/4/gun4_4_2.png" id="3_2dtsn"]
-[ext_resource type="Texture2D" uid="uid://d1cyxnv2bmog2" path="res://epoch4/guns/4/gun4_4_3.png" id="4_2psem"]
+[ext_resource type="Texture2D" uid="uid://dsrtapg1rqha2" path="res://epoch4/guns/4/gun4_4_1.png" id="2_p2rds"]
+[ext_resource type="Texture2D" uid="uid://brwfvdw2d3nae" path="res://epoch4/guns/4/gun4_4_2.png" id="3_2dtsn"]
+[ext_resource type="Texture2D" uid="uid://lw2gin2r17mb" path="res://epoch4/guns/4/gun4_4_3.png" id="4_2psem"]
+[ext_resource type="AudioStream" uid="uid://bp5oyda6lob8h" path="res://assets/sounds/creep[3-4]_3_attack.mp3" id="5_hkhr2"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -60,6 +61,10 @@ position = Vector2(14, -1)
 
 [node name="ProjectilePosition2" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(11, -1)
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hkhr2")
+max_polyphony = 4
 
 [connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

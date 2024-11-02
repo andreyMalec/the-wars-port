@@ -12,19 +12,19 @@ import godot.core.Vector2
 
 @RegisterClass
 class FloatingLabel : Node2D() {
-    @Export
-    @RegisterProperty
-    var direction: Vector2 = Vector2.ZERO
+	@Export
+	@RegisterProperty
+	var direction: Vector2 = Vector2.ZERO
 
-    var text: String = ""
+	var text: String = ""
 
-    @RegisterFunction
-    override fun _ready() {
-        findNode<Label>(R.node.label)?.text = text
-    }
+	@RegisterFunction
+	override fun _ready() {
+		findNode<Label>(R.node.label)?.text = text
+	}
 
-    @RegisterFunction
-    override fun _process(delta: Double) {
-        setPosition(position + direction)
-    }
+	@RegisterFunction
+	override fun _process(delta: Double) {
+		setPosition(position + direction)
+	}
 }

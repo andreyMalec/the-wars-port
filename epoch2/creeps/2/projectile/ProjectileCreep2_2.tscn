@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgl4mhfvavjbf"]
+[gd_scene load_steps=6 format=3 uid="uid://dgl4mhfvavjbf"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_ymwfq"]
-[ext_resource type="Texture2D" uid="uid://p71kbnjb53q3" path="res://epoch2/creeps/2/projectile/projectile_creep2_2_1.png" id="2_osfjk"]
+[ext_resource type="Texture2D" uid="uid://by32n4pkvbbpq" path="res://epoch2/creeps/2/projectile/projectile_creep2_2_1.png" id="2_osfjk"]
+[ext_resource type="AudioStream" uid="uid://t736f2byrn1y" path="res://assets/sounds/projectileArrow.mp3" id="3_8ttc3"]
 
 [sub_resource type="RectangleShape2D" id="2"]
 size = Vector2(10, 2)
@@ -31,3 +32,6 @@ shape = SubResource("2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3q38g")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8ttc3")

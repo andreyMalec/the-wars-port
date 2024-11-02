@@ -44,6 +44,9 @@ open class CreepBody : DamageDealer(), Damageable {
 
 	protected var touchArea: Area2D? = null
 	private var hpProgress: HpProgress? = null
+	protected var soundHit: AudioStreamPlayer? = null
+	protected var soundDeath: AudioStreamPlayer? = null
+	protected var soundWalk: AudioStreamPlayer? = null
 
 	private var deathTimer = 0.0
 
@@ -53,6 +56,7 @@ open class CreepBody : DamageDealer(), Damageable {
 			val blood = R.scene.blood.instance<VisualEffect>()
 			(target as Node2D).addChild(blood)
 		}
+		soundAttack?.play()
 	}
 
 	override fun playAttackAnimation() {
@@ -69,6 +73,7 @@ open class CreepBody : DamageDealer(), Damageable {
 
 	override fun takeDamage(damage: Int) {
 		hp -= damage
+		soundHit?.play()
 	}
 
 	@RegisterFunction
@@ -81,6 +86,9 @@ open class CreepBody : DamageDealer(), Damageable {
 		touchArea?.areaEntered?.connect(::onTouchAreaEntered)
 		touchArea?.areaExited?.connect(::onTouchAreaExited)
 		sprite?.play(Animation.walk.name)
+		soundHit = findNode(R.node.hitSound)
+		soundWalk = findNode(R.node.walkSound)
+		soundDeath = findNode(R.node.deathSound)
 	}
 
 	@RegisterFunction
@@ -116,6 +124,14 @@ open class CreepBody : DamageDealer(), Damageable {
 				area.globalPosition.x < (touchArea?.globalPosition?.x ?: 0.0)
 		if (enemyKilled || allyBeforeUsKilled)
 			pathBusy = -0.3f
+	}
+
+
+	@RegisterFunction
+	override fun onFrameChanged() {
+		super.onFrameChanged()
+		if (sprite?.frame == 0 && speed > 0)
+			soundWalk?.play()
 	}
 
 	@RegisterFunction
@@ -165,6 +181,9 @@ open class CreepBody : DamageDealer(), Damageable {
 
 	private fun deathActions() {
 		onDied()
+		soundDeath?.play()
+		soundAttack?.stop()
+		soundWalk?.stop()
 		touchArea?.findNode<CollisionPolygon2D>(R.node.collisionPolygon)?.disabled = true
 		attackRange?.findNode<CollisionShape2D>(R.node.collisionShape)?.disabled = true
 		sprite?.play(Animation.death.name)

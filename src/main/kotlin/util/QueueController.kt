@@ -3,10 +3,10 @@ package util
 import entity.Creep
 
 interface QueueController {
-    val creepQueueCount: List<Int>
-    val currentCreep: Creep?
-    val spawnProgress: Float
+	val creepQueueCount: List<Int>
+	val currentCreep: Creep?
+	val spawnProgress: Float
 
-    fun queueCreep(creep: Creep): Boolean
-    fun processQueue(delta: Double) {}
+	fun queueCreep(creep: Creep): Boolean
+	fun processQueue(delta: Double) {}
 }

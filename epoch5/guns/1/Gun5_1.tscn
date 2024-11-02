@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqs31t4ns5jrj"]
+[gd_scene load_steps=6 format=3 uid="uid://cqs31t4ns5jrj"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_vpgun"]
-[ext_resource type="Texture2D" uid="uid://3wed1fyxd68f" path="res://epoch5/guns/1/gun5_1_1.png" id="2_eh76l"]
-[ext_resource type="Texture2D" uid="uid://dibmewdl76rd7" path="res://epoch5/guns/1/gun5_1_2.png" id="3_16tnj"]
+[ext_resource type="Texture2D" uid="uid://ddsmo5nuk4820" path="res://epoch5/guns/1/gun5_1_1.png" id="2_eh76l"]
+[ext_resource type="Texture2D" uid="uid://d3f8joplh6cyr" path="res://epoch5/guns/1/gun5_1_2.png" id="3_16tnj"]
+[ext_resource type="AudioStream" uid="uid://bmj5qwfwdakvg" path="res://assets/sounds/double_gun.mp3" id="4_yrgi1"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -47,6 +48,10 @@ sprite_frames = SubResource("1")
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(10, 0.5)
+
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yrgi1")
+max_polyphony = 4
 
 [connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
 [connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]

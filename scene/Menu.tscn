@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxavh432a6j2d"]
+[gd_scene load_steps=19 format=3 uid="uid://dxavh432a6j2d"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/gui/MenuControl.kt" id="1_kq0ct"]
 [ext_resource type="FontFile" path="res://gui/common_font.tres" id="2_r8bwp"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://dr4jyiox57hjn" path="res://assets/controls/ic_upgrade_indicator.png" id="12_n0i7h"]
 [ext_resource type="Texture2D" uid="uid://jlv5wtl46q65" path="res://assets/controls/background_exp.png" id="14_f7prj"]
 [ext_resource type="Texture2D" uid="uid://ds448t7dolxsi" path="res://assets/controls/foreground_exp.png" id="15_2lilm"]
+[ext_resource type="AudioStream" uid="uid://74nlngd4t6gj" path="res://assets/sounds/error.mp3" id="16_0akxp"]
 [ext_resource type="Texture2D" uid="uid://b70wr634jgc45" path="res://assets/controls/foreground_button.png" id="16_4s6d1"]
+[ext_resource type="AudioStream" uid="uid://dwl66ub21n264" path="res://assets/sounds/click.mp3" id="17_dyphy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a4pd2"]
 animations = [{
@@ -192,7 +194,9 @@ texture_pressed = ExtResource("16_4s6d1")
 stretch_mode = 4
 
 [node name="ErrorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_0akxp")
 volume_db = -10.0
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_dyphy")
 volume_db = -10.0
