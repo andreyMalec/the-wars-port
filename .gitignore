@@ -9,6 +9,8 @@ tmp
 jre
 jre*
 *.apk
+venv/
+.DS_Store
 
 audio
 assets/controls/*
