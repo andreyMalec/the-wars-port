@@ -33,7 +33,6 @@ class RangedCreepBody : CreepBody() {
 	override fun _ready() {
 		super._ready()
 		projectilePosition = sprite?.findNode(R.node.projectilePosition)
-//        touchAreaRect = (touchArea?.getChild(0) as? CollisionShape2D)?.shape?.getRect() ?: Rect2()
 	}
 
 	override fun dealDamage(target: Damageable) {

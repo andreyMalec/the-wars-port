@@ -1,50 +1,64 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=3 uid="uid://ddg7dg2ss0y00"]
 
-[ext_resource type="Texture2D" uid="uid://twcl88dpalaj" path="res://epoch1/super/special_1_3.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://d2d021lm2omao" path="res://epoch1/super/special_1_1.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://beofnheigq6pl" path="res://epoch1/super/special_1_2.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://dks8umpv0pg1u" path="res://epoch1/super/special_1_0.png" id="4"]
-[ext_resource type="Script" path="res://SFO.cs" id="5"]
-[ext_resource type="PackedScene" path="res://epoch1/guns/4/projectile/ProjectileGun1_4.tscn" id="6"]
-[ext_resource type="AudioStream" uid="uid://dnnvvmng7d3tw" path="res://audio/super_1_attack.mp3" id="7"]
-[ext_resource type="AudioStream" uid="uid://c4yrhsxltk1t8" path="res://audio/super_1_sur.wav" id="8"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/FlyingSpecialWeapon.kt" id="1_knbjq"]
+[ext_resource type="Texture2D" uid="uid://c5e3yngdasyx1" path="res://epoch1/super/super1_1.png" id="1_vht1c"]
+[ext_resource type="Texture2D" uid="uid://d2g7es5tb1j0n" path="res://epoch1/super/super1_2.png" id="2_eewv2"]
+[ext_resource type="Texture2D" uid="uid://dju38xi65xjic" path="res://epoch1/super/super1_3.png" id="3_r41xa"]
+[ext_resource type="Texture2D" uid="uid://cl6w284pepb3n" path="res://epoch1/super/super1_4.png" id="4_erwoe"]
+[ext_resource type="AudioStream" uid="uid://gb4xpkkvtntx" path="res://assets/sounds/super1.wav" id="5_xt34i"]
+[ext_resource type="AudioStream" uid="uid://b1kjwoul6oi5a" path="res://assets/sounds/super[1,3]_attack.mp3" id="6_rs7ar"]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(31, 135.5)
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vht1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_eewv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r41xa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_erwoe")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 8.0
-} ]
+}]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 28, 74.5 )
+[node name="Super1" type="Node2D"]
+position = Vector2(0, -150)
+script = ExtResource("1_knbjq")
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource( 5 )
-direction = 1
-damage = 30
-attackSpeed = 0.3
-projectileScene = ExtResource( 6 )
+[node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 5
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-frames = SubResource( 1 )
-playing = true
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
+rotation = 1.5708
+polygon = PackedVector2Array(0, 0, 25, 0, 12.5, -40)
 
 [node name="AttackRange" type="Area2D" parent="."]
 collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2( 29, 64.5 )
-shape = SubResource( 2 )
+position = Vector2(-1, 79.25)
+shape = SubResource("2")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("1")
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(-0.91, 31.55)
+
+[node name="FlySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xt34i")
 autoplay = true
 
-[node name="AudioProjectilePop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-
-[connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
-[connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rs7ar")

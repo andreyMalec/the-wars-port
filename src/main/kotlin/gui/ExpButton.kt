@@ -18,7 +18,7 @@ class ExpButton : TextureButton() {
 
 	private var newEpochNotification: AnimatedSprite2D? = null
 	private var expLabel: Label? = null
-	private var expProgress: ExpProgress? = null
+	private var expProgress: ProgressBar? = null
 
 	@RegisterFunction
 	override fun _ready() {

@@ -35,7 +35,11 @@ class MenuControl : Control() {
 
 	@Export
 	@RegisterProperty
-	lateinit var base: Base
+	var base: Base = Base()
+		set(value) {
+			field = value
+			findNode<SuperButton>("SpecialWeaponButton")?.base = base
+		}
 
 	private lateinit var gameState: GameState
 

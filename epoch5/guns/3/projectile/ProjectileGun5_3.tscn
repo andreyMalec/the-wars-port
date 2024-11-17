@@ -24,7 +24,7 @@ radius = 5.09902
 [node name="ProjectileGun5_3" type="RigidBody2D"]
 texture_filter = 1
 script = ExtResource("1_vk0y5")
-auto_rotate = true
+auto_rotate_speed = 5
 explosive = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

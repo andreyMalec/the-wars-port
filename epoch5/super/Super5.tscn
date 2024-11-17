@@ -1,47 +1,65 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://b1rvjbjb00h5"]
 
-[ext_resource path="res://epoch5/super/special_4_3.png" type="Texture2D" id=1]
-[ext_resource path="res://epoch5/super/special_4_0.png" type="Texture2D" id=2]
-[ext_resource path="res://SFO.cs" type="Script" id=3]
-[ext_resource path="res://epoch5/super/ProjectileSuper5.tscn" type="PackedScene" id=4]
-[ext_resource path="res://audio/super3_sur.wav" type="AudioStream" id=6]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/FlyingSpecialWeapon.kt" id="1_mbfy7"]
+[ext_resource type="Texture2D" uid="uid://dd36kiibdv3v6" path="res://epoch5/super/super5_1.png" id="2_7atuk"]
+[ext_resource type="Texture2D" uid="uid://dhoqlu3lymllk" path="res://epoch5/super/super5_2.png" id="3_h5asr"]
+[ext_resource type="AudioStream" uid="uid://bbwgughgcejhm" path="res://assets/sounds/super5.wav" id="4_6hha5"]
+[ext_resource type="AudioStream" uid="uid://b1kjwoul6oi5a" path="res://assets/sounds/super[1,3]_attack.mp3" id="5_e4c35"]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n34b"]
+size = Vector2(40.5, 135.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lqq7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7atuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h5asr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7atuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h5asr")
+}],
 "loop": true,
-"name": "default",
-"speed": 10.0
-} ]
+"name": &"default",
+"speed": 8.0
+}]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 19, 74.5 )
+[node name="Super5" type="Node2D"]
+position = Vector2(0, -150)
+script = ExtResource("1_mbfy7")
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource( 3 )
-direction = 1
-damage = 500
-attackSpeed = 0.3
-projectileScene = ExtResource( 4 )
+[node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 5
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-frames = SubResource( 1 )
-frame = 1
-playing = true
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
+rotation = 1.5708
+polygon = PackedVector2Array(0, 0, 25, 0, 12.5, -40)
 
 [node name="AttackRange" type="Area2D" parent="."]
 collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2( 20, 64.5 )
-shape = SubResource( 2 )
+position = Vector2(2, 79)
+shape = SubResource("RectangleShape2D_7n34b")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lqq7a")
+frame_progress = 0.956972
+centered = false
+offset = Vector2(-43.5, -17.26)
+
+[node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(-10.55, 8.3)
+
+[node name="FlySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6hha5")
 autoplay = true
 
-[node name="AudioProjectilePop" type="AudioStreamPlayer" parent="."]
-
-[connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]
-[connection signal="area_exited" from="AttackRange" to="." method="_on_AttackRange_area_exited"]
+[node name="AttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_e4c35")

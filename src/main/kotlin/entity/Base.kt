@@ -124,6 +124,16 @@ class Base : Node2D(), QueueController, GunController {
 
 	//endregion
 
+	fun releaseSpecialWeapon() {
+		val weapon = SpecialWeapon(epoch)
+		val body = weapon.scene.instance<Node2D>() as? SpecialWeaponBody
+		weapon.body = body
+		body?.let {
+			it.direction = direction
+			findNode<Node2D>("SpecialWeaponPosition")?.addChild(it as Node2D)
+		}
+	}
+
 	@RegisterFunction
 	override fun _ready() {
 		log.d("$this ready direction=$direction")

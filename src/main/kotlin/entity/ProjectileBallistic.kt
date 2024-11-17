@@ -29,7 +29,7 @@ class ProjectileBallistic : RigidBody2D(), Projectile {
 
 	@Export
 	@RegisterProperty
-	var autoRotate: Boolean = false
+	var autoRotateSpeed: Int = 0
 
 	@Export
 	@RegisterProperty
@@ -70,8 +70,8 @@ class ProjectileBallistic : RigidBody2D(), Projectile {
 	@RegisterFunction
 	override fun _process(delta: Double) {
 		super._process(delta)
-		if (autoRotate)
-			sprite?.rotate(delta.toFloat() * 5)
+		if (autoRotateSpeed > 0)
+			sprite?.rotate(delta.toFloat() * autoRotateSpeed)
 	}
 
 	@RegisterFunction

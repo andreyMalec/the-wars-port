@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://kow7shuo4ep1"]
+[gd_scene load_steps=8 format=3 uid="uid://kow7shuo4ep1"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/Main.kt" id="1_6e7kj"]
 [ext_resource type="PackedScene" uid="uid://bwbfj53nvkhob" path="res://scene/Background.tscn" id="2_dj18o"]
 [ext_resource type="PackedScene" uid="uid://dxavh432a6j2d" path="res://scene/Menu.tscn" id="4_q5bjj"]
 [ext_resource type="Script" path="res://src/main/kotlin/entity/Ground.kt" id="5_7c5et"]
 [ext_resource type="PackedScene" uid="uid://c1onkh1pmti0u" path="res://scene/Base.tscn" id="5_e2q2s"]
+[ext_resource type="PackedScene" uid="uid://deqx72633ierb" path="res://scene/Killer.tscn" id="6_2nkqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udd3j"]
 size = Vector2(0.29621, 505.303)
@@ -20,15 +21,14 @@ enemy_menu = NodePath("Control/EnemyMenu")
 [node name="Background" parent="." instance=ExtResource("2_dj18o")]
 
 [node name="PlayerBase" parent="." instance=ExtResource("5_e2q2s")]
-position = Vector2(258.6, 185)
+position = Vector2(-15, 185)
 
 [node name="EnemyBase" parent="." instance=ExtResource("5_e2q2s")]
 position = Vector2(655, 185)
 direction = -1
 
 [node name="Ground" type="Node2D" parent="."]
-visible = false
-position = Vector2(320, 225)
+position = Vector2(320, 203.53)
 script = ExtResource("5_7c5et")
 
 [node name="TouchArea" type="Area2D" parent="Ground"]
@@ -58,18 +58,28 @@ grow_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="EnemyMenu" parent="Control" instance=ExtResource("4_q5bjj")]
+visible = false
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 1.0
+anchor_left = 0.340625
+anchor_top = 1.14619
+anchor_right = 0.340625
+anchor_bottom = 1.14619
 offset_left = 3.0
 offset_top = -410.63
 offset_right = 3.0
 offset_bottom = -410.63
 grow_horizontal = 1
 grow_vertical = 0
+scale = Vector2(0.3, 0.3)
 metadata/_edit_use_anchors_ = true
 
 [node name="GlobalSounds" type="AudioStreamPlayer" parent="."]
-max_polyphony = 10
+max_polyphony = 20
+
+[node name="KillerLeft" parent="." instance=ExtResource("6_2nkqm")]
+position = Vector2(-147.17, 151)
+
+[node name="KillerRight" parent="." instance=ExtResource("6_2nkqm")]
+position = Vector2(788.9, 151)
+scale = Vector2(-1, 1)
+direction = -1

@@ -12,7 +12,7 @@ import godot.core.StringName
 import godot.core.Vector2
 import godot.core.toGodotName
 import gui.FloatingLabel
-import gui.HpProgress
+import gui.ProgressBar
 
 @RegisterClass
 open class CreepBody : DamageDealer(), Damageable {
@@ -38,12 +38,12 @@ open class CreepBody : DamageDealer(), Damageable {
 	override var direction: Int = 1
 
 	protected var dead = false
-	private var defaultSpeed = speed
+	protected var defaultSpeed = speed
 
 	private var pathBusy: Float = -1f
 
 	protected var touchArea: Area2D? = null
-	private var hpProgress: HpProgress? = null
+	private var hpProgress: ProgressBar? = null
 	protected var soundHit: AudioStreamPlayer? = null
 	protected var soundDeath: AudioStreamPlayer? = null
 	protected var soundWalk: AudioStreamPlayer? = null
@@ -79,7 +79,7 @@ open class CreepBody : DamageDealer(), Damageable {
 	@RegisterFunction
 	override fun _ready() {
 		super._ready()
-		val progress = R.scene.hpProgress.wrap<HpProgress>()
+		val progress = R.scene.hpProgress.wrap<ProgressBar>()
 		addChild(progress?.node)
 		hpProgress = progress
 		touchArea = findNode(R.node.touchArea)

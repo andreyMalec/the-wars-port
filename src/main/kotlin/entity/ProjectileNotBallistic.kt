@@ -23,6 +23,13 @@ class ProjectileNotBallistic : Node2D(), Projectile {
 	override var speed: Int = 300
 	override var target: Damageable? = null
 
+	var startImpulse: Vector2? = null
+		set(value) {
+			field = value
+			if (value != null)
+				lastVelocity = value
+		}
+
 	protected var touchArea: Area2D? = null
 
 	private var lastVelocity = Vector2.ZERO

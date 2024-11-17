@@ -20,5 +20,8 @@ shape = SubResource("RectangleShape2D_3jwbg")
 [node name="BodyPosition" type="Node2D" parent="."]
 position = Vector2(15, 0)
 
+[node name="SpecialWeaponPosition" type="Node2D" parent="."]
+position = Vector2(-65, 0)
+
 [connection signal="area_entered" from="Entry" to="Entry" method="_on_Entry_area_entered"]
 [connection signal="area_exited" from="Entry" to="Entry" method="_on_Entry_area_exited"]

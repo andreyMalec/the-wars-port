@@ -2,8 +2,8 @@ package gui
 
 import NodeWrapper
 import PropertyDelegate
-import godot.CanvasItem
+import godot.Control
 
-class ExpProgress(override val node: CanvasItem) : NodeWrapper {
+class ProgressBar(override val node: Control) : NodeWrapper {
 	var progress by PropertyDelegate<Float>()
 }

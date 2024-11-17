@@ -22,7 +22,7 @@ signals = [
     
 ]
 properties = [
-    auto_rotate,
+    auto_rotate_speed,
 	explosive
 ]
 functions = [

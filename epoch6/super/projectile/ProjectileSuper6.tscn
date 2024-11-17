@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cf4us2wg1mqw5"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/SpecialWeaponProjectile6.kt" id="1_a37yh"]
+[ext_resource type="Texture2D" uid="uid://b6ntccnn6hy6t" path="res://epoch6/super/projectile/projectile_super6_1.png" id="2_aeodw"]
+[ext_resource type="Texture2D" uid="uid://blcpvcly3udho" path="res://epoch6/super/projectile/projectile_super6_2.png" id="3_lmddo"]
+[ext_resource type="Texture2D" uid="uid://b5d464fg7131h" path="res://epoch6/super/projectile/projectile_super6_3.png" id="4_vfy7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drunm"]
+size = Vector2(20, 120)
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aeodw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lmddo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vfy7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vfy7u")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="ProjectileSuper6" type="Node2D"]
+texture_filter = 1
+scale = Vector2(1, 1.5)
+script = ExtResource("1_a37yh")
+
+[node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+position = Vector2(0, 60)
+shape = SubResource("RectangleShape2D_drunm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("3")
+centered = false
+offset = Vector2(-10.5, 0)
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]

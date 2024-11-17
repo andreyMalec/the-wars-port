@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://dih7ypsutu3xs"]
+
+[ext_resource type="Texture2D" uid="uid://b3ftfre5b0sad" path="res://assets/controls/foreground_button_super.png" id="1_0m5w0"]
+[ext_resource type="Script" path="res://src/main/kotlin/gui/SuperButton.kt" id="1_isjyi"]
+[ext_resource type="Script" path="res://scene/SpecialProgress.gd" id="2_i15dc"]
+[ext_resource type="Texture2D" uid="uid://b70wr634jgc45" path="res://assets/controls/foreground_button.png" id="4_wqqi4"]
+
+[node name="SpecialWeaponButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 90.0
+script = ExtResource("1_isjyi")
+
+[node name="SpecialButton" type="TextureButton" parent="."]
+modulate = Color(0.294028, 0.294028, 0.294028, 1)
+texture_filter = 1
+clip_contents = true
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 90.0
+stretch_mode = 0
+
+[node name="Progress" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -100.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.33, 1.25)
+expand_mode = 2
+script = ExtResource("2_i15dc")
+foreground = ExtResource("1_0m5w0")
+progress = 0.5
+
+[node name="Pressed" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -7.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("4_wqqi4")

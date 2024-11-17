@@ -30,7 +30,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="2"]
 radius = 5.0
 
-[node name="Projectile" type="RigidBody2D"]
+[node name="ProjectileGun2_4" type="RigidBody2D"]
 texture_filter = 1
 script = ExtResource("1_gc51d")
 

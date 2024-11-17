@@ -19,25 +19,39 @@ interface Projectile : Directable {
 
 	fun dealDamage(target: Damageable) {
 		if (target.direction != direction) {
-			target.takeDamage(damage)
-			log.d("$this target hit [${target}]")
 			this as Node2D
-			val hitSound = findNode<AudioStreamPlayer>(R.node.hitSound)
-			val main = findMainNode()
-			val globalPlayer = main?.findNode<AudioStreamPlayer>(R.node.globalSounds)
-			globalPlayer?.setStream(hitSound?.getStream())
-			globalPlayer?.play()
-			if (explosive) {
-				val explosion = R.scene.explosion.instance<VisualEffect>()
-				explosion.startPosition = globalPosition
-				main?.addChild(explosion)
-			}
-			if (target.canBleed) {
-				val blood = R.scene.blood.instance<VisualEffect>()
-				blood.startPosition = globalPosition
-				(target as Node2D).addChild(blood)
-			}
-			queueFree()
+			hit(target)
+			if (explosive)
+				explode()
+			if (target.canBleed)
+				makeThemBleed(target)
+			destroySelf()
 		}
+	}
+
+	fun Node2D.hit(target: Damageable) {
+		target.takeDamage(damage)
+		log.d("$this target hit [${target}]")
+		val hitSound = findNode<AudioStreamPlayer>(R.node.hitSound)
+		val main = findMainNode()
+		val globalPlayer = main?.findNode<AudioStreamPlayer>(R.node.globalSounds)
+		globalPlayer?.setStream(hitSound?.getStream())
+		globalPlayer?.play()
+	}
+
+	fun Node2D.explode() {
+		val explosion = R.scene.explosion.instance<VisualEffect>()
+		explosion.startPosition = globalPosition
+		findMainNode()?.addChild(explosion)
+	}
+
+	fun Node2D.makeThemBleed(target: Damageable) {
+		val blood = R.scene.blood.instance<VisualEffect>()
+		blood.startPosition = globalPosition
+		(target as Node2D).addChild(blood)
+	}
+
+	fun Node2D.destroySelf() {
+		queueFree()
 	}
 }

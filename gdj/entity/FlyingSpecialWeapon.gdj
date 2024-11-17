@@ -1,26 +1,33 @@
 // THIS FILE IS GENERATED! DO NOT EDIT OR DELETE IT. EDIT OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
 // Note: You can however freely move this file inside your godot project if you want. Keep in mind however, that if you rename the originating source code file, this file will be deleted and regenerated as a new file instead of being updated! Other modifications to the source file however, will result in this file being updated.
 
-registeredName = SuperButton
-fqName = gui.SuperButton
-relativeSourcePath = src/main/kotlin/gui/SuperButton.kt
-baseType = Control
+registeredName = FlyingSpecialWeapon
+fqName = entity.FlyingSpecialWeapon
+relativeSourcePath = src/main/kotlin/entity/FlyingSpecialWeapon.kt
+baseType = Node2D
 supertypes = [
-    godot.Control,
+    entity.DamageDealer,
+	entity.Damageable,
+	entity.SpecialWeaponBody,
+	godot.Node2D,
+	entity.Directable,
 	godot.CanvasItem,
 	godot.Node,
 	godot.Object,
 	godot.core.KtObject,
-	kotlin.Any
+	kotlin.Any,
+	kotlin.Comparable
 ]
 signals = [
     
 ]
 properties = [
-    base
+    
 ]
 functions = [
     _ready,
-	on_button_pressed,
-	_process
+	_process,
+	on_attack_range_entered,
+	on_attack_range_exited,
+	on_frame_changed
 ]

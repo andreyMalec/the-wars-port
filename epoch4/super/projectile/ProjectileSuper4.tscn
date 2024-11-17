@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://qb15ndli20nc"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileBallistic.kt" id="1_kuya2"]
+[ext_resource type="Texture2D" uid="uid://bf1p2rxt6cq0h" path="res://epoch4/super/projectile/projectile_super4_1.png" id="2_gy5h8"]
+[ext_resource type="AudioStream" uid="uid://dr1bmts3c5wl6" path="res://assets/sounds/explosion.mp3" id="3_dg1iu"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gy5h8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="3"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="2"]
+radius = 5.0
+
+[node name="ProjectileSuper4" type="RigidBody2D"]
+script = ExtResource("1_kuya2")
+auto_rotate_speed = 3
+explosive = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("1")
+
+[node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+shape = SubResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("2")
+disabled = true
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dg1iu")

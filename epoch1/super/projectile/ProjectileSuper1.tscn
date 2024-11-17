@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://dofokilrhgol6"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileBallistic.kt" id="1_xx04s"]
+[ext_resource type="Texture2D" uid="uid://bai0f88cbkn3n" path="res://epoch1/super/projectile/projectile_super1_1.png" id="2_c281t"]
+[ext_resource type="Texture2D" uid="uid://bb51585egw1m5" path="res://epoch1/super/projectile/projectile_super1_2.png" id="3_dk5tn"]
+[ext_resource type="Texture2D" uid="uid://dyr5cayfy8e2l" path="res://epoch1/super/projectile/projectile_super1_3.png" id="4_55b2u"]
+[ext_resource type="Texture2D" uid="uid://bby8yc1c5ngs1" path="res://epoch1/super/projectile/projectile_super1_4.png" id="5_aokuo"]
+[ext_resource type="Texture2D" uid="uid://b4pmiwdj88hb7" path="res://epoch1/super/projectile/projectile_super1_5.png" id="6_b7v38"]
+[ext_resource type="AudioStream" uid="uid://bxxu58m1cygd7" path="res://assets/sounds/projectileRock.mp3" id="8_oxglo"]
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c281t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dk5tn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_55b2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_aokuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b7v38")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="4"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="5"]
+radius = 5.09902
+
+[node name="ProjectileSuper1" type="RigidBody2D"]
+z_index = -1
+texture_filter = 1
+script = ExtResource("1_xx04s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("3")
+
+[node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+shape = SubResource("4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("5")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_oxglo")
+
+[connection signal="area_entered" from="TouchArea" to="." method="_on_TouchArea_area_entered"]

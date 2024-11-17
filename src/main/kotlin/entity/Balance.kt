@@ -416,4 +416,54 @@ object Balance {
 		arrayOf(creep5_1, creep5_2, creep5_3, null),
 		arrayOf(creep6_1, creep6_2, creep6_3, creep6_4),
 	)
+
+
+	//region =========================  Special Weapons =========================
+
+	private val specialWeapon1 = SpecialWeapon.Balance(
+		damage = 30,
+		attackSpeed = 0.2f,
+		attackFrame = 13,
+	)
+
+	private val specialWeapon2 = SpecialWeapon.Balance(
+		damage = 60,
+		attackSpeed = 0.5f,
+		attackFrame = 0,
+	)
+
+	private val specialWeapon3 = SpecialWeapon.Balance(
+		damage = 100,
+		attackSpeed = 0.1f,
+		attackFrame = 0,
+	)
+
+	private val specialWeapon4 = SpecialWeapon.Balance(
+		damage = 250,
+		attackSpeed = 0.1f,
+		attackFrame = 13,
+	)
+
+	private val specialWeapon5 = SpecialWeapon.Balance(
+		damage = 500,
+		attackSpeed = 0.1f,
+		attackFrame = 13,
+	)
+
+	private val specialWeapon6 = SpecialWeapon.Balance(
+		damage = 1500,
+		attackSpeed = 0.1f,
+		attackFrame = 13,
+	)
+
+	//endregion
+
+	val specialWeapons = arrayOf(
+		specialWeapon1,
+		specialWeapon2,
+		specialWeapon3,
+		specialWeapon4,
+		specialWeapon5,
+		specialWeapon6
+	)
 }

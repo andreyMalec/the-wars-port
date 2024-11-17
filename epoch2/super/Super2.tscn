@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://dl33uvluxswsp"]
 
-[ext_resource path="res://epoch2/super/Super2.cs" type="Script" id=1]
-[ext_resource path="res://epoch2/super/ProjectileSuper2.tscn" type="PackedScene" id=2]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/SpecialWeapon2.kt" id="1_w5jqo"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 1 )
-projectileScene = ExtResource( 2 )
+script = ExtResource("1_w5jqo")
