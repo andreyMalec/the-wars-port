@@ -183,7 +183,7 @@ open class CreepBody : DamageDealer(), Damageable {
 		onDied()
 		soundDeath?.play()
 		soundAttack?.stop()
-		soundWalk?.stop()
+		soundWalk?.queueFree()
 		touchArea?.findNode<CollisionPolygon2D>(R.node.collisionPolygon)?.disabled = true
 		attackRange?.findNode<CollisionShape2D>(R.node.collisionShape)?.disabled = true
 		sprite?.play(Animation.death.name)

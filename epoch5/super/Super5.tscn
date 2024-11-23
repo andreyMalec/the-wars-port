@@ -50,9 +50,7 @@ shape = SubResource("RectangleShape2D_7n34b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lqq7a")
-frame_progress = 0.956972
-centered = false
-offset = Vector2(-43.5, -17.26)
+frame_progress = 0.268101
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(-10.55, 8.3)

@@ -12,30 +12,27 @@ script = ExtResource("1_dky5o")
 
 [node name="front" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(12, -20)
+position = Vector2(11.5, -20)
 texture = ExtResource("5")
 
 [node name="back" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(31.5, -22)
+position = Vector2(31, -22)
 texture = ExtResource("4")
 
 [node name="gunContainer0" type="Node2D" parent="."]
 position = Vector2(15, -45)
 
 [node name="gunContainer1" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(15.5, -65.5)
+position = Vector2(15.5, -65)
 texture = ExtResource("3")
 
 [node name="gunContainer2" type="Sprite2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(15.5, -88)
 texture = ExtResource("2")
 
 [node name="gunContainer3" type="Sprite2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(15.5, -109)
 texture = ExtResource("2")

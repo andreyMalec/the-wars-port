@@ -137,13 +137,14 @@ shape = SubResource("RectangleShape2D_2e8wh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22)
 sprite_frames = SubResource("2")
-animation = &"attack_static"
+animation = &"idle"
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(18.39, 4.48)
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_h5hwn")
+volume_db = -3.0
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_l7fux")

@@ -45,12 +45,16 @@ polygon = PackedVector2Array(0, 0, 0.25, 0.026, 0.546, 0.11, 0.668, 0.146, 0.79,
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("1")
+animation = &"attack"
+frame = 2
+frame_progress = 1.0
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
-position = Vector2(10, 3)
+position = Vector2(10.23, 0.35)
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_r0y56")
+volume_db = 10.0
 max_polyphony = 4
 
 [connection signal="area_entered" from="AttackRange" to="." method="_on_AttackRange_area_entered"]

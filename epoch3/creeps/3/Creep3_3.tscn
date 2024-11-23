@@ -162,9 +162,8 @@ shape = SubResource("RectangleShape2D_ejtq6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(13.72, -22)
 sprite_frames = SubResource("2")
-animation = &"attack"
-frame = 7
-frame_progress = 1.0
+animation = &"walk"
+frame_progress = 0.826822
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(20, 25)

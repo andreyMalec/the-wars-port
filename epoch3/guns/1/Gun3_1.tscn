@@ -13,10 +13,10 @@ animations = [{
 "texture": ExtResource("2_drv4i")
 }, {
 "duration": 0.5,
-"texture": ExtResource("3_tx43a")
+"texture": ExtResource("4_ftc55")
 }, {
 "duration": 0.5,
-"texture": ExtResource("4_ftc55")
+"texture": ExtResource("3_tx43a")
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_drv4i")
@@ -49,6 +49,9 @@ polygon = PackedVector2Array(0, 0, 0.25, 0.026, 0.546, 0.11, 0.668, 0.146, 0.79,
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("1")
+animation = &"attack"
+frame = 3
+frame_progress = 1.0
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(12, -1)

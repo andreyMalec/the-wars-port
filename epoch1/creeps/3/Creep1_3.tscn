@@ -65,13 +65,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_2f2ja")
+"texture": ExtResource("2_myfoh")
 }],
 "loop": false,
 "name": &"idle",
 "speed": 1.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_iwaa5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_30rmm")
+}, {
 "duration": 1.0,
 "texture": ExtResource("13_2f2ja")
 }, {
@@ -89,12 +95,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("18_dxdwn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_iwaa5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_30rmm")
 }],
 "loop": true,
 "name": &"walk",
@@ -124,7 +124,9 @@ shape = SubResource("1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_wyec5")
-animation = &"death"
+animation = &"attack"
+frame = 4
+frame_progress = 1.0
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 

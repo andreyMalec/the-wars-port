@@ -60,10 +60,10 @@ polygon = PackedVector2Array(0, 0, 0.25, 0.026, 0.546, 0.11, 0.668, 0.146, 0.79,
 sprite_frames = SubResource("1")
 
 [node name="ProjectilePosition2" type="Node2D" parent="AnimatedSprite2D"]
-position = Vector2(12, -4)
+position = Vector2(15.35, -1.92)
 
 [node name="ProjectilePosition1" type="Node2D" parent="AnimatedSprite2D"]
-position = Vector2(12, 1)
+position = Vector2(15.31, 3.05)
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_a7ooa")

@@ -38,6 +38,7 @@ apply_vertical_velocity = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("3")
+frame_progress = 0.3729
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_layer = 0

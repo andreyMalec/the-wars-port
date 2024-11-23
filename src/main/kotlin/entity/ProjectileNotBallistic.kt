@@ -46,7 +46,11 @@ class ProjectileNotBallistic : Node2D(), Projectile {
 	override fun _ready() {
 		touchArea = findNode(R.node.touchArea)
 		touchArea?.areaEntered?.connect(::onTouchAreaEntered)
-		findNode<AnimatedSprite2D>(R.node.sprite)?.play()
+		val sprite = findNode<AnimatedSprite2D>(R.node.sprite)
+		sprite?.play()
+		sprite?.scaleMutate {
+			x = direction.toDouble()
+		}
 
 		setGlobalPosition(startPosition)
 		rotateToTarget()
@@ -90,7 +94,7 @@ class ProjectileNotBallistic : Node2D(), Projectile {
 			val w = abs(target.globalPosition.x - globalPosition.x)
 			val h = abs(target.globalPosition.y - globalPosition.y)
 			val tg = h / w
-			setRotation(atan(tg).toFloat())
+			setRotation(atan(tg * direction).toFloat())
 		}
 	}
 

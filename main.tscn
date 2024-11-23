@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dxavh432a6j2d" path="res://scene/Menu.tscn" id="4_q5bjj"]
 [ext_resource type="Script" path="res://src/main/kotlin/entity/Ground.kt" id="5_7c5et"]
 [ext_resource type="PackedScene" uid="uid://c1onkh1pmti0u" path="res://scene/Base.tscn" id="5_e2q2s"]
-[ext_resource type="PackedScene" uid="uid://deqx72633ierb" path="res://scene/Killer.tscn" id="6_2nkqm"]
+[ext_resource type="PackedScene" path="res://scene/Killer.tscn" id="6_2nkqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udd3j"]
 size = Vector2(0.29621, 505.303)
@@ -58,7 +58,6 @@ grow_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="EnemyMenu" parent="Control" instance=ExtResource("4_q5bjj")]
-visible = false
 layout_mode = 1
 anchor_left = 0.340625
 anchor_top = 1.14619
@@ -77,9 +76,9 @@ metadata/_edit_use_anchors_ = true
 max_polyphony = 20
 
 [node name="KillerLeft" parent="." instance=ExtResource("6_2nkqm")]
-position = Vector2(-147.17, 151)
+position = Vector2(-183.08, 151)
 
 [node name="KillerRight" parent="." instance=ExtResource("6_2nkqm")]
-position = Vector2(788.9, 151)
+position = Vector2(822.24, 151)
 scale = Vector2(-1, 1)
 direction = -1

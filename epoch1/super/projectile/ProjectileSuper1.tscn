@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dofokilrhgol6"]
+[gd_scene load_steps=11 format=3 uid="uid://dtls7m5e2887h"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileBallistic.kt" id="1_xx04s"]
 [ext_resource type="Texture2D" uid="uid://bai0f88cbkn3n" path="res://epoch1/super/projectile/projectile_super1_1.png" id="2_c281t"]
@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://bby8yc1c5ngs1" path="res://epoch1/super/projectile/projectile_super1_4.png" id="5_aokuo"]
 [ext_resource type="Texture2D" uid="uid://b4pmiwdj88hb7" path="res://epoch1/super/projectile/projectile_super1_5.png" id="6_b7v38"]
 [ext_resource type="AudioStream" uid="uid://bxxu58m1cygd7" path="res://assets/sounds/projectileRock.mp3" id="8_oxglo"]
+
+[sub_resource type="CircleShape2D" id="5"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="4"]
+radius = 3.0
 
 [sub_resource type="SpriteFrames" id="3"]
 animations = [{
@@ -31,19 +37,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="4"]
-radius = 5.0
-
-[sub_resource type="CircleShape2D" id="5"]
-radius = 5.09902
-
 [node name="ProjectileSuper1" type="RigidBody2D"]
 z_index = -1
 texture_filter = 1
 script = ExtResource("1_xx04s")
+auto_rotate_speed = 5
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("3")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("5")
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -52,8 +53,10 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
 shape = SubResource("4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("5")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("3")
+frame_progress = 0.143728
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_oxglo")
