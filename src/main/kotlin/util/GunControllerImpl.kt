@@ -1,6 +1,6 @@
 package util
 
-import entity.Gun
+import entity.base.Gun
 import log
 
 class GunControllerImpl(

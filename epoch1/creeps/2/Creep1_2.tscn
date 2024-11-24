@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://cnl75kql4h2ec"]
+[gd_scene load_steps=33 format=3 uid="uid://cnl75kql4h2ec"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_hfeiw"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/creep/CreepBodyRanged.kt" id="1_hfeiw"]
+[ext_resource type="Shape2D" uid="uid://da6rebfwkqqpo" path="res://scene/AttackRangeShape.tres" id="2_4pm4a"]
 [ext_resource type="Texture2D" uid="uid://dn7r2eool1sb6" path="res://epoch1/creeps/2/attack/creep1_2_attack_2.png" id="2_5cy8e"]
 [ext_resource type="Texture2D" uid="uid://bwsapirbllnyc" path="res://epoch1/creeps/2/attack/creep1_2_attack_3.png" id="3_0w3ik"]
 [ext_resource type="Texture2D" uid="uid://b2inqdk0j8385" path="res://epoch1/creeps/2/attack/creep1_2_attack_4.png" id="4_08fke"]
@@ -30,10 +31,6 @@
 [ext_resource type="Texture2D" uid="uid://b0k3dx7dgd870" path="res://epoch1/creeps/2/walk/creep1_2_walk_8.png" id="28_4f8kv"]
 [ext_resource type="AudioStream" uid="uid://c4y0ijgh4gqns" path="res://assets/sounds/creep_hit.mp3" id="29_768wu"]
 [ext_resource type="AudioStream" uid="uid://daii1vjh0psrm" path="res://assets/sounds/creep_death.mp3" id="30_5r7q7"]
-[ext_resource type="AudioStream" uid="uid://bxxu58m1cygd7" path="res://assets/sounds/projectileRock.mp3" id="31_6sen1"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bc0ng"]
-size = Vector2(27, 33)
 
 [sub_resource type="SpriteFrames" id="2"]
 animations = [{
@@ -160,20 +157,20 @@ script = ExtResource("1_hfeiw")
 [node name="TouchArea" type="Area2D" parent="."]
 rotation = -3.14159
 scale = Vector2(1, -1)
-collision_layer = 5
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
 position = Vector2(-13, 16)
 polygon = PackedVector2Array(0, 0, 25, 0, 12.5, -40)
 
 [node name="AttackRange" type="Area2D" parent="."]
+position = Vector2(15, 0)
 collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(60, 0)
-scale = Vector2(3.312, 1)
-shape = SubResource("RectangleShape2D_bc0ng")
+shape = ExtResource("2_4pm4a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22)
@@ -192,4 +189,3 @@ stream = ExtResource("30_5r7q7")
 [node name="WalkSound" type="AudioStreamPlayer" parent="."]
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("31_6sen1")

@@ -5,7 +5,6 @@ object R {
 	object drawable {
 		val background_button = Drawable("res://assets/controls/background_button.png")
 		val background_button_back = Drawable("res://assets/controls/background_button_back.png")
-		val background_button_pressed = Drawable("res://assets/controls/background_button_pressed.png")
 
 		val ic_add = Drawable("res://assets/controls/ic_add.png")
 		val ic_remove = Drawable("res://assets/controls/ic_remove.png")
@@ -24,6 +23,9 @@ object R {
 		val blood = Scene("res://scene/Blood.tscn")
 		val hpProgress = Scene("res://scene/HpProgress.tscn")
 		val floatingLabel = Scene("res://scene/FloatingLabel.tscn")
+
+		val main = Scene("res://scene/Main.tscn")
+		val menu = Scene("res://scene/StartMenu.tscn")
 	}
 
 	object animation {
@@ -58,5 +60,15 @@ object R {
 		val attackSound = "AttackSound".asNodePath()
 		val deathSound = "DeathSound".asNodePath()
 		val walkSound = "WalkSound".asNodePath()
+	}
+
+	object menu {
+		val newGame = "NewGame".asNodePath()
+		val options = "Options".asNodePath()
+		val about = "About".asNodePath()
+
+		val startGame = "StartGame".asNodePath()
+		val multiplayer = "Multiplayer".asNodePath()
+		val back = "Back".asNodePath()
 	}
 }

@@ -60,7 +60,10 @@ abstract class DamageDealer : Node2D(), Directable {
 
 	@RegisterFunction
 	fun onAttackRangeEntered(area: Area2D) {
-		if ((area.getParent() as? Damageable)?.direction == direction || area.getParent() is Ground)
+		if (area.getParent() !is Damageable
+			|| (area.getParent() as? Damageable)?.direction == direction
+			|| area.getParent() is Ground
+		)
 			return
 
 		log.d("$this target spotted [${area.getParent()}]")
@@ -69,7 +72,9 @@ abstract class DamageDealer : Node2D(), Directable {
 
 	@RegisterFunction
 	fun onAttackRangeExited(area: Area2D) {
-		if ((area.getParent() as? Damageable)?.direction == direction)
+		if (area.getParent() !is Damageable
+			|| (area.getParent() as? Damageable)?.direction == direction
+		)
 			return
 
 		log.d("$this target lost [${area.getParent()}]")

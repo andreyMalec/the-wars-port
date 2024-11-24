@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf4us2wg1mqw5"]
+[gd_scene load_steps=7 format=3 uid="uid://b81p4h315f1vs"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/SpecialWeaponProjectile6.kt" id="1_a37yh"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/specialweapon/SpecialWeaponProjectile6.kt" id="1_4wkjv"]
 [ext_resource type="Texture2D" uid="uid://b6ntccnn6hy6t" path="res://epoch6/super/projectile/projectile_super6_1.png" id="2_aeodw"]
 [ext_resource type="Texture2D" uid="uid://blcpvcly3udho" path="res://epoch6/super/projectile/projectile_super6_2.png" id="3_lmddo"]
 [ext_resource type="Texture2D" uid="uid://b5d464fg7131h" path="res://epoch6/super/projectile/projectile_super6_3.png" id="4_vfy7u"]
@@ -31,10 +31,11 @@ animations = [{
 [node name="ProjectileSuper6" type="Node2D"]
 texture_filter = 1
 scale = Vector2(1, 1.5)
-script = ExtResource("1_a37yh")
+script = ExtResource("1_4wkjv")
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 3
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]

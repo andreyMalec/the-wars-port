@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://deqx72633ierb"]
+[gd_scene load_steps=5 format=3 uid="uid://cye2weolmy4li"]
 
+[ext_resource type="Script" path="res://gdj/entity/creep/Killer.gdj" id="1_c5ybx"]
 [ext_resource type="Texture2D" uid="uid://d3y42ji3cbmq4" path="res://assets/controls/foreground_creep_build.png" id="1_dbxkq"]
-[ext_resource type="Script" path="res://src/main/kotlin/entity/Killer.kt" id="1_kinwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nd0i"]
 size = Vector2(27, 486.5)
@@ -45,13 +45,14 @@ animations = [{
 }]
 
 [node name="Killer" type="Node2D"]
-script = ExtResource("1_kinwy")
+script = ExtResource("1_c5ybx")
 can_bleed = false
 
 [node name="TouchArea" type="Area2D" parent="."]
 rotation = -3.14159
 scale = Vector2(1, -1)
-collision_layer = 5
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
 position = Vector2(-13, 16)

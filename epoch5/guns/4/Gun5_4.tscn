@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://blytuv2vsvah8"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_55pmj"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/base/GunBody.kt" id="1_55pmj"]
 [ext_resource type="Texture2D" uid="uid://bvuns8ynfp3uc" path="res://epoch5/guns/4/gun5_4_1.png" id="2_sbj3q"]
 [ext_resource type="AudioStream" uid="uid://dr1bmts3c5wl6" path="res://assets/sounds/explosion.mp3" id="3_wbhxf"]
 

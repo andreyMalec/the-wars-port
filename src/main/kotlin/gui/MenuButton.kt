@@ -15,6 +15,8 @@ class MenuButton : TextureButton() {
 
 	var item: MenuItem? = null
 		set(value) {
+			if (field == value)
+				return
 			field = value
 			redraw = true
 		}
@@ -25,17 +27,21 @@ class MenuButton : TextureButton() {
 	private var cost: Label? = null
 	private var action: TextureRect? = null
 	private var queueProgress: QueueProgress? = null
+	private var pressedTexture: TextureRect? = null
 
 	@RegisterFunction
 	override fun _ready() {
-		icon = findNode<TextureRect>("Icon")
-		cost = findNode<Label>("Cost")
-		action = findNode<TextureRect>("Action")
-		queueProgress = findNodeWrapper<QueueProgress>("QueueProgress")
+		icon = findNode("Clip/Icon")
+		cost = findNode("Cost")
+		action = findNode("Action")
+		queueProgress = findNodeWrapper("QueueProgress")
+		pressedTexture = findNode("Pressed")
 	}
 
 	@RegisterFunction
 	override fun _process(delta: Double) {
+		pressedTexture?.visible = buttonPressed
+
 		if (redraw) {
 			redraw = false
 

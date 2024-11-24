@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwvj4v4neksj8"]
+
+[ext_resource type="PackedScene" uid="uid://dwr7ij5gf61b0" path="res://scene/HpProgress.tscn" id="1_4pt28"]
+[ext_resource type="Texture2D" uid="uid://bwsrly8lmjnhj" path="res://assets/controls/background_base_hp.png" id="2_yn2ag"]
+[ext_resource type="Texture2D" uid="uid://blda5ykbckpim" path="res://assets/controls/foreground_base_hp.png" id="3_iym4i"]
+
+[node name="Hp" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 46.0
+offset_bottom = 30.0
+
+[node name="Progress" parent="." instance=ExtResource("1_4pt28")]
+offset_left = 5.0
+offset_top = 0.0
+offset_right = 5.0
+offset_bottom = 0.0
+background = ExtResource("2_yn2ag")
+foreground = ExtResource("3_iym4i")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "500"
+horizontal_alignment = 1

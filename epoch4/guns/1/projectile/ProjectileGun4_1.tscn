@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://grxk04djow8h"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_w0k1y"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/projectile/ProjectileNotBallistic.kt" id="1_w0k1y"]
 [ext_resource type="Texture2D" uid="uid://d253mhrh5ijgw" path="res://epoch4/guns/1/projectile/projectile_gun4_1_1.png" id="2_2chkt"]
 
 [sub_resource type="SpriteFrames" id="1"]
@@ -28,6 +28,7 @@ flip_h = true
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]

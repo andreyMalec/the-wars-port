@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://doxr7ibkxy6k0"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_n1ynd"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/base/GunBody.kt" id="1_n1ynd"]
 [ext_resource type="Texture2D" uid="uid://b807aol2k3kmj" path="res://epoch6/guns/2/gun6_2_1.png" id="2_f65ak"]
 [ext_resource type="AudioStream" uid="uid://d31p5rhf8gjuv" path="res://assets/sounds/plasma.mp3" id="3_mw2rh"]
 

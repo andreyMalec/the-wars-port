@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://c0e7gjpto3r4j"]
+
+[ext_resource type="Texture2D" uid="uid://dw33ddxmqkpw2" path="res://assets/controls/pressed_button_exp.png" id="1_885v0"]
+[ext_resource type="Script" path="res://gdj/gui/ExpButton.gdj" id="2_ubv0j"]
+[ext_resource type="Texture2D" uid="uid://xxuuq2ccewgf" path="res://assets/controls/ic_exp.png" id="3_tf1p1"]
+[ext_resource type="Texture2D" uid="uid://c4phu83e2uhll" path="res://assets/empty.png" id="4_l7i4q"]
+[ext_resource type="Texture2D" uid="uid://dr4jyiox57hjn" path="res://assets/controls/ic_upgrade_indicator.png" id="5_q7kp0"]
+[ext_resource type="FontFile" path="res://gui/common_font.tres" id="6_xsery"]
+[ext_resource type="Script" path="res://scene/ExpProgress.gd" id="7_std2s"]
+[ext_resource type="Texture2D" uid="uid://jlv5wtl46q65" path="res://assets/controls/background_exp.png" id="8_76gfi"]
+[ext_resource type="Texture2D" uid="uid://ds448t7dolxsi" path="res://assets/controls/foreground_exp.png" id="9_c1dky"]
+[ext_resource type="AudioStream" uid="uid://ole8q5vk87an" path="res://assets/sounds/new_epoch.mp3" id="10_rf8r8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a4pd2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_l7i4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q7kp0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ExpButton" type="TextureButton"]
+offset_right = 187.0
+offset_bottom = 51.0
+texture_pressed = ExtResource("1_885v0")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_ubv0j")
+
+[node name="CountIcon" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.126374
+anchor_top = 0.23913
+anchor_right = 0.126374
+anchor_bottom = 0.23913
+offset_right = 30.0
+offset_bottom = 25.0
+texture = ExtResource("3_tf1p1")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NewEpochNotification" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(38, 31)
+scale = Vector2(0.863636, 0.863636)
+sprite_frames = SubResource("SpriteFrames_a4pd2")
+frame_progress = 0.719812
+speed_scale = 0.3
+
+[node name="ExpLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.291209
+anchor_top = 0.0869565
+anchor_right = 0.620879
+anchor_bottom = 0.0869565
+offset_right = 1.0
+offset_bottom = 19.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("6_xsery")
+text = "200000"
+horizontal_alignment = 2
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ExpProgress" type="Control" parent="."]
+texture_filter = 1
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 15.0
+offset_right = 21.0
+offset_bottom = 32.0
+script = ExtResource("7_std2s")
+background = ExtResource("8_76gfi")
+foreground = ExtResource("9_c1dky")
+progress = 1.0
+
+[node name="NewEpochSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_rf8r8")

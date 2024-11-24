@@ -1,17 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1onkh1pmti0u"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/Base.kt" id="1_jbryo"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/base/Base.kt" id="1_icnyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jwbg"]
 size = Vector2(27.375, 43.5)
 
 [node name="Base" type="Node2D"]
 position = Vector2(-15, 0)
-script = ExtResource("1_jbryo")
+script = ExtResource("1_icnyu")
 
 [node name="Entry" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 4
+position = Vector2(-32.1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entry"]
 position = Vector2(0, -11)
@@ -22,6 +21,3 @@ position = Vector2(15, 0)
 
 [node name="SpecialWeaponPosition" type="Node2D" parent="."]
 position = Vector2(-65, 0)
-
-[connection signal="area_entered" from="Entry" to="Entry" method="_on_Entry_area_entered"]
-[connection signal="area_exited" from="Entry" to="Entry" method="_on_Entry_area_exited"]

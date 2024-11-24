@@ -23,6 +23,5 @@ properties = [
 ]
 functions = [
     _ready,
-	on_exp_button_pressed,
 	_process
 ]

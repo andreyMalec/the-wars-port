@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cfu2v5gpgt8us"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_2ckam"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/projectile/ProjectileNotBallistic.kt" id="1_2ckam"]
 [ext_resource type="Texture2D" uid="uid://x2v0eqt413vw" path="res://epoch4/guns/3/projectile/projectile_gun4_3_1.png" id="2_uqoe8"]
 [ext_resource type="AudioStream" uid="uid://dr1bmts3c5wl6" path="res://assets/sounds/explosion.mp3" id="3_qwjka"]
 
@@ -28,6 +28,7 @@ sprite_frames = SubResource("3")
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]

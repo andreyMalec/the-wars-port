@@ -1,7 +1,8 @@
 [gd_scene load_steps=31 format=3 uid="uid://b3ofga1qihsqa"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_uhrk0"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/creep/CreepBodyRanged.kt" id="1_uhrk0"]
 [ext_resource type="Texture2D" uid="uid://cbaovyi2bmcg3" path="res://epoch3/creeps/2/death/creep3_2_death_2.png" id="2"]
+[ext_resource type="Shape2D" uid="uid://da6rebfwkqqpo" path="res://scene/AttackRangeShape.tres" id="2_xosog"]
 [ext_resource type="Texture2D" uid="uid://ddhso4mwb0jas" path="res://epoch3/creeps/2/walk/creep3_2_walk_5.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://bf17w23p1fi32" path="res://epoch3/creeps/2/attack/creep3_2_attack_1.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://ciu5ybyv4isfu" path="res://epoch3/creeps/2/attack/creep3_2_attack_6.png" id="8"]
@@ -28,9 +29,6 @@
 [ext_resource type="AudioStream" uid="uid://c4y0ijgh4gqns" path="res://assets/sounds/creep_hit.mp3" id="26_2kkfy"]
 [ext_resource type="AudioStream" uid="uid://daii1vjh0psrm" path="res://assets/sounds/creep_death.mp3" id="27_eg67n"]
 [ext_resource type="AudioStream" uid="uid://dax7caex3hlgp" path="res://assets/sounds/musket.mp3" id="28_p2k60"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfc64"]
-size = Vector2(27, 33)
 
 [sub_resource type="SpriteFrames" id="2"]
 animations = [{
@@ -143,19 +141,20 @@ only_ranged = true
 [node name="TouchArea" type="Area2D" parent="."]
 rotation = -3.14159
 scale = Vector2(1, -1)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
 position = Vector2(-13, 16)
 polygon = PackedVector2Array(0, 0, 25, 0, 12.5, -40)
 
 [node name="AttackRange" type="Area2D" parent="."]
+position = Vector2(15, 0)
 collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(60, 0)
-scale = Vector2(3.312, 1)
-shape = SubResource("RectangleShape2D_nfc64")
+shape = ExtResource("2_xosog")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22)

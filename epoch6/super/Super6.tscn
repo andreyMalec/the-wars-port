@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cw46581fbkmt4"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/FlyingSpecialWeapon.kt" id="1_unx8b"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/specialweapon/FlyingSpecialWeapon.kt" id="1_hhncy"]
 [ext_resource type="Texture2D" uid="uid://mynxmama3uxr" path="res://epoch6/super/super6_1.png" id="2_mss21"]
 [ext_resource type="AudioStream" uid="uid://d31p5rhf8gjuv" path="res://assets/sounds/plasma.mp3" id="3_si3dw"]
 
@@ -29,12 +29,13 @@ animations = [{
 
 [node name="Super6" type="Node2D"]
 position = Vector2(0, -150)
-script = ExtResource("1_unx8b")
+script = ExtResource("1_hhncy")
+attack_chance = 1.0
 
 [node name="TouchArea" type="Area2D" parent="."]
-collision_layer = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
+position = Vector2(0, -36.38)
 rotation = 1.5708
 polygon = PackedVector2Array(0, 0, 25, 0, 12.5, -40)
 

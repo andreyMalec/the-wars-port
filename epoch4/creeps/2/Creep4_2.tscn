@@ -1,6 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://b22q3hb2sj3nh"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_wgkwp"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/creep/CreepBodyRanged.kt" id="1_wgkwp"]
+[ext_resource type="Shape2D" uid="uid://da6rebfwkqqpo" path="res://scene/AttackRangeShape.tres" id="2_1ilr5"]
 [ext_resource type="Texture2D" uid="uid://fpdlwmr8p34u" path="res://epoch4/creeps/2/attack/creep4_2_attack_1.png" id="2_mjqps"]
 [ext_resource type="Texture2D" uid="uid://dqwf0xg1hkl6d" path="res://epoch4/creeps/2/attack/creep4_2_attack_2.png" id="3_67gcd"]
 [ext_resource type="Texture2D" uid="uid://y8lwb76oduho" path="res://epoch4/creeps/2/attack/creep4_2_attack_3.png" id="4_cdbow"]
@@ -28,9 +29,6 @@
 [ext_resource type="AudioStream" uid="uid://c4y0ijgh4gqns" path="res://assets/sounds/creep_hit.mp3" id="26_n8gxc"]
 [ext_resource type="AudioStream" uid="uid://daii1vjh0psrm" path="res://assets/sounds/creep_death.mp3" id="27_lg5m4"]
 [ext_resource type="AudioStream" uid="uid://cmgv1jgb4gm0c" path="res://assets/sounds/shotgun.mp3" id="28_mph18"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvpai"]
-size = Vector2(27, 33)
 
 [sub_resource type="SpriteFrames" id="2"]
 animations = [{
@@ -140,19 +138,20 @@ texture_filter = 1
 script = ExtResource("1_wgkwp")
 
 [node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
 position = Vector2(-13, 16)
 polygon = PackedVector2Array(0, 0, 25, 0, 12.5, -40)
 
 [node name="AttackRange" type="Area2D" parent="."]
+position = Vector2(15, 0)
 collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(60, 0)
-scale = Vector2(3.312, 1)
-shape = SubResource("RectangleShape2D_dvpai")
+shape = ExtResource("2_1ilr5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22)

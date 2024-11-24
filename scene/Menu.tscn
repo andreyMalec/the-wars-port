@@ -1,36 +1,70 @@
-[gd_scene load_steps=19 format=3 uid="uid://dxavh432a6j2d"]
+[gd_scene load_steps=24 format=3 uid="uid://dxavh432a6j2d"]
 
 [ext_resource type="Script" path="res://src/main/kotlin/gui/MenuControl.kt" id="1_kq0ct"]
 [ext_resource type="FontFile" path="res://gui/common_font.tres" id="2_r8bwp"]
 [ext_resource type="Texture2D" uid="uid://dbcgu71115u7l" path="res://assets/controls/background_menu.png" id="2_wj5vy"]
 [ext_resource type="PackedScene" uid="uid://dar2ntxukig0s" path="res://scene/MenuButton.tscn" id="3_pa645"]
-[ext_resource type="PackedScene" uid="uid://dih7ypsutu3xs" path="res://scene/SpecialWeaponButton.tscn" id="5_73buf"]
+[ext_resource type="PackedScene" uid="uid://dy57stfsbylj" path="res://scene/SpecialWeaponButton.tscn" id="5_73buf"]
 [ext_resource type="Texture2D" uid="uid://dekok7sfcspl5" path="res://assets/controls/ic_money.png" id="7_tfd3c"]
-[ext_resource type="Texture2D" uid="uid://c70pa1gem2ej6" path="res://assets/controls/foreground_button_exp.png" id="8_pqhlq"]
-[ext_resource type="Script" path="res://gdj/gui/ExpButton.gdj" id="9_ibypo"]
-[ext_resource type="Texture2D" uid="uid://xxuuq2ccewgf" path="res://assets/controls/ic_exp.png" id="10_dkhnm"]
-[ext_resource type="Script" path="res://scene/ExpProgress.gd" id="10_ht587"]
-[ext_resource type="Texture2D" uid="uid://c4phu83e2uhll" path="res://assets/empty.png" id="11_7dv6m"]
-[ext_resource type="Texture2D" uid="uid://dr4jyiox57hjn" path="res://assets/controls/ic_upgrade_indicator.png" id="12_n0i7h"]
-[ext_resource type="Texture2D" uid="uid://jlv5wtl46q65" path="res://assets/controls/background_exp.png" id="14_f7prj"]
-[ext_resource type="Texture2D" uid="uid://ds448t7dolxsi" path="res://assets/controls/foreground_exp.png" id="15_2lilm"]
+[ext_resource type="PackedScene" uid="uid://c0e7gjpto3r4j" path="res://scene/ExpButton.tscn" id="7_vi7dq"]
 [ext_resource type="AudioStream" uid="uid://74nlngd4t6gj" path="res://assets/sounds/error.mp3" id="16_0akxp"]
-[ext_resource type="Texture2D" uid="uid://b70wr634jgc45" path="res://assets/controls/foreground_button.png" id="16_4s6d1"]
 [ext_resource type="AudioStream" uid="uid://dwl66ub21n264" path="res://assets/sounds/click.mp3" id="17_dyphy"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_a4pd2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_7dv6m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_n0i7h")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="InputEventKey" id="InputEventKey_kee4e"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_8h2kn"]
+events = [SubResource("InputEventKey_kee4e")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_i2n42"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_1s245"]
+events = [SubResource("InputEventKey_i2n42")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_j1o0o"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_6t1vd"]
+events = [SubResource("InputEventKey_j1o0o")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_kwrgh"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_1mdxi"]
+events = [SubResource("InputEventKey_kwrgh")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_cvj64"]
+device = -1
+keycode = 53
+unicode = 53
+
+[sub_resource type="Shortcut" id="Shortcut_7tn41"]
+events = [SubResource("InputEventKey_cvj64")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ddyo8"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_3ed2m"]
+events = [SubResource("InputEventKey_ddyo8")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_b7cg4"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_rkt3e"]
+events = [SubResource("InputEventKey_b7cg4")]
 
 [node name="Menu" type="Control"]
 texture_filter = 1
@@ -68,7 +102,7 @@ offset_left = 127.0
 offset_top = 78.0
 offset_right = 193.0
 offset_bottom = 138.0
-texture_pressed = null
+shortcut = SubResource("Shortcut_8h2kn")
 
 [node name="MenuButton2" parent="." instance=ExtResource("3_pa645")]
 layout_mode = 0
@@ -76,7 +110,7 @@ offset_left = 207.0
 offset_top = 78.0
 offset_right = 273.0
 offset_bottom = 138.0
-texture_pressed = null
+shortcut = SubResource("Shortcut_1s245")
 
 [node name="MenuButton3" parent="." instance=ExtResource("3_pa645")]
 layout_mode = 0
@@ -84,7 +118,7 @@ offset_left = 289.0
 offset_top = 78.0
 offset_right = 355.0
 offset_bottom = 138.0
-texture_pressed = null
+shortcut = SubResource("Shortcut_6t1vd")
 
 [node name="MenuButton4" parent="." instance=ExtResource("3_pa645")]
 layout_mode = 0
@@ -92,7 +126,7 @@ offset_left = 368.0
 offset_top = 78.0
 offset_right = 434.0
 offset_bottom = 138.0
-texture_pressed = null
+shortcut = SubResource("Shortcut_1mdxi")
 
 [node name="MenuButton5" parent="." instance=ExtResource("3_pa645")]
 layout_mode = 0
@@ -100,7 +134,7 @@ offset_left = 449.0
 offset_top = 78.0
 offset_right = 515.0
 offset_bottom = 138.0
-texture_pressed = null
+shortcut = SubResource("Shortcut_7tn41")
 
 [node name="SpecialWeaponButton" parent="." instance=ExtResource("5_73buf")]
 offset_left = 528.0
@@ -116,66 +150,13 @@ offset_right = 154.0
 offset_bottom = 65.0
 texture = ExtResource("7_tfd3c")
 
-[node name="ExpButton" type="TextureButton" parent="."]
+[node name="ExpButton" parent="." instance=ExtResource("7_vi7dq")]
 layout_mode = 0
 offset_left = 337.0
 offset_top = 21.0
 offset_right = 524.0
 offset_bottom = 72.0
-texture_pressed = ExtResource("8_pqhlq")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("9_ibypo")
-
-[node name="CountIcon" type="TextureRect" parent="ExpButton"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.126374
-anchor_top = 0.23913
-anchor_right = 0.126374
-anchor_bottom = 0.23913
-offset_right = 30.0
-offset_bottom = 25.0
-texture = ExtResource("10_dkhnm")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="NewEpochNotification" type="AnimatedSprite2D" parent="ExpButton"]
-visible = false
-position = Vector2(38, 31)
-scale = Vector2(0.863636, 0.863636)
-sprite_frames = SubResource("SpriteFrames_a4pd2")
-frame_progress = 0.719812
-speed_scale = 0.3
-
-[node name="ExpLabel" type="Label" parent="ExpButton"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.291209
-anchor_top = 0.0869565
-anchor_right = 0.620879
-anchor_bottom = 0.0869565
-offset_right = 1.0
-offset_bottom = 19.0
-scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("2_r8bwp")
-text = "200000"
-horizontal_alignment = 2
-clip_text = true
-metadata/_edit_use_anchors_ = true
-
-[node name="ExpProgress" type="Control" parent="ExpButton"]
-texture_filter = 1
-anchors_preset = 0
-offset_left = 16.0
-offset_top = 15.0
-offset_right = 21.0
-offset_bottom = 32.0
-script = ExtResource("10_ht587")
-background = ExtResource("14_f7prj")
-foreground = ExtResource("15_2lilm")
-progress = 1.0
+shortcut = SubResource("Shortcut_3ed2m")
 
 [node name="PauseButton" type="TextureButton" parent="."]
 process_mode = 3
@@ -184,7 +165,7 @@ offset_left = 7.0
 offset_top = 40.0
 offset_right = 116.0
 offset_bottom = 139.0
-texture_pressed = ExtResource("16_4s6d1")
+shortcut = SubResource("Shortcut_rkt3e")
 stretch_mode = 4
 
 [node name="ErrorSound" type="AudioStreamPlayer" parent="."]

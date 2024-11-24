@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dlgkdc4akwb50"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/FlyingSpecialWeapon.kt" id="1_4y3aw"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/specialweapon/FlyingSpecialWeapon.kt" id="1_06gs0"]
 [ext_resource type="Texture2D" uid="uid://hpq1vid4wbxm" path="res://epoch4/super/super4_1.png" id="1_qnlou"]
 [ext_resource type="Texture2D" uid="uid://cw0r5vmwnb7wg" path="res://epoch4/super/super4_2.png" id="2_s7lr2"]
 [ext_resource type="AudioStream" uid="uid://qy44kpis335a" path="res://assets/sounds/super4.wav" id="3_uv6h6"]
@@ -31,7 +31,7 @@ animations = [{
 
 [node name="Super4" type="Node2D"]
 position = Vector2(0, -150)
-script = ExtResource("1_4y3aw")
+script = ExtResource("1_06gs0")
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_layer = 5
@@ -49,6 +49,7 @@ position = Vector2(2, 79)
 shape = SubResource("RectangleShape2D_7n34b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 11.91)
 sprite_frames = SubResource("SpriteFrames_lqq7a")
 frame_progress = 0.920314
 

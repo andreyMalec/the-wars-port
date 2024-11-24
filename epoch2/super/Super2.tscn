@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dl33uvluxswsp"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/SpecialWeapon2.kt" id="1_w5jqo"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/specialweapon/SpecialWeapon2.kt" id="1_rkx8a"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_w5jqo")
+script = ExtResource("1_rkx8a")

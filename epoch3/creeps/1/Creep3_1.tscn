@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://bqt3yfdernocr"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/CreepBody.kt" id="1_b2wku"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/creep/CreepBody.kt" id="1_b2wku"]
 [ext_resource type="Texture2D" uid="uid://v1x1rvfkkxaa" path="res://epoch3/creeps/1/attack/creep3_1_attack_2.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://cugjbfs7wvs3j" path="res://epoch3/creeps/1/death/creep3_1_death_4.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://bme2obdf3ci85" path="res://epoch3/creeps/1/attack/creep3_1_attack_3.png" id="7"]
@@ -103,6 +103,8 @@ texture_filter = 1
 script = ExtResource("1_b2wku")
 
 [node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
 position = Vector2(-12.1667, 15)

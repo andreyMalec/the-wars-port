@@ -1,14 +1,16 @@
 [gd_scene load_steps=7 format=3 uid="uid://c1p2gkwcuun8c"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/BaseBody.kt" id="1_ak5cm"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/base/BaseBody.kt" id="1_wk6fh"]
 [ext_resource type="Texture2D" uid="uid://chuyp1gkolvkk" path="res://epoch3/base/Grade3_1.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://bpcfigp62m42w" path="res://epoch3/base/Base3_2.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://xssgr1sgup3k" path="res://epoch3/base/Base3_1.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://cv70l8rpt73xh" path="res://epoch3/base/Grade3_2.png" id="5"]
 [ext_resource type="AudioStream" uid="uid://taaxn2k4t3tx" path="res://assets/sounds/base_hit.mp3" id="6_2kwre"]
 
-[node name="Base" type="Node2D"]
-script = ExtResource("1_ak5cm")
+[node name="BaseBody3" type="Node2D"]
+script = ExtResource("1_wk6fh")
+hp = 1100
+max_hp = 1100
 
 [node name="front" type="Sprite2D" parent="."]
 z_index = 1
@@ -43,6 +45,7 @@ texture = ExtResource("5")
 
 [node name="TouchArea" type="Area2D" parent="."]
 position = Vector2(6.3333, -15)
+collision_layer = 3
 collision_mask = 0
 monitoring = false
 

@@ -1,0 +1,144 @@
+[gd_scene load_steps=2 format=3 uid="uid://db62wuvn3lbkc"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/gui/MainMenu.kt" id="1_itcm6"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_itcm6")
+
+[node name="MainMenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -85.5
+offset_right = 54.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewGame" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="Options" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="HallOfFlame" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+text = "Hall of Flame"
+
+[node name="HowToPlay" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+text = "How to Play"
+
+[node name="About" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+text = "About"
+
+[node name="NewGameContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGame" type="Button" parent="NewGameContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Multiplayer" type="Button" parent="NewGameContainer"]
+layout_mode = 2
+text = "Multiplayer"
+
+[node name="Back" type="Button" parent="NewGameContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="OptionsContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -43.0
+offset_right = 48.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sounds" type="CheckBox" parent="OptionsContainer"]
+layout_mode = 2
+text = "Sounds"
+
+[node name="Volume" type="HSlider" parent="OptionsContainer"]
+layout_mode = 2
+value = 100.0
+
+[node name="Back" type="Button" parent="OptionsContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="MultiplayerContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HostContainer" type="HBoxContainer" parent="MultiplayerContainer"]
+layout_mode = 2
+
+[node name="Address" type="Label" parent="MultiplayerContainer/HostContainer"]
+layout_mode = 2
+text = "IP:Port = 127.0.0.1:7000"
+
+[node name="HostGame" type="Button" parent="MultiplayerContainer/HostContainer"]
+layout_mode = 2
+text = "Host Game"
+
+[node name="ClientContainer" type="HBoxContainer" parent="MultiplayerContainer"]
+layout_mode = 2
+
+[node name="Address" type="TextEdit" parent="MultiplayerContainer/ClientContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "127.0.0.1:7000"
+caret_blink = true
+caret_multiple = false
+
+[node name="JoinGame" type="Button" parent="MultiplayerContainer/ClientContainer"]
+layout_mode = 2
+text = "join Game"
+
+[node name="Back" type="Button" parent="MultiplayerContainer"]
+layout_mode = 2
+text = "Back"

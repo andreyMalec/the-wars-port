@@ -1,3 +1,4 @@
+import godot.BaseButton
 import godot.Node
 import godot.core.*
 import godot.global.GD
@@ -48,6 +49,16 @@ inline fun <reified T> Signal1<T>.connect(function: KFunction1<T, Unit>) {
 
 fun Signal0.connect(function: KFunction0<Unit>) {
 	connect(function.asCallable())
+}
+
+fun BaseButton.setOnClickListener(listener: BaseButton.() -> Unit) {
+	pressed.connect { listener(this) }
+}
+
+fun <T : Node> Node.forEachChild(action: (T) -> Unit) {
+	for (i in 0..<getChildCount()) {
+		(getChild(i) as? T)?.let(action)
+	}
 }
 
 fun <T> listOfNulls(size: Int) = MutableList<T?>(size) { null }

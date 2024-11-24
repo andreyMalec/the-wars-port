@@ -1,5 +1,6 @@
 package entity
 
+import entity.base.BaseBody
 import godot.Node2D
 
 interface Damageable : Directable, Comparable<Damageable> {
@@ -7,6 +8,9 @@ interface Damageable : Directable, Comparable<Damageable> {
 	val maxHp: Int
 
 	val canBleed: Boolean
+
+	val projectileAvoidance: Boolean
+		get() = false
 
 	fun takeDamage(damage: Int)
 

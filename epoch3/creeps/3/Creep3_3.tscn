@@ -1,7 +1,8 @@
 [gd_scene load_steps=32 format=3 uid="uid://fbrlfescybi8"]
 
 [ext_resource type="Texture2D" uid="uid://dq5s0t1y1r3e" path="res://epoch3/creeps/3/walk/creep3_3_walk_1.png" id="1"]
-[ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_ni5iv"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/creep/CreepBodyRanged.kt" id="1_ni5iv"]
+[ext_resource type="Shape2D" uid="uid://da6rebfwkqqpo" path="res://scene/AttackRangeShape.tres" id="2_gcx5f"]
 [ext_resource type="Texture2D" uid="uid://cbvgi3t7yaaiq" path="res://epoch3/creeps/3/walk/creep3_3_walk_3.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://b2fjx2yko0fi3" path="res://epoch3/creeps/3/walk/creep3_3_walk_8.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://ckmcivw4vijx6" path="res://epoch3/creeps/3/walk/creep3_3_walk_4.png" id="8"]
@@ -29,9 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://d4ncn3edqgdss" path="res://epoch3/creeps/3/death/creep3_3_death_3.png" id="28"]
 [ext_resource type="AudioStream" uid="uid://daii1vjh0psrm" path="res://assets/sounds/creep_death.mp3" id="28_6m0ai"]
 [ext_resource type="AudioStream" uid="uid://bhuiwq5c84gyl" path="res://assets/sounds/cannon.mp3" id="29_5i1no"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejtq6"]
-size = Vector2(27, 33)
 
 [sub_resource type="SpriteFrames" id="2"]
 animations = [{
@@ -145,19 +143,20 @@ script = ExtResource("1_ni5iv")
 only_ranged = true
 
 [node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
 position = Vector2(-13, 16)
 polygon = PackedVector2Array(0, 0, 48, 0, 8, -36)
 
 [node name="AttackRange" type="Area2D" parent="."]
+position = Vector2(35, 0)
 collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(80, 0)
-scale = Vector2(3.312, 1)
-shape = SubResource("RectangleShape2D_ejtq6")
+shape = ExtResource("2_gcx5f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(13.72, -22)

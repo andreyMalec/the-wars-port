@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgl4mhfvavjbf"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_ymwfq"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/projectile/ProjectileNotBallistic.kt" id="1_ymwfq"]
 [ext_resource type="Texture2D" uid="uid://by32n4pkvbbpq" path="res://epoch2/creeps/2/projectile/projectile_creep2_2_1.png" id="2_osfjk"]
 [ext_resource type="AudioStream" uid="uid://t736f2byrn1y" path="res://assets/sounds/projectileArrow.mp3" id="3_8ttc3"]
 
@@ -25,6 +25,7 @@ script = ExtResource("1_ymwfq")
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]

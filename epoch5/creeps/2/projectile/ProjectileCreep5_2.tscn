@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7rxojyt2arjr"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_umcyx"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/projectile/ProjectileNotBallistic.kt" id="1_umcyx"]
 [ext_resource type="Texture2D" uid="uid://p21effsiion6" path="res://epoch5/creeps/2/projectile/projectile_creep5_2_1.png" id="2_q3dvv"]
 
 [sub_resource type="SpriteFrames" id="1"]
@@ -26,6 +26,7 @@ flip_h = true
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]

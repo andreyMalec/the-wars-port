@@ -2,8 +2,8 @@ package gui
 
 import Progress
 import connect
-import entity.Base
-import entity.SpecialWeapon
+import entity.Balance
+import entity.base.Base
 import findNode
 import findNodeWrapper
 import godot.Control
@@ -27,6 +27,8 @@ class SuperButton : Control() {
 	private var pressed: TextureRect? = null
 	private var progressBar: ProgressBar? = null
 
+	private val progressMax = Balance.specialWeaponReloadingTime.inWholeSeconds
+
 	@RegisterFunction
 	override fun _ready() {
 		button = findNode("SpecialButton")
@@ -43,14 +45,14 @@ class SuperButton : Control() {
 
 	@RegisterFunction
 	override fun _process(delta: Double) {
-		if (progress < 1)
+		if (progress < progressMax)
 			progress += delta.toFloat()
-		if (progress > 1)
-			progress = 1f
+		if (progress > progressMax)
+			progress = progressMax.toFloat()
 
-		button?.disabled = progress != 1f
+		button?.disabled = progress != progressMax.toFloat()
 		pressed?.visible = button?.buttonPressed ?: false
 
-		progressBar?.progress = progress
+		progressBar?.progress = progress / progressMax
 	}
 }

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cjiaghihrf8us"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_vf0rl"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/projectile/ProjectileNotBallistic.kt" id="1_vf0rl"]
 [ext_resource type="Texture2D" uid="uid://bs6hmoufsqu60" path="res://epoch1/guns/2/projectile/projectile_gun1_2_1.png" id="2_4ojav"]
 [ext_resource type="Texture2D" uid="uid://do6ebw22mejii" path="res://epoch1/guns/2/projectile/projectile_gun1_2_2.png" id="3_wib3v"]
 [ext_resource type="Texture2D" uid="uid://dbiv0trkangd5" path="res://epoch1/guns/2/projectile/projectile_gun1_2_3.png" id="4_1kyls"]
@@ -36,12 +36,12 @@ script = ExtResource("1_vf0rl")
 apply_vertical_velocity = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("3")
 frame_progress = 0.3729
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]

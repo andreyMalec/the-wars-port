@@ -1,6 +1,6 @@
 package util
 
-import entity.Creep
+import entity.creep.Creep
 import log
 
 class QueueControllerImpl(

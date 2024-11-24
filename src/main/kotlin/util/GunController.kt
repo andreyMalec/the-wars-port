@@ -1,6 +1,6 @@
 package util
 
-import entity.Gun
+import entity.base.Gun
 
 interface GunController {
 	val guns: Array<Gun?>

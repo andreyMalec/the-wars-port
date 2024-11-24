@@ -1,7 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dar2ntxukig0s"]
 
 [ext_resource type="Texture2D" uid="uid://c2xqpeyb7kdh6" path="res://assets/controls/background_button.png" id="1_j8grd"]
-[ext_resource type="Texture2D" uid="uid://b70wr634jgc45" path="res://assets/controls/foreground_button.png" id="2_upd14"]
 [ext_resource type="Script" path="res://src/main/kotlin/gui/MenuButton.kt" id="3_f87br"]
 [ext_resource type="FontFile" path="res://gui/common_font.tres" id="4_cm6hw"]
 [ext_resource type="Texture2D" uid="uid://vm4w1aq3qiey" path="res://assets/controls/ic_creep.png" id="4_gumck"]
@@ -10,28 +9,31 @@
 [ext_resource type="Texture2D" uid="uid://cstrtk3y70lwf" path="res://assets/controls/background_creep_build.png" id="8_s10w4"]
 [ext_resource type="Texture2D" uid="uid://d3y42ji3cbmq4" path="res://assets/controls/foreground_creep_build.png" id="9_28qoi"]
 [ext_resource type="Texture2D" uid="uid://cmpn68wp1exf6" path="res://assets/controls/ic_queue.png" id="10_e6vu6"]
+[ext_resource type="Texture2D" uid="uid://c10t8r66tx4hm" path="res://assets/controls/pressed_button.png" id="10_i37qr"]
 
 [node name="MenuButton" type="TextureButton"]
 texture_filter = 1
-clip_contents = true
 offset_right = 66.0
 offset_bottom = 66.0
 texture_normal = ExtResource("1_j8grd")
-texture_pressed = ExtResource("2_upd14")
 stretch_mode = 0
 script = ExtResource("3_f87br")
 
-[node name="Icon" type="TextureRect" parent="."]
+[node name="Clip" type="Control" parent="."]
+clip_contents = true
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="Clip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_gumck")
@@ -51,7 +53,6 @@ theme_override_fonts/font = ExtResource("4_cm6hw")
 text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Action" type="TextureRect" parent="."]
 layout_mode = 0
@@ -62,12 +63,26 @@ stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="QueueProgress" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 14.0
 offset_bottom = 26.0
+mouse_filter = 2
 script = ExtResource("7_w0aj7")
 background = ExtResource("8_s10w4")
 foreground = ExtResource("9_28qoi")
 queue = ExtResource("10_e6vu6")
+
+[node name="Pressed" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("10_i37qr")

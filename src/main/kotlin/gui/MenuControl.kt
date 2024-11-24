@@ -2,10 +2,10 @@ package gui
 
 import GameState
 import R
-import entity.Base
-import entity.Creep
-import entity.Gun
-import entity.MAX_UPGRADE_COUNT
+import entity.base.Base
+import entity.base.Gun
+import entity.base.MAX_UPGRADE_COUNT
+import entity.creep.Creep
 import findNode
 import godot.AudioStreamPlayer
 import godot.Control

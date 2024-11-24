@@ -1,6 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://c3obnd6plfnd6"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_hgoi5"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/creep/CreepBodyRanged.kt" id="1_hgoi5"]
+[ext_resource type="Shape2D" uid="uid://da6rebfwkqqpo" path="res://scene/AttackRangeShape.tres" id="2_i5be4"]
 [ext_resource type="Texture2D" uid="uid://b2tpp5s2byyqw" path="res://epoch5/creeps/2/attack/creep5_2_attack_1.png" id="2_u8j2m"]
 [ext_resource type="Texture2D" uid="uid://hl42ol058173" path="res://epoch5/creeps/2/attack/creep5_2_attack_2.png" id="3_uoggd"]
 [ext_resource type="Texture2D" uid="uid://7858uegvdurc" path="res://epoch5/creeps/2/attack/creep5_2_attack_3.png" id="4_q1k4v"]
@@ -28,9 +29,6 @@
 [ext_resource type="AudioStream" uid="uid://c4y0ijgh4gqns" path="res://assets/sounds/creep_hit.mp3" id="26_q0hj2"]
 [ext_resource type="AudioStream" uid="uid://daii1vjh0psrm" path="res://assets/sounds/creep_death.mp3" id="27_atmmm"]
 [ext_resource type="AudioStream" uid="uid://bmj5qwfwdakvg" path="res://assets/sounds/double_gun.mp3" id="28_0v2y1"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugah5"]
-size = Vector2(27, 33)
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -143,19 +141,20 @@ only_ranged = true
 [node name="TouchArea" type="Area2D" parent="."]
 rotation = -3.14159
 scale = Vector2(1, -1)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
 position = Vector2(-13, 16)
 polygon = PackedVector2Array(0, 0, 25, 0, 12.5, -40)
 
 [node name="AttackRange" type="Area2D" parent="."]
+position = Vector2(15, 0)
 collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(60, 0)
-scale = Vector2(3.312, 1)
-shape = SubResource("RectangleShape2D_ugah5")
+shape = ExtResource("2_i5be4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22)

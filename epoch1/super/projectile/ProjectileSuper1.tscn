@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dtls7m5e2887h"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileBallistic.kt" id="1_xx04s"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/projectile/ProjectileBallistic.kt" id="1_r1l7h"]
 [ext_resource type="Texture2D" uid="uid://bai0f88cbkn3n" path="res://epoch1/super/projectile/projectile_super1_1.png" id="2_c281t"]
 [ext_resource type="Texture2D" uid="uid://bb51585egw1m5" path="res://epoch1/super/projectile/projectile_super1_2.png" id="3_dk5tn"]
 [ext_resource type="Texture2D" uid="uid://dyr5cayfy8e2l" path="res://epoch1/super/projectile/projectile_super1_3.png" id="4_55b2u"]
@@ -40,7 +40,7 @@ animations = [{
 [node name="ProjectileSuper1" type="RigidBody2D"]
 z_index = -1
 texture_filter = 1
-script = ExtResource("1_xx04s")
+script = ExtResource("1_r1l7h")
 auto_rotate_speed = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -48,6 +48,7 @@ shape = SubResource("5")
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]

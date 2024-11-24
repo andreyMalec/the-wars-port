@@ -17,6 +17,8 @@ signals = [
 properties = [
     base,
 	enemy_base,
+	base_hp,
+	enemy_base_hp,
 	menu,
 	enemy_menu
 ]

@@ -1,6 +1,6 @@
 package util
 
-import entity.Creep
+import entity.creep.Creep
 import gui.CREEP_TYPES_COUNT
 import java.util.*
 

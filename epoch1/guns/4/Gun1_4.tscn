@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://86ffnl6wb6x6"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_ol64j"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/base/GunBody.kt" id="1_ol64j"]
 [ext_resource type="Texture2D" uid="uid://88sb1lf1ode7" path="res://epoch1/guns/4/gun1_4_1.png" id="2_xla7u"]
 [ext_resource type="Texture2D" uid="uid://3272nh4n8e3o" path="res://epoch1/guns/4/gun1_4_2.png" id="3_we4qr"]
 [ext_resource type="Texture2D" uid="uid://fw2ynd8tc0bm" path="res://epoch1/guns/4/gun1_4_3.png" id="4_2oy0y"]
@@ -56,9 +56,6 @@ polygon = PackedVector2Array(0, 0, 0.25, 0.026, 0.546, 0.11, 0.718, 0.184, 0.868
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("3")
-animation = &"attack"
-frame = 5
-frame_progress = 1.0
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(11, -12)

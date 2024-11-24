@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://deovlceo1oee5"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/GunBody.kt" id="1_jndsx"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/base/GunBody.kt" id="1_jndsx"]
 [ext_resource type="Texture2D" uid="uid://h6ivwt7vu7al" path="res://epoch1/guns/2/gun1_2_1.png" id="2_f43u1"]
 [ext_resource type="Texture2D" uid="uid://dxllyqyp1qv56" path="res://epoch1/guns/2/gun1_2_2.png" id="3_62lgp"]
 [ext_resource type="Texture2D" uid="uid://qqbiwt2fi5d4" path="res://epoch1/guns/2/gun1_2_3.png" id="4_hfm6s"]

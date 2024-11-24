@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cifqkttl6wofh"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_2vmvt"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/projectile/ProjectileNotBallistic.kt" id="1_2vmvt"]
 [ext_resource type="Texture2D" uid="uid://drc135ak6ffn6" path="res://epoch5/guns/2/projectile/projectile_gun5_2_1.png" id="2_2p402"]
 
 [sub_resource type="SpriteFrames" id="3"]
@@ -26,6 +26,7 @@ sprite_frames = SubResource("3")
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]

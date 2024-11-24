@@ -22,11 +22,11 @@ def super_resize(filename, img, size):
     if ("super1_1" in filename):
         res.paste(img, (18, 36))
     elif ("super1_2" in filename):
-        res.paste(img, (13, 39))
+        res.paste(img, (13, 38))
     elif ("super1_3" in filename):
-        res.paste(img, (11, 45))
+        res.paste(img, (11, 43))
     elif ("super1_4" in filename):
-        res.paste(img, (13, 39))
+        res.paste(img, (13, 38))
 
     elif ("super5" in filename):
         res.paste(img, (16, 44))

@@ -1,8 +1,16 @@
 package entity
 
+import entity.base.Gun
+import entity.creep.Creep
+import entity.specialweapon.SpecialWeapon
 import kotlin.math.sqrt
+import kotlin.time.Duration.Companion.seconds
 
 object Balance {
+
+	val specialWeaponReloadingTime = 30.seconds
+
+	const val ATTACK_RANGE = 120.0
 
 	fun projectileSpeed(epoch: Int) = (250 * sqrt(epoch.toDouble())).toInt()
 
@@ -434,7 +442,7 @@ object Balance {
 
 	private val specialWeapon3 = SpecialWeapon.Balance(
 		damage = 100,
-		attackSpeed = 0.1f,
+		attackSpeed = 0.2f,
 		attackFrame = 0,
 	)
 

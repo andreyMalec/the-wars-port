@@ -1,7 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://b6k1kej84g3b1"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/RangedCreepBody.kt" id="1_r856w"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/creep/CreepBodyRanged.kt" id="1_r856w"]
 [ext_resource type="Texture2D" uid="uid://byk5pubedv7cp" path="res://epoch4/creeps/3/attack/creep4_3_attack_1.png" id="2_5egnb"]
+[ext_resource type="Shape2D" uid="uid://da6rebfwkqqpo" path="res://scene/AttackRangeShape.tres" id="2_ommwf"]
 [ext_resource type="Texture2D" uid="uid://bm8goucxqliru" path="res://epoch4/creeps/3/attack/creep4_3_attack_2.png" id="3_tsfee"]
 [ext_resource type="Texture2D" uid="uid://bhibbcwuekw83" path="res://epoch4/creeps/3/attack/creep4_3_attack_3.png" id="4_uygox"]
 [ext_resource type="Texture2D" uid="uid://bay37favat4k6" path="res://epoch4/creeps/3/attack/creep4_3_attack_static_1.png" id="5_wcwft"]
@@ -17,9 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://dr1bmts3c5wl6" path="res://assets/sounds/explosion.mp3" id="15_t02wx"]
 [ext_resource type="AudioStream" uid="uid://qy44kpis335a" path="res://assets/sounds/super4.wav" id="16_tgbxr"]
 [ext_resource type="AudioStream" uid="uid://bp5oyda6lob8h" path="res://assets/sounds/creep[3-4]_3_attack.mp3" id="17_my6su"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yqx2"]
-size = Vector2(27, 33)
 
 [sub_resource type="SpriteFrames" id="2"]
 animations = [{
@@ -98,24 +96,24 @@ only_ranged = true
 can_bleed = false
 
 [node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TouchArea"]
 polygon = PackedVector2Array(-41, 15, 27, 15, 41, -9, 11, -18, -24, -11)
 
 [node name="AttackRange" type="Area2D" parent="."]
+position = Vector2(45, 0)
 collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(85, 0)
-scale = Vector2(3.312, 1)
-shape = SubResource("RectangleShape2D_2yqx2")
+shape = ExtResource("2_ommwf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22)
 sprite_frames = SubResource("2")
-animation = &"death"
-frame = 4
+animation = &"idle"
 
 [node name="ProjectilePosition" type="Node2D" parent="AnimatedSprite2D"]
 position = Vector2(23, 22.5)

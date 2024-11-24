@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bqyli86loiuha"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/SpecialWeapon3.kt" id="1_bi6pk"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/specialweapon/SpecialWeapon3.kt" id="1_enyx7"]
 
 [node name="Super3" type="Node2D"]
-script = ExtResource("1_bi6pk")
+script = ExtResource("1_enyx7")

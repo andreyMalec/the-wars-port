@@ -622,8 +622,9 @@ m6_3_f1_2.png;epoch4/creeps/3/attack/creep4_3_attack_2.png;1
 m6_3_f1_1.png;epoch4/creeps/3/attack/creep4_3_attack_3.png;1
 m6_3_g_1.png;epoch4/creeps/3/walk/creep4_3_walk_1.png;1
 moon.png;assets/entity/moon.png;0
-sel_b.png;assets/controls/foreground_button.png;0
-sel_e.png;assets/controls/foreground_button_exp.png;0
+sel_b.png;assets/controls/pressed_button_super.png;0
+sel_m.png;assets/controls/pressed_button.png;0
+sel_e.png;assets/controls/pressed_button_exp.png;0
 special_1_0.png;epoch1/super/super1_1.png;3
 special_1_1.png;epoch1/super/super1_2.png;3
 special_1_2.png;epoch1/super/super1_3.png;3

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bfw7a3o1cte3i"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/ProjectileNotBallistic.kt" id="1_vyl53"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/projectile/ProjectileNotBallistic.kt" id="1_vyl53"]
 [ext_resource type="Texture2D" uid="uid://brn3il7kp47a4" path="res://epoch1/guns/1/projectile/projectile_gun1_1_1.png" id="2_blsqs"]
 [ext_resource type="Texture2D" uid="uid://dwxbg83m6c5gw" path="res://epoch1/guns/1/projectile/projectile_gun1_1_2.png" id="3_0mnu1"]
 [ext_resource type="Texture2D" uid="uid://ca8pbndrebs5r" path="res://epoch1/guns/1/projectile/projectile_gun1_1_3.png" id="4_kvh2s"]
@@ -49,6 +49,7 @@ frame_progress = 0.484766
 
 [node name="TouchArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]

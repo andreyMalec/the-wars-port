@@ -4,12 +4,12 @@ import GameState
 import findNode
 import findNodeWrapper
 import godot.AnimatedSprite2D
+import godot.AudioStreamPlayer
 import godot.Label
 import godot.TextureButton
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
-import godot.core.Callable
-import godot.core.toGodotName
+import setOnClickListener
 
 @RegisterClass
 class ExpButton : TextureButton() {
@@ -19,6 +19,7 @@ class ExpButton : TextureButton() {
 	private var newEpochNotification: AnimatedSprite2D? = null
 	private var expLabel: Label? = null
 	private var expProgress: ProgressBar? = null
+	private var newEpochSound: AudioStreamPlayer? = null
 
 	@RegisterFunction
 	override fun _ready() {
@@ -26,13 +27,12 @@ class ExpButton : TextureButton() {
 		newEpochNotification?.play()
 		expLabel = findNode("ExpLabel")
 		expProgress = findNodeWrapper("ExpProgress")
+		newEpochSound = findNode("NewEpochSound")
 
-		pressed.connect(Callable(this, "onExpButtonPressed".toGodotName()))
-	}
-
-	@RegisterFunction
-	fun onExpButtonPressed() {
-		gameState?.nextEpoch()
+		setOnClickListener {
+			if (gameState?.nextEpoch() == true)
+				newEpochSound?.play()
+		}
 	}
 
 	@RegisterFunction

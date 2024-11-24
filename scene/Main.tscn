@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://kow7shuo4ep1"]
+
+[ext_resource type="Script" path="res://src/main/kotlin/Main.kt" id="1_8o302"]
+[ext_resource type="PackedScene" uid="uid://bwbfj53nvkhob" path="res://scene/Background.tscn" id="2_yd1iq"]
+[ext_resource type="PackedScene" uid="uid://c1onkh1pmti0u" path="res://scene/Base.tscn" id="3_rhsrl"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/Ground.kt" id="4_23cj2"]
+[ext_resource type="PackedScene" uid="uid://dxavh432a6j2d" path="res://scene/Menu.tscn" id="5_e0wg3"]
+[ext_resource type="PackedScene" uid="uid://cye2weolmy4li" path="res://scene/Killer.tscn" id="6_5xtuj"]
+[ext_resource type="PackedScene" uid="uid://cwvj4v4neksj8" path="res://scene/BaseHp.tscn" id="6_v22rn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udd3j"]
+size = Vector2(0.29621, 505.303)
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("base", "enemy_base", "base_hp", "enemy_base_hp", "menu", "enemy_menu")]
+texture_filter = 1
+script = ExtResource("1_8o302")
+base = NodePath("PlayerBase")
+enemy_base = NodePath("EnemyBase")
+base_hp = NodePath("Control/Hp")
+enemy_base_hp = NodePath("Control/EnemyHp")
+menu = NodePath("Control/Menu")
+enemy_menu = NodePath("Control/EnemyMenu")
+
+[node name="Background" parent="." instance=ExtResource("2_yd1iq")]
+
+[node name="PlayerBase" parent="." instance=ExtResource("3_rhsrl")]
+position = Vector2(-15, 185)
+
+[node name="EnemyBase" parent="." instance=ExtResource("3_rhsrl")]
+position = Vector2(655, 185)
+direction = -1
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2(320, 206.44)
+script = ExtResource("4_23cj2")
+
+[node name="TouchArea" type="Area2D" parent="Ground"]
+collision_layer = 3
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/TouchArea"]
+rotation = -1.5708
+scale = Vector2(21.6672, 1.34696)
+shape = SubResource("RectangleShape2D_udd3j")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Menu" parent="Control" instance=ExtResource("5_e0wg3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 213.0
+offset_bottom = 213.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="EnemyMenu" parent="Control" instance=ExtResource("5_e0wg3")]
+visible = false
+layout_mode = 1
+anchor_left = 0.0046875
+anchor_top = 1.74897
+anchor_right = 0.0046875
+anchor_bottom = 1.74897
+offset_left = 3.0
+offset_top = -410.63
+offset_right = 3.0
+offset_bottom = -410.63
+grow_horizontal = 1
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+metadata/_edit_use_anchors_ = true
+
+[node name="Hp" parent="Control" instance=ExtResource("6_v22rn")]
+offset_top = 5.0
+offset_bottom = 35.0
+
+[node name="EnemyHp" parent="Control" instance=ExtResource("6_v22rn")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -46.0
+offset_top = 5.0
+offset_right = 0.0
+offset_bottom = 35.0
+grow_horizontal = 0
+
+[node name="GlobalSounds" type="AudioStreamPlayer" parent="."]
+max_polyphony = 20
+
+[node name="KillerLeft" parent="." instance=ExtResource("6_5xtuj")]
+position = Vector2(-183.08, 151)
+
+[node name="KillerRight" parent="." instance=ExtResource("6_5xtuj")]
+position = Vector2(822.24, 151)
+scale = Vector2(-1, 1)
+direction = -1

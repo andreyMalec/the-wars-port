@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgky38ancp4u2"]
 
-[ext_resource type="Script" path="res://src/main/kotlin/entity/BaseBody.kt" id="1_00dfp"]
+[ext_resource type="Script" path="res://src/main/kotlin/entity/base/BaseBody.kt" id="1_wfpg8"]
 [ext_resource type="Texture2D" uid="uid://dwiikhh5w4ky" path="res://epoch1/base/Grade1_2.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://cigabcddpgyh5" path="res://epoch1/base/Base1_1.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://dj58wbakph377" path="res://epoch1/base/Grade1_1.png" id="4"]
@@ -9,7 +9,7 @@
 
 [node name="BaseBody1" type="Node2D"]
 texture_filter = 1
-script = ExtResource("1_00dfp")
+script = ExtResource("1_wfpg8")
 
 [node name="front" type="Sprite2D" parent="."]
 z_index = 1
@@ -41,6 +41,7 @@ texture = ExtResource("2")
 
 [node name="TouchArea" type="Area2D" parent="."]
 position = Vector2(10.3333, -20)
+collision_layer = 3
 collision_mask = 0
 monitoring = false
 
